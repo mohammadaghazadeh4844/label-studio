@@ -12,28 +12,28 @@ import type { Page } from "../types/Page";
 
 const PROJECTS_TO_SHOW = 10;
 
-const resources = [
-  {
-    title: "Documentation",
-    url: "https://labelstud.io/guide/",
-  },
-  {
-    title: "API Documentation",
-    url: "https://api.labelstud.io/api-reference/introduction/getting-started",
-  },
-  {
-    title: "Release Notes",
-    url: "https://labelstud.io/learn/categories/release-notes/",
-  },
-  {
-    title: "LabelStud.io Blog",
-    url: "https://labelstud.io/blog/",
-  },
-  {
-    title: "Slack Community",
-    url: "https://slack.labelstud.io",
-  },
-];
+// const resources = [
+//   {
+//     title: "Documentation",
+//     url: "https://labelstud.io/guide/",
+//   },
+//   {
+//     title: "API Documentation",
+//     url: "https://api.labelstud.io/api-reference/introduction/getting-started",
+//   },
+//   {
+//     title: "Release Notes",
+//     url: "https://labelstud.io/learn/categories/release-notes/",
+//   },
+//   {
+//     title: "LabelStud.io Blog",
+//     url: "https://labelstud.io/blog/",
+//   },
+//   {
+//     title: "Slack Community",
+//     url: "https://slack.labelstud.io",
+//   },
+// ];
 
 const actions = [
   {
@@ -80,7 +80,7 @@ export const HomePage: Page = () => {
 
   return (
     <main className="p-6">
-      <div className="grid grid-cols-[minmax(0,1fr)_450px] gap-6">
+      <div className="grid grid-cols-[minmax(0,1fr)_450px] gap-6 ">
         <section className="flex flex-col gap-6">
           <div className="flex flex-col gap-1">
             <Typography variant="headline" size="small">
@@ -153,7 +153,7 @@ export const HomePage: Page = () => {
             ) : null}
           </SimpleCard>
         </section>
-        <section className="flex flex-col gap-6">
+        {/* <section className="flex flex-col gap-6">
           <HeidiTips collection="projectSettings" />
           <SimpleCard title="Resources" description="Learn, explore and get help" data-testid="resources-card">
             <ul>
@@ -178,7 +178,7 @@ export const HomePage: Page = () => {
             <IconHumanSignal />
             <span className="text-neutral-content-subtle">Label Studio Version: Community</span>
           </div>
-        </section>
+        </section> */}
       </div>
       {creationDialogOpen && <CreateProject onClose={() => setCreationDialogOpen(false)} />}
       <InviteLink opened={invitationOpen} onClosed={() => setInvitationOpen(false)} />
