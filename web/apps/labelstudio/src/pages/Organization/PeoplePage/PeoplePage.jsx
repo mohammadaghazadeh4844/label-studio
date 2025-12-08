@@ -89,7 +89,8 @@ export const PeoplePage = () => {
         {selectedUser ? (
           <SelectedUser user={selectedUser} onClose={() => selectUser(null)} />
         ) : (
-          isFF(FF_LSDV_E_297) && <HeidiTips collection="organizationPage" />
+          // isFF(FF_LSDV_E_297) && <HeidiTips collection="organizationPage" />
+          null
         )}
       </div>
       <InviteLink
