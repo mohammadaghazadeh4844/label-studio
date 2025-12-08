@@ -101,7 +101,7 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
           Custom template
         </Button>
       </aside> */}
-      <main>
+      <main className="w-full h-full flex-1">
         {!templates && <Spinner style={{ width: "100%", height: 200 }} />}
         <TemplatesInGroup
           templates={templates || []}
