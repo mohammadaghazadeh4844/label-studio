@@ -294,7 +294,7 @@ export const EmptyState: FC<EmptyStateProps> = ({
     testId: "empty-state-label",
     ariaLabelledBy: "dm-empty-title",
     ariaDescribedBy: "dm-empty-desc",
-    additionalContent: <StorageProviderIcons />,
+    // additionalContent: <StorageProviderIcons />,
     actions: (
       <>
         {permissions.can(ABILITY.can_manage_storage) && (
