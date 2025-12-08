@@ -117,7 +117,7 @@ export const GeneralSettings = () => {
           </Form>
         </div>
       </div>
-      {isFF(FF_LSDV_E_297) && <HeidiTips collection="projectSettings" />}
+      {/* {isFF(FF_LSDV_E_297) && <HeidiTips collection="projectSettings" />} */}
     </div>
   );
 };
