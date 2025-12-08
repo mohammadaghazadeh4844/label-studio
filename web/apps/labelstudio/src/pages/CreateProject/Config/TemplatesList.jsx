@@ -73,8 +73,8 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
 
   return (
     <div className={listClass}>
-      {/* <aside className={listClass.elem("sidebar")}>
-        <ul>
+      <aside className={listClass.elem("sidebar")}>
+        {/* <ul>
           {groups.map((group) => (
             <li
               key={group}
@@ -99,8 +99,8 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
           aria-label="Create custom template"
         >
           Custom template
-        </Button>
-      </aside> */}
+        </Button> */}
+      </aside>
       <main className="w-full h-full flex-1">
         {!templates && <Spinner style={{ width: "100%", height: 200 }} />}
         <TemplatesInGroup
