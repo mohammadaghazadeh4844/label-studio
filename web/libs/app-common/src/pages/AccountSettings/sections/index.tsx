@@ -26,18 +26,18 @@ export const accountSettingsSections = (settings: AuthTokenSettings, permissions
       id: "personal-info",
       component: PersonalInfo,
     },
-    // {
-    //   title: (
-    //     <div className="flex items-center gap-tight">
-    //       <span>Hotkeys</span>
-    //       <Badge variant="beta">Beta</Badge>
-    //     </div>
-    //   ),
-    //   id: "hotkeys",
-    //   component: HotkeysManager,
-    //   description: () =>
-    //     "Customize your keyboard shortcuts to speed up your workflow. Click on any hotkey below to assign a new key combination that works best for you.",
-    // },
+    {
+      title: (
+        <div className="flex items-center gap-tight">
+          <span>Hotkeys</span>
+          {/* <Badge variant="beta">Beta</Badge> */}
+        </div>
+      ),
+      id: "hotkeys",
+      component: HotkeysManager,
+      description: () =>
+        "Customize your keyboard shortcuts to speed up your workflow. Click on any hotkey below to assign a new key combination that works best for you.",
+    },
     // {
     //   title: "Email Preferences",
     //   id: "email-preferences",
