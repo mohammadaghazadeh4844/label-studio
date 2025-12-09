@@ -34,7 +34,7 @@ const TemplatesInGroup = ({ templates, group, onSelectRecipe, isEdition }) => {
             key={recipe.title}
             onClick={() => !isDisabled && onSelectRecipe(recipe)}
             className={listClass.elem("template").mod({ disabled: isDisabled })}
-            title={isDisabled ? "Enterprise feature - Available in Label Studio Enterprise" : ""}
+            title={isDisabled ? "ویژگی نسخه سازمانی - در لیبل استودیو سازمانی در دسترس است" : ""}
           >
             <img src={recipe.image} alt={""} />
             <div className="flex w-full relative">
@@ -113,11 +113,11 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
       <footer className="flex items-center justify-center gap-1">
         <IconInfo className={listClass.elem("info-icon")} width="20" height="20" />
         <span>
-          See the documentation to{" "}
+          برای مشاهده راهنما و{" "}
           <a href="https://labelstud.io/guide" target="_blank" rel="noreferrer">
-            contribute a template
+            مشارکت در قالب
           </a>
-          .
+          کلیک کنید.
         </span>
       </footer>
     </div>
