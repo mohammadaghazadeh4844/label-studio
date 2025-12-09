@@ -56,7 +56,7 @@ const RightContextMenu = ({ className, ...props }) => {
 };
 
 export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSidebarToggle, onSidebarPin }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const menuDropdownRef = useRef();
   const useMenuRef = useRef();
   const { user, isLoading } = useAuth();
@@ -135,6 +135,18 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
     useMenuRef?.current?.close();
   }, [location]);
 
+  const currentLanguage = (i18n.language || "fa").split("-")[0];
+  const displayLanguage = (currentLanguage || "fa").toUpperCase();
+  const toggleLanguage = useCallback(() => {
+    const nextLanguage = currentLanguage === "fa" ? "en" : "fa";
+    i18n.changeLanguage(nextLanguage);
+    try {
+      window.localStorage?.setItem("i18nextLng", nextLanguage);
+    } catch {
+      /* ignore persistence errors */
+    }
+  }, [currentLanguage, i18n]);
+
   return (
     <div className={contentClass}>
       {enabled && (
@@ -176,7 +188,20 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
             </div>
           </div>
 
-          {ff.isActive(ff.FF_THEME_TOGGLE) && <ThemeToggle />}
+          {ff.isActive(ff.FF_THEME_TOGGLE) && (
+            <div className={menubarClass.elem("toggles")}>
+              <Button
+                variant="neutral"
+                look="outlined"
+                size="small"
+                onClick={toggleLanguage}
+                aria-label={t("menubar.languageToggleAria")}
+              >
+                {displayLanguage}
+              </Button>
+              <ThemeToggle />
+            </div>
+          )}
 
           <Dropdown.Trigger
             ref={useMenuRef}

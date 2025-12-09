@@ -138,7 +138,9 @@
     "projects": "Projects",
     "organization": "Organization",
     "pin": "Pin menu",
-    "unpin": "Unpin menu"
+    "unpin": "Unpin menu",
+    "languageToggle": "Language",
+    "languageToggleAria": "Switch language"
   },
   "projects": {
     "title": "Projects",

@@ -63,6 +63,13 @@
       }
   }
 
+  &__toggles {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-tight);
+    margin-right: var(--spacing-base);
+  }
+ 
   
   &__trigger {
     display: flex;
