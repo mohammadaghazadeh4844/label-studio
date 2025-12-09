@@ -1,0 +1,182 @@
+{ 
+  "common": {
+    "cancel": "لغو",
+    "save": "ذخیره"
+  },
+  "createProject": {
+    "title": "ایجاد پروژه",
+    "stepName": "نام پروژه",
+    "stepImport": "ورود داده",
+    "stepConfig": "تنظیم برچسب\u200cگذاری",
+    "projectNameLabel": "نام پروژه",
+    "descriptionLabel": "توضیحات",
+    "descriptionPlaceholder": "توضیح اختیاری درباره پروژه شما",
+    "cancelAria": "لغو ایجاد پروژه",
+    "import": {
+      "datasetUrlPlaceholder": "آدرس مجموعه داده (URL)",
+      "addUrl": "افزودن آدرس",
+      "addUrlAria": "افزودن آدرس",
+      "or": "یا",
+      "uploadAria": "بارگذاری فایل",
+      "uploadFiles": "بارگذاری فایل\u200cها",
+      "uploadMoreFiles": "بارگذاری فایل\u200cهای بیشتر",
+      "csvHandling": {
+        "title": "نحوه برخورد با CSV/TSV",
+        "tasks": "فهرست وظایف",
+        "ts": "سری زمانی یا متن کامل"
+      },
+      "filesUploaded_one": "{{count}} فایل بارگذاری شد",
+      "filesUploaded_other": "{{count}} فایل بارگذاری شد",
+      "dropzone": {
+        "drop": "فایل\u200cها را بکشید و اینجا رها کنید",
+        "browse": "یا برای انتخاب کلیک کنید"
+      },
+      "fileTypes": {
+        "images": "تصاویر",
+        "audio": "صوت",
+        "video": "ویدیو",
+        "html": "HTML / هایپرتکست",
+        "text": "متن",
+        "structuredData": "داده ساختارمند",
+        "pdf": "PDF"
+      },
+      "videoSupport": {
+        "tooltip": "پشتیبانی از فرمت ویدیو به مرورگر شما بستگی دارد. برای اطلاعات بیشتر کلیک کنید.",
+        "aria": "اطلاعات بیشتر درباره پشتیبانی از ویدیو (در تب جدید باز می\u200cشود)"
+      },
+      "filesTitle": "فایل\u200cها",
+      "sampleBadge": "نمونه",
+      "expectedInput": "پیش\u200cنمایش ورودی مورد انتظار",
+      "jsonPreview": {
+        "title": "مشاهده فرمت ورودی JSON",
+        "descriptionBefore": "ابتدا",
+        "linkText": "پیکربندی برچسب\u200cگذاری",
+        "descriptionAfter": "را انجام دهید تا فرمت داده JSON را پیش\u200cنمایش کنید"
+      },
+      "errors": {
+        "fileTooBig": "فایل واردشده خیلی بزرگ است",
+        "sampleLoad": "مشکلی پیش آمد، داده نمونه بارگذاری نشد."
+      }
+    },
+    "config": {
+      "title": "رابط برچسب\u200cگذاری",
+      "browse": "مرور قالب\u200cها",
+      "browseAria": "مرور قالب\u200cها",
+      "tabs": {
+        "code": "کد",
+        "visual": "بصری"
+      },
+      "saved": "ذخیره شد!",
+      "save": "ذخیره",
+      "saving": "در حال ذخیره...",
+      "saveAria": "ذخیره پیکربندی",
+      "tagsLink": "رابط برچسب\u200cگذاری را با تگ\u200cها پیکربندی کنید. <link>مشاهده همه تگ\u200cها</link>.",
+      "tagsLinkText": "مشاهده همه تگ\u200cها",
+      "empty": {
+        "title": "پیکربندی برچسب\u200cگذاری شما خالی است. برای برچسب\u200cگذاری داده لازم است.",
+        "body": "از یکی از قالب\u200cهای آماده شروع کنید یا پیکربندی خود را در پنل کد بسازید. پیکربندی برچسب\u200cگذاری مبتنی بر XML است و می\u200cتوانید <link>درباره تگ\u200cهای موجود در مستندات بخوانید</link>.",
+        "linkText": "درباره تگ\u200cهای موجود در مستندات بخوانید"
+      },
+      "deleteLabelAria": "حذف برچسب",
+      "labels": {
+        "addChoices": "افزودن گزینه\u200cها",
+        "addNames": "افزودن نام برچسب\u200cها",
+        "hint": "برای افزودن چند برچسب، هر کدام را در یک خط بنویسید",
+        "addAria": "افزودن برچسب\u200cها",
+        "add": "افزودن",
+        "choices": "گزینه\u200cها",
+        "labels": "برچسب\u200cها"
+      },
+      "settings": {
+        "title": "تنظیمات پیکربندی"
+      },
+      "columns": {
+        "title": "پیکربندی داده",
+        "importedFile": "<فایل بارگذاری شده>",
+        "setManually": "<تنظیم دستی>",
+        "field": "فیلد ",
+        "use": "از {{tag}} استفاده کن",
+        "useField": "از {{tag}} از {{field}} استفاده کن",
+        "useWithName": "از {{tag}} برای {{name}} استفاده کن",
+        "useWithNameField": "از {{tag}} برای {{name}} از {{field}} استفاده کن",
+        "notEnoughData": "این قالب به داده\u200cهای بیشتری نسبت به وضعیت فعلی نیاز دارد",
+        "noData": "برای انتخاب فیلدهای برچسب\u200cگذاری باید داده بارگذاری کنید. یا می\u200cتوانید در حالت کد آن را تعریف کنید."
+      }
+    }
+  },
+  "templates": {
+    "enterpriseTooltip": "ویژگی نسخه سازمانی - در لیبل استودیو سازمانی در دسترس است",
+    "footerText": "برای مشاهده راهنما و <link>مشارکت در قالب</link> کلیک کنید.",
+    "footerLink": "مشارکت در قالب"
+  },
+  "home": {
+    "title": "خانه",
+    "welcome": "خوش آمدید",
+    "subtitle": "بیایید شروع کنیم.",
+    "actions": {
+      "createProject": "ایجاد پروژه",
+      "inviteMembers": "دعوت اعضا"
+    },
+    "recentProjects": "پروژه\u200cهای اخیر",
+    "viewAll": "مشاهده همه",
+    "loadError": "پروژه\u200cها بارگذاری نشد",
+    "empty": {
+      "title": "اولین پروژه خود را بسازید",
+      "description": "داده\u200cهای خود را وارد کنید و رابط برچسب\u200cگذاری را راه\u200cاندازی کنید تا برچسب\u200cزنی را شروع کنید",
+      "create": "ایجاد پروژه",
+      "createAria": "ایجاد پروژه جدید"
+    },
+    "projectProgress": "{{finished}} از {{total}} کار ({{percent}}٪)"
+  },
+  "menubar": {
+    "logoAlt": "لوگوی لیبل استودیو",
+    "hotkeys": "میانبرهای صفحه\u200cکلید",
+    "account": "حساب کاربری و تنظیمات",
+    "logout": "خروج",
+    "newsletterNote": "تنظیمات جدید اعلان را در صفحه حساب و تنظیمات بررسی کنید",
+    "home": "خانه",
+    "projects": "پروژه\u200cها",
+    "organization": "سازمان",
+    "pin": "سنجاق کردن منو",
+    "unpin": "برداشتن سنجاق منو"
+  },
+  "projects": {
+    "title": "پروژه\u200cها",
+    "create": "ایجاد",
+    "createAria": "ایجاد پروژه جدید",
+    "defaultTitle": "پروژه جدید",
+    "menu": {
+      "settings": "تنظیمات",
+      "label": "برچسب\u200cگذاری",
+      "optionsAria": "گزینه\u200cهای پروژه"
+    },
+    "empty": {
+      "alt": "هایدی به دنبال پروژه\u200cهاست",
+      "title": "هایدی هیچ پروژه\u200cای اینجا نمی\u200cبیند!",
+      "description": "یک پروژه بسازید و برچسب\u200cزنی داده را شروع کنید.",
+      "create": "ایجاد پروژه",
+      "createAria": "ایجاد پروژه جدید"
+    }
+  },
+  "organization": {
+    "title": "سازمان",
+    "apiToken": {
+      "title": "تنظیمات توکن API",
+      "saved": "تنظیمات توکن API ذخیره شد"
+    },
+    "people": {
+      "addMembers": "افزودن اعضا",
+      "inviteAria": "دعوت عضو جدید",
+      "table": {
+        "email": "ایمیل",
+        "name": "نام",
+        "lastActivity": "آخرین فعالیت",
+        "userId": "شناسه کاربر: {{id}}"
+      },
+      "closeUser": "بستن جزئیات کاربر",
+      "createdProjects": "پروژه\u200cهای ایجادشده",
+      "contributedTo": "مشارکت در",
+      "lastActivityOn": "آخرین فعالیت:"
+    }
+  }
+}

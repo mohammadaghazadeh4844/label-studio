@@ -8,8 +8,10 @@ import { cn } from "../../../utils/bem";
 import { isDefined } from "../../../utils/helpers";
 import "./PeopleList.scss";
 import { CopyableTooltip } from "../../../components/CopyableTooltip/CopyableTooltip";
+import { useTranslation } from "react-i18next";
 
 export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
+  const { t } = useTranslation();
   const api = useAPI();
   const [usersList, setUsersList] = useState();
   const [currentPage] = usePage("page", 1);
@@ -63,9 +65,9 @@ export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
             <div className={cn("people-list").elem("users").toClassName()}>
               <div className={cn("people-list").elem("header").toClassName()}>
                 <div className={cn("people-list").elem("column").mix("avatar").toClassName()} />
-                <div className={cn("people-list").elem("column").mix("email").toClassName()}>Email</div>
-                <div className={cn("people-list").elem("column").mix("name").toClassName()}>Name</div>
-                <div className={cn("people-list").elem("column").mix("last-activity").toClassName()}>Last Activity</div>
+                <div className={cn("people-list").elem("column").mix("email").toClassName()}>{t("organization.people.table.email")}</div>
+                <div className={cn("people-list").elem("column").mix("name").toClassName()}>{t("organization.people.table.name")}</div>
+                <div className={cn("people-list").elem("column").mix("last-activity").toClassName()}>{t("organization.people.table.lastActivity")}</div>
               </div>
               <div className={cn("people-list").elem("body").toClassName()}>
                 {usersList.map(({ user }) => {
@@ -78,7 +80,7 @@ export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
                       onClick={() => selectUser(user)}
                     >
                       <div className={cn("people-list").elem("field").mix("avatar").toClassName()}>
-                        <CopyableTooltip title={`User ID: ${user.id}`} textForCopy={user.id}>
+                        <CopyableTooltip title={t("organization.people.table.userId", { id: user.id })} textForCopy={user.id}>
                           <Userpic user={user} style={{ width: 28, height: 28 }} />
                         </CopyableTooltip>
                       </div>

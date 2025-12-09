@@ -12,13 +12,16 @@ import { ConfigPage } from "./Config/Config";
 import "./CreateProject.scss";
 import { ImportPage } from "./Import/Import";
 import { useImportPage } from "./Import/useImportPage";
+import { useTranslation } from "react-i18next";
 import { useDraftProject } from "./utils/useDraftProject";
 import { Input, TextArea } from "../../components/Form";
 import { FF_LSDV_E_297, isFF } from "../../utils/feature-flags";
 import { createURL } from "../../components/HeidiTips/utils";
 
-const ProjectName = ({ name, setName, onSaveName, onSubmit, error, description, setDescription, show = true }) =>
-  !show ? null : (
+const ProjectName = ({ name, setName, onSaveName, onSubmit, error, description, setDescription, show = true }) => {
+  const { t } = useTranslation();
+
+  return !show ? null : (
     <form
       className={cn("project-name")}
       onSubmit={(e) => {
@@ -28,7 +31,7 @@ const ProjectName = ({ name, setName, onSaveName, onSubmit, error, description, 
     >
       <div className="w-full flex flex-col gap-2">
         <label className="w-full" htmlFor="project_name">
-          Project Name
+          {t("createProject.projectNameLabel")}
         </label>
         <Input
           name="name"
@@ -42,12 +45,12 @@ const ProjectName = ({ name, setName, onSaveName, onSubmit, error, description, 
       </div>
       <div className="w-full flex flex-col gap-2">
         <label className="w-full" htmlFor="project_description">
-          Description
+          {t("createProject.descriptionLabel")}
         </label>
         <TextArea
           name="description"
           id="project_description"
-          placeholder="Optional description of your project"
+          placeholder={t("createProject.descriptionPlaceholder")}
           rows="4"
           style={{ minHeight: 100 }}
           value={description}
@@ -84,6 +87,7 @@ const ProjectName = ({ name, setName, onSaveName, onSubmit, error, description, 
       )} */}
     </form>
   );
+};
 
 export const CreateProject = ({ onClose }) => {
   const [step, _setStep] = React.useState("name"); // name | import | config
@@ -97,6 +101,7 @@ export const CreateProject = ({ onClose }) => {
   const [error, setError] = React.useState();
   const [description, setDescription] = React.useState("");
   const [sample, setSample] = React.useState(null);
+  const { t } = useTranslation();
 
   const setStep = React.useCallback((step) => {
     _setStep(step);
@@ -117,9 +122,9 @@ export const CreateProject = ({ onClose }) => {
   const rootClass = cn("create-project");
   const tabClass = rootClass.elem("tab");
   const steps = {
-    name: <span className={tabClass.mod({ disabled: !!error })}>Project Name</span>,
-    import: <span className={tabClass.mod({ disabled: uploadDisabled })}>Data Import</span>,
-    config: "Labeling Setup",
+    name: <span className={tabClass.mod({ disabled: !!error })}>{t("createProject.stepName")}</span>,
+    import: <span className={tabClass.mod({ disabled: uploadDisabled })}>{t("createProject.stepImport")}</span>,
+    config: t("createProject.stepConfig"),
   };
 
   // name intentionally skipped from deps:
@@ -200,7 +205,7 @@ export const CreateProject = ({ onClose }) => {
     <Modal onHide={onDelete} closeOnClickOutside={false} allowToInterceptEscape fullscreen visible bare>
       <div className={rootClass}>
         <Modal.Header>
-          <h1>Create Project</h1>
+          <h1>{t("createProject.title")}</h1>
           <ToggleItems items={steps} active={step} onSelect={setStep} />
 
           <Space>
@@ -209,9 +214,9 @@ export const CreateProject = ({ onClose }) => {
               look="outlined"
               onClick={onDelete}
               waiting={waiting}
-              aria-label="Cancel project creation"
+              aria-label={t("createProject.cancelAria")}
             >
-              Cancel
+              {t("common.cancel")}
             </Button>
             <Button
               look="primary"
@@ -220,7 +225,7 @@ export const CreateProject = ({ onClose }) => {
               waitingClickable={false}
               disabled={!project || uploadDisabled || error}
             >
-              Save
+              {t("common.save")}
             </Button>
           </Space>
         </Modal.Header>

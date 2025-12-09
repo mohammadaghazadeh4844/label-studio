@@ -14,14 +14,16 @@ import { IconPlus } from "@humansignal/icons";
 import { useToast } from "@humansignal/ui";
 import { InviteLink } from "./InviteLink";
 import { SelectedUser } from "./SelectedUser";
+import { useTranslation } from "react-i18next";
 
 export const PeoplePage = () => {
   const apiSettingsModal = useRef();
   const toast = useToast();
   const [selectedUser, setSelectedUser] = useState(null);
   const [invitationOpen, setInvitationOpen] = useState(false);
+  const { t } = useTranslation();
 
-  useUpdatePageTitle("People");
+  useUpdatePageTitle(t("organization.title"));
 
   const selectUser = useCallback(
     (user) => {
@@ -34,18 +36,18 @@ export const PeoplePage = () => {
 
   const apiTokensSettingsModalProps = useMemo(
     () => ({
-      title: "API Token Settings",
+      title: t("organization.apiToken.title"),
       style: { width: 480 },
       body: () => (
         <TokenSettingsModal
           onSaved={() => {
-            toast.show({ message: "API Token settings saved" });
+            toast.show({ message: t("organization.apiToken.saved") });
             apiSettingsModal.current?.close();
           }}
         />
       ),
     }),
-    [],
+    [t],
   );
 
   const showApiTokenSettingsModal = useCallback(() => {
@@ -72,9 +74,9 @@ export const PeoplePage = () => {
             <Button
               leading={<IconPlus className="!h-4" />}
               onClick={() => setInvitationOpen(true)}
-              aria-label="Invite new member"
+              aria-label={t("organization.people.inviteAria")}
             >
-              Add Members
+              {t("organization.people.addMembers")}
             </Button>
           </Space>
         </Space>

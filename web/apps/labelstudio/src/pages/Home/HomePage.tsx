@@ -9,40 +9,18 @@ import { useAPI } from "../../providers/ApiProvider";
 import { CreateProject } from "../CreateProject/CreateProject";
 import { InviteLink } from "../Organization/PeoplePage/InviteLink";
 import type { Page } from "../types/Page";
+import { useTranslation } from "react-i18next";
 
 const PROJECTS_TO_SHOW = 10;
 
-// const resources = [
-//   {
-//     title: "Documentation",
-//     url: "https://labelstud.io/guide/",
-//   },
-//   {
-//     title: "API Documentation",
-//     url: "https://api.labelstud.io/api-reference/introduction/getting-started",
-//   },
-//   {
-//     title: "Release Notes",
-//     url: "https://labelstud.io/learn/categories/release-notes/",
-//   },
-//   {
-//     title: "LabelStud.io Blog",
-//     url: "https://labelstud.io/blog/",
-//   },
-//   {
-//     title: "Slack Community",
-//     url: "https://slack.labelstud.io",
-//   },
-// ];
-
 const actions = [
   {
-    title: "Create Project",
+    titleKey: "home.actions.createProject",
     icon: IconFolderAdd,
     type: "createProject",
   },
   {
-    title: "Invite Members",
+    titleKey: "home.actions.inviteMembers",
     icon: IconUserAdd,
     type: "inviteMembers",
   },
@@ -54,8 +32,9 @@ export const HomePage: Page = () => {
   const api = useAPI();
   const [creationDialogOpen, setCreationDialogOpen] = useState(false);
   const [invitationOpen, setInvitationOpen] = useState(false);
+  const { t } = useTranslation();
 
-  useUpdatePageTitle("Home");
+  useUpdatePageTitle(t("home.title"));
   const { data, isFetching, isSuccess, isError } = useQuery({
     queryKey: ["projects", { page_size: 10 }],
     async queryFn() {
@@ -84,24 +63,24 @@ export const HomePage: Page = () => {
         <section className="flex flex-col gap-6">
           <div className="flex flex-col gap-1">
             <Typography variant="headline" size="small">
-              Welcome 👋
+              {t("home.welcome")}
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler">
-              Let's get you started.
+              {t("home.subtitle")}
             </Typography>
           </div>
           <div className="flex justify-start gap-4">
             {actions.map((action) => {
               return (
                 <Button
-                  key={action.title}
+                  key={action.titleKey}
                   look="outlined"
                   align="center"
                   className="flex-grow-0 text-16/24 gap-2 text-primary-content text-left min-w-[250px] [&_svg]:w-6 [&_svg]:h-6 pl-2"
                   onClick={handleActions(action.type)}
                   leading={<action.icon />}
                 >
-                  {action.title}
+                  {t(action.titleKey)}
                 </Button>
               );
             })}
@@ -111,9 +90,9 @@ export const HomePage: Page = () => {
             title={
               data && data?.count > 0 ? (
                 <>
-                  Recent Projects{" "}
+                  {t("home.recentProjects")}{" "}
                   <a href="/projects" className="text-lg font-normal hover:underline">
-                    View All
+                    {t("home.viewAll")}
                   </a>
                 </>
               ) : null
@@ -124,7 +103,7 @@ export const HomePage: Page = () => {
                 <Spinner />
               </div>
             ) : isError ? (
-              <div className="h-64 flex justify-center items-center">can't load projects</div>
+              <div className="h-64 flex justify-center items-center">{t("home.loadError")}</div>
             ) : isSuccess && data && data.results.length === 0 ? (
               <div className="flex flex-col justify-center items-center border border-primary-border-subtle bg-primary-emphasis-subtle rounded-lg h-64">
                 <div
@@ -135,13 +114,17 @@ export const HomePage: Page = () => {
                   <IconFolderOpen />
                 </div>
                 <Typography variant="headline" size="small">
-                  Create your first project
+                  {t("home.empty.title")}
                 </Typography>
                 <Typography size="small" className="text-neutral-content-subtler">
-                  Import your data and set up the labeling interface to start annotating
+                  {t("home.empty.description")}
                 </Typography>
-                <Button className="mt-4" onClick={() => setCreationDialogOpen(true)} aria-label="Create new project">
-                  Create Project
+                <Button
+                  className="mt-4"
+                  onClick={() => setCreationDialogOpen(true)}
+                  aria-label={t("home.empty.createAria")}
+                >
+                  {t("home.empty.create")}
                 </Button>
               </div>
             ) : isSuccess && data && data.results.length > 0 ? (
@@ -200,6 +183,8 @@ function ProjectSimpleCard({
   const progress = (total > 0 ? finished / total : 0) * 100;
   const white = "#FFFFFF";
   const color = project.color && project.color !== white ? project.color : "#E1DED5";
+  const { t } = useTranslation();
+  const percent = total > 0 ? Math.round((finished / total) * 100) : 0;
 
   return (
     <Link
@@ -216,7 +201,7 @@ function ProjectSimpleCard({
             <span className="text-neutral-content truncate">{project.title}</span>
           </Tooltip>
           <div className="text-neutral-content-subtler text-sm">
-            {finished} of {total} Tasks ({total > 0 ? Math.round((finished / total) * 100) : 0}%)
+            {t("home.projectProgress", { finished, total, percent })}
           </div>
         </div>
         <div className="bg-neutral-surface rounded-full overflow-hidden w-full h-2 shadow-neutral-border-subtle shadow-border-1">

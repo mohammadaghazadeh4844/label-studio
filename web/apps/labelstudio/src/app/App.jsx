@@ -25,6 +25,9 @@ import { ff } from "@humansignal/core";
 import "@humansignal/ui/src/tailwind.css";
 import "./App.scss";
 import { AuthProvider } from "@humansignal/core/providers/AuthProvider";
+import "../i18n";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../i18n";
 
 const baseURL = new URL(APP_SETTINGS.hostname || location.origin);
 export const UNBLOCK_HISTORY_MESSAGE = "UNBLOCK_HISTORY";
@@ -62,6 +65,7 @@ const App = ({ content }) => {
       <Router history={browserHistory}>
         <MultiProvider
           providers={[
+            <I18nextProvider i18n={i18n} key="i18n" />,
             <QueryClientProvider client={queryClient} key="query" />,
             <JotaiProvider key="jotai" store={JotaiStore} />,
             <AuthProvider key="auth" />,

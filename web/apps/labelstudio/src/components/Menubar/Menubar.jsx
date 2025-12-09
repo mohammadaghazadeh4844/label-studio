@@ -33,6 +33,7 @@ import { pages } from "@humansignal/app-common";
 import { isFF } from "../../utils/feature-flags";
 import { ff } from "@humansignal/core";
 import { openHotkeyHelp } from "@humansignal/app-common/pages/AccountSettings/sections/Hotkeys/Help";
+import { useTranslation } from "react-i18next";
 
 export const MenubarContext = createContext();
 
@@ -55,6 +56,7 @@ const RightContextMenu = ({ className, ...props }) => {
 };
 
 export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSidebarToggle, onSidebarPin }) => {
+  const { t } = useTranslation();
   const menuDropdownRef = useRef();
   const useMenuRef = useRef();
   const { user, isLoading } = useAuth();
@@ -139,7 +141,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
         <div className={menubarClass}>
           <Dropdown.Trigger dropdown={menuDropdownRef} closeOnClickOutside={!sidebarPinned}>
             <div className={`${menubarClass.elem("trigger")} main-menu-trigger`}>
-              <LSLogo className={`${menubarClass.elem("logo")}`} alt="Label Studio Logo" />
+              <LSLogo className={`${menubarClass.elem("logo")}`} alt={t("menubar.logoAlt")} />
               <Hamburger opened={sidebarOpened} />
             </div>
           </Dropdown.Trigger>
@@ -154,7 +156,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
               <Button
                 variant="neutral"
                 look="outlined"
-                tooltip="Keyboard Shortcuts"
+                tooltip={t("menubar.hotkeys")}
                 data-testid="hotkeys-button"
                 size="small"
                 onClick={() => {
@@ -183,16 +185,16 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
               <Menu>
                 <Menu.Item
                   icon={<IconPersonInCircle />}
-                  label="Account &amp; Settings"
+                  label={t("menubar.account")}
                   href={pages.AccountSettingsPage.path}
                 />
                 {/* <Menu.Item label="Dark Mode"/> */}
-                <Menu.Item icon={<IconDoor />} label="Log Out" href={absoluteURL("/logout")} data-external />
+                <Menu.Item icon={<IconDoor />} label={t("menubar.logout")} href={absoluteURL("/logout")} data-external />
                 {showNewsletterDot && (
                   <>
                     <Menu.Divider />
                     <Menu.Item className={cn("newsletter-menu-item")} href={pages.AccountSettingsPage.path}>
-                      <span>Please check new notification settings in the Account & Settings page</span>
+                      <span>{t("menubar.newsletterNote")}</span>
                       <span className={cn("newsletter-menu-badge")} />
                     </Menu.Item>
                   </>
@@ -220,9 +222,11 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
               style={{ width: 240 }}
             >
               <Menu>
-                {isFF(FF_HOMEPAGE) && <Menu.Item label="Home" to="/" icon={<IconHome />} data-external exact />}
-                <Menu.Item label="Projects" to="/projects" icon={<IconFolder />} data-external exact />
-                <Menu.Item label="Organization" to="/organization" icon={<IconPeople />} data-external exact />
+                {isFF(FF_HOMEPAGE) && (
+                  <Menu.Item label={t("menubar.home")} to="/" icon={<IconHome />} data-external exact />
+                )}
+                <Menu.Item label={t("menubar.projects")} to="/projects" icon={<IconFolder />} data-external exact />
+                <Menu.Item label={t("menubar.organization")} to="/organization" icon={<IconPeople />} data-external exact />
 
                 <Menu.Spacer />
 
@@ -260,7 +264,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                   onClick={sidebarPin}
                   active={sidebarPinned}
                 >
-                  {sidebarPinned ? "Unpin menu" : "Pin menu"}
+                  {sidebarPinned ? t("menubar.unpin") : t("menubar.pin")}
                 </Menu.Item>
               </Menu>
             </Dropdown>

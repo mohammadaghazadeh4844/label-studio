@@ -15,6 +15,7 @@ import { Button, CodeBlock, SimpleCard, Spinner, Tooltip, Typography } from "@hu
 import truncate from "truncate-middle";
 import samples from "./samples.json";
 import { importFiles } from "./utils";
+import { useTranslation } from "react-i18next";
 
 const importClass = cn("upload_page");
 const dropzoneClass = cn("dropzone");
@@ -154,6 +155,7 @@ export const ImportPage = ({
   addColumns,
   openLabelingConfig,
 }) => {
+  const { t } = useTranslation();
   const [error, setError] = useState();
   const [newlyUploadedFiles, setNewlyUploadedFiles] = useState(new Set());
   const prevUploadedRef = useRef(new Set());
@@ -219,7 +221,7 @@ export const ImportPage = ({
     console.error(err);
     // @todo workaround for error about input size in a wrong html format
     if (typeof err === "string" && err.includes("RequestDataTooBig")) {
-      const message = "Imported file is too big";
+      const message = t("createProject.import.errors.fileTooBig");
       const extra = err.match(/"exception_value">(.*)<\/pre>/)?.[1];
 
       err = { message, extra };
@@ -382,21 +384,21 @@ export const ImportPage = ({
           method="POST"
           onSubmit={onLoadURL}
         >
-          <Input placeholder="Dataset URL" name="url" ref={urlRef} rawClassName="h-[40px]" />
-          <Button variant="primary" look="outlined" type="submit" aria-label="Add URL">
-            Add URL
+          <Input placeholder={t("createProject.import.datasetUrlPlaceholder")} name="url" ref={urlRef} rawClassName="h-[40px]" />
+          <Button variant="primary" look="outlined" type="submit" aria-label={t("createProject.import.addUrlAria")}>
+            {t("createProject.import.addUrl")}
           </Button>
         </form>
-        <span>or</span>
+        <span>{t("createProject.import.or")}</span>
         <Button
           variant="primary"
           look="outlined"
           type="button"
           onClick={() => document.getElementById("file-input").click()}
           leading={<IconUpload />}
-          aria-label="Upload file"
+          aria-label={t("createProject.import.uploadAria")}
         >
-          Upload {files.uploaded.length ? "More " : ""}Files
+          {files.uploaded.length ? t("createProject.import.uploadMoreFiles") : t("createProject.import.uploadFiles")}
         </Button>
         {ff.isActive(ff.FF_SAMPLE_DATASETS) && (
           <SampleDatasetSelect samples={samples} sample={sample} onSampleApplied={onSampleDatasetSelect} />
@@ -404,16 +406,16 @@ export const ImportPage = ({
         <div
           className={importClass.elem("csv-handling").mod({ highlighted: highlightCsvHandling, hidden: !csvHandling })}
         >
-          <span>Treat CSV/TSV as</span>
+          <span>{t("createProject.import.csvHandling.title")}</span>
           <label>
-            <input {...csvProps} value="tasks" checked={csvHandling === "tasks"} /> List of tasks
+            <input {...csvProps} value="tasks" checked={csvHandling === "tasks"} /> {t("createProject.import.csvHandling.tasks")}
           </label>
           <label>
-            <input {...csvProps} value="ts" checked={csvHandling === "ts"} /> Time Series or Whole Text File
+            <input {...csvProps} value="ts" checked={csvHandling === "ts"} /> {t("createProject.import.csvHandling.ts")}
           </label>
         </div>
         <div className={importClass.elem("status")}>
-          {files.uploaded.length ? `${files.uploaded.length} files uploaded` : ""}
+          {files.uploaded.length ? t("createProject.import.filesUploaded", { count: files.uploaded.length }) : ""}
         </div>
       </header>
 
@@ -432,26 +434,26 @@ export const ImportPage = ({
                   <div className={`${dropzoneClass.elem("content")} w-full`}>
                     <IconFileUpload height="64" className={dropzoneClass.elem("icon")} />
                     <header>
-                      Drag & drop files here
+                      {t("createProject.import.dropzone.drop")}
                       <br />
-                      or click to browse
+                      {t("createProject.import.dropzone.browse")}
                     </header>
 
                     <dl>
-                      <dt>Images</dt>
+                      <dt>{t("createProject.import.fileTypes.images")}</dt>
                       <dd>{supportedExtensions.image.join(", ")}</dd>
-                      <dt>Audio</dt>
+                      <dt>{t("createProject.import.fileTypes.audio")}</dt>
                       <dd>{supportedExtensions.audio.join(", ")}</dd>
                       <dt>
                         <div className="flex items-center gap-1">
-                          Video
-                          <Tooltip title="Video format support depends on your browser. Click to learn more.">
+                          {t("createProject.import.fileTypes.video")}
+                          <Tooltip title={t("createProject.import.videoSupport.tooltip")}>
                             <a
                               href="https://labelstud.io/tags/video#Video-format"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center"
-                              aria-label="Learn more about video format support (opens in a new tab)"
+                              aria-label={t("createProject.import.videoSupport.aria")}
                             >
                               <IconInfoOutline className="w-4 h-4 text-primary-content hover:text-primary-content-hover" />
                             </a>
@@ -459,13 +461,13 @@ export const ImportPage = ({
                         </div>
                       </dt>
                       <dd>{supportedExtensions.video.join(", ")}</dd>
-                      <dt>HTML / HyperText</dt>
+                      <dt>{t("createProject.import.fileTypes.html")}</dt>
                       <dd>{supportedExtensions.html.join(", ")}</dd>
-                      <dt>Text</dt>
+                      <dt>{t("createProject.import.fileTypes.text")}</dt>
                       <dd>{supportedExtensions.text.join(", ")}</dd>
-                      <dt>Structured data</dt>
+                      <dt>{t("createProject.import.fileTypes.structuredData")}</dt>
                       <dd>{supportedExtensions.structuredData.join(", ")}</dd>
-                      <dt>PDF</dt>
+                      <dt>{t("createProject.import.fileTypes.pdf")}</dt>
                       <dd>{supportedExtensions.pdf.join(", ")}</dd>
                     </dl>
                     {/* <div className="tips">
@@ -521,7 +523,7 @@ export const ImportPage = ({
             {showList && (
               <div className="w-full">
                 <SimpleCard
-                  title="Files"
+                  title={t("createProject.import.filesTitle")}
                   className="w-full h-full"
                   contentClassName="overflow-y-auto h-[calc(100%-48px)]"
                 >
@@ -533,7 +535,7 @@ export const ImportPage = ({
                             <div className="flex items-center gap-2">
                               {sample.title}
                               <Badge variant="info" className="h-5 text-xs rounded-sm">
-                                Sample
+                                {t("createProject.import.sampleBadge")}
                               </Badge>
                             </div>
                           </td>
@@ -612,7 +614,7 @@ export const ImportPage = ({
               <div className="w-full h-full flex flex-col min-h-[400px]">
                 {projectConfigured ? (
                   <SimpleCard
-                    title="Expected Input Preview"
+                    title={t("createProject.import.expectedInput")}
                     className="w-full h-full overflow-hidden flex flex-col"
                     contentClassName="h-[calc(100%-48px)]"
                     flushContent
@@ -620,7 +622,7 @@ export const ImportPage = ({
                     {sampleConfig.data ? (
                       <div className={importClass.elem("code-wrapper")}>
                         <CodeBlock
-                          title="Expected Input Preview"
+                          title={t("createProject.import.expectedInput")}
                           code={sampleConfig?.data ?? ""}
                           className="w-full h-full"
                         />
@@ -631,7 +633,7 @@ export const ImportPage = ({
                       </div>
                     ) : sampleConfig.isError ? (
                       <div className="w-[calc(100%-24px)] text-lg text-negative-content bg-negative-background border m-3 rounded-md border-negative-border-subtle p-4">
-                        Something went wrong, the sample data could not be loaded.
+                        {t("createProject.import.errors.sampleLoad")}
                       </div>
                     ) : null}
                   </SimpleCard>
@@ -642,18 +644,20 @@ export const ImportPage = ({
                         <IconCode className="w-6 h-6 text-primary-icon" />
                       </div>
                       <div className="flex flex-col items-center gap-tighter">
-                        <div className="text-label-small text-neutral-content font-medium">View JSON input format</div>
+                        <div className="text-label-small text-neutral-content font-medium">
+                          {t("createProject.import.jsonPreview.title")}
+                        </div>
                         <div className="text-body-small text-neutral-content-subtler text-center">
-                          Setup your{" "}
+                          {t("createProject.import.jsonPreview.descriptionBefore")}
                           <Button
                             type="button"
                             look="string"
                             onClick={openConfig}
                             className="border-none bg-none p-0 m-0 text-primary-content underline"
                           >
-                            labeling configuration
+                            {t("createProject.import.jsonPreview.linkText")}
                           </Button>{" "}
-                          first to preview the expected JSON data format
+                          {t("createProject.import.jsonPreview.descriptionAfter")}
                         </div>
                       </div>
                     </div>

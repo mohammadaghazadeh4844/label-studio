@@ -1,0 +1,182 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "createProject": {
+    "title": "Create Project",
+    "stepName": "Project Name",
+    "stepImport": "Data Import",
+    "stepConfig": "Labeling Setup",
+    "projectNameLabel": "Project Name",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Optional description of your project",
+    "cancelAria": "Cancel project creation",
+    "import": {
+      "datasetUrlPlaceholder": "Dataset URL",
+      "addUrl": "Add URL",
+      "addUrlAria": "Add URL",
+      "or": "or",
+      "uploadAria": "Upload file",
+      "uploadFiles": "Upload Files",
+      "uploadMoreFiles": "Upload More Files",
+      "csvHandling": {
+        "title": "Treat CSV/TSV as",
+        "tasks": "List of tasks",
+        "ts": "Time Series or Whole Text File"
+      },
+      "filesUploaded_one": "{{count}} file uploaded",
+      "filesUploaded_other": "{{count}} files uploaded",
+      "dropzone": {
+        "drop": "Drag & drop files here",
+        "browse": "or click to browse"
+      },
+      "fileTypes": {
+        "images": "Images",
+        "audio": "Audio",
+        "video": "Video",
+        "html": "HTML / HyperText",
+        "text": "Text",
+        "structuredData": "Structured data",
+        "pdf": "PDF"
+      },
+      "videoSupport": {
+        "tooltip": "Video format support depends on your browser. Click to learn more.",
+        "aria": "Learn more about video format support (opens in a new tab)"
+      },
+      "filesTitle": "Files",
+      "sampleBadge": "Sample",
+      "expectedInput": "Expected Input Preview",
+      "jsonPreview": {
+        "title": "View JSON input format",
+        "descriptionBefore": "Setup your",
+        "linkText": "labeling configuration",
+        "descriptionAfter": "first to preview the expected JSON data format"
+      },
+      "errors": {
+        "fileTooBig": "Imported file is too big",
+        "sampleLoad": "Something went wrong, the sample data could not be loaded."
+      }
+    },
+    "config": {
+      "title": "Labeling Interface",
+      "browse": "Browse Templates",
+      "browseAria": "Browse templates",
+      "tabs": {
+        "code": "Code",
+        "visual": "Visual"
+      },
+      "saved": "Saved!",
+      "save": "Save",
+      "saving": "Saving...",
+      "saveAria": "Save configuration",
+      "tagsLink": "Configure the labeling interface with tags. <link>See all available tags</link>.",
+      "tagsLinkText": "See all available tags",
+      "empty": {
+        "title": "Your labeling configuration is empty. It is required to label your data.",
+        "body": "Start from one of our predefined templates or create your own config on the Code panel. The labeling config is XML-based and you can <link>read about the available tags in our documentation</link>.",
+        "linkText": "read about the available tags in our documentation"
+      },
+      "deleteLabelAria": "delete label",
+      "labels": {
+        "addChoices": "Add choices",
+        "addNames": "Add label names",
+        "hint": "Use new line as a separator to add multiple labels",
+        "addAria": "Add labels",
+        "add": "Add",
+        "choices": "Choices",
+        "labels": "Labels"
+      },
+      "settings": {
+        "title": "Configure settings"
+      },
+      "columns": {
+        "title": "Configure data",
+        "importedFile": "<imported file>",
+        "setManually": "<set manually>",
+        "field": "field ",
+        "use": "Use {{tag}}",
+        "useField": "Use {{tag}} from {{field}}",
+        "useWithName": "Use {{tag}} for {{name}}",
+        "useWithNameField": "Use {{tag}} for {{name}} from {{field}}",
+        "notEnoughData": "This template requires more data than you have for now",
+        "noData": "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode."
+      }
+    }
+  },
+  "templates": {
+    "enterpriseTooltip": "Enterprise feature - Available in Label Studio Enterprise",
+    "footerText": "See the documentation to <link>contribute a template</link>.",
+    "footerLink": "contribute a template"
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome",
+    "subtitle": "Let's get you started.",
+    "actions": {
+      "createProject": "Create Project",
+      "inviteMembers": "Invite Members"
+    },
+    "recentProjects": "Recent Projects",
+    "viewAll": "View All",
+    "loadError": "Can't load projects",
+    "empty": {
+      "title": "Create your first project",
+      "description": "Import your data and set up the labeling interface to start annotating",
+      "create": "Create Project",
+      "createAria": "Create new project"
+    },
+    "projectProgress": "{{finished}} of {{total}} Tasks ({{percent}}%)"
+  },
+  "menubar": {
+    "logoAlt": "Label Studio Logo",
+    "hotkeys": "Keyboard Shortcuts",
+    "account": "Account & Settings",
+    "logout": "Log Out",
+    "newsletterNote": "Please check new notification settings in the Account & Settings page",
+    "home": "Home",
+    "projects": "Projects",
+    "organization": "Organization",
+    "pin": "Pin menu",
+    "unpin": "Unpin menu"
+  },
+  "projects": {
+    "title": "Projects",
+    "create": "Create",
+    "createAria": "Create new project",
+    "defaultTitle": "New project",
+    "menu": {
+      "settings": "Settings",
+      "label": "Label",
+      "optionsAria": "Project options"
+    },
+    "empty": {
+      "alt": "Heidi looking for projects",
+      "title": "Heidi doesn't see any projects here!",
+      "description": "Create one and start labeling your data.",
+      "create": "Create Project",
+      "createAria": "Create new project"
+    }
+  },
+  "organization": {
+    "title": "Organization",
+    "apiToken": {
+      "title": "API Token Settings",
+      "saved": "API Token settings saved"
+    },
+    "people": {
+      "addMembers": "Add Members",
+      "inviteAria": "Invite new member",
+      "table": {
+        "email": "Email",
+        "name": "Name",
+        "lastActivity": "Last Activity",
+        "userId": "User ID: {{id}}"
+      },
+      "closeUser": "Close user details",
+      "createdProjects": "Created Projects",
+      "contributedTo": "Contributed to",
+      "lastActivityOn": "Last activity on:"
+    }
+  }
+}

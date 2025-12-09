@@ -5,6 +5,7 @@ import { cn } from "../../../utils/bem";
 import "./Config.scss";
 import { IconInfo } from "@humansignal/icons";
 import { Button, EnterpriseBadge } from "@humansignal/ui";
+import { Trans, useTranslation } from "react-i18next";
 
 const listClass = cn("templates-list");
 
@@ -16,6 +17,7 @@ const Arrow = () => (
 );
 
 const TemplatesInGroup = ({ templates, group, onSelectRecipe, isEdition }) => {
+  const { t } = useTranslation();
   const picked = templates
     .filter((recipe) => recipe.group === group)
     // templates without `order` go to the end of the list
@@ -34,7 +36,7 @@ const TemplatesInGroup = ({ templates, group, onSelectRecipe, isEdition }) => {
             key={recipe.title}
             onClick={() => !isDisabled && onSelectRecipe(recipe)}
             className={listClass.elem("template").mod({ disabled: isDisabled })}
-            title={isDisabled ? "ویژگی نسخه سازمانی - در لیبل استودیو سازمانی در دسترس است" : ""}
+            title={isDisabled ? t("templates.enterpriseTooltip") : ""}
           >
             <img src={recipe.image} alt={""} />
             <div className="flex w-full relative">
@@ -55,6 +57,7 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
   const [templates, setTemplates] = React.useState();
   const api = useAPI();
   const isEdition = window?.APP_SETTINGS?.version_edition;
+  const { t } = useTranslation();
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -113,11 +116,18 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
       <footer className="flex items-center justify-center gap-1">
         <IconInfo className={listClass.elem("info-icon")} width="20" height="20" />
         <span>
-          برای مشاهده راهنما و{" "}
-          <a href="https://labelstud.io/guide" target="_blank" rel="noreferrer">
-            مشارکت در قالب
-          </a>
-          کلیک کنید.
+          <Trans
+            i18nKey="templates.footerText"
+            components={{
+              link: (
+                <a href="https://labelstud.io/guide" target="_blank" rel="noreferrer">
+                  {t("templates.footerLink")}
+                </a>
+              ),
+            }}
+          >
+            See the documentation to <link>contribute a template</link>.
+          </Trans>
         </span>
       </footer>
     </div>
