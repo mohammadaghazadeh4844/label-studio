@@ -46,7 +46,7 @@ export const accountSettingsSections = (settings: AuthTokenSettings, permissions
     //   component: EmailPreferences,
     // },
     {
-      title: "Membership Info",
+      title: t ? t("account.membership.title") : "Membership Info",
       id: "membership-info",
       component: MembershipInfo,
     },

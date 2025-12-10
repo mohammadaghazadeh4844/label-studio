@@ -540,6 +540,8 @@
     "tooltip": "Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, {{productName}} sends an HTTP POST request to the configured webhook URL."
   },
   "account": {
+    "title": "My Account",
+    "personalInfo": "Personal Info",
     "personalInfo": {
       "firstName": "First Name",
       "lastName": "Last Name",
@@ -561,6 +563,7 @@
       "edit": "Click to edit hotkey"
     },
     "membership": {
+      "title": "Membership Info",
       "userId": "User ID",
       "registrationDate": "Registration date",
       "annotations": "Annotations Submitted",

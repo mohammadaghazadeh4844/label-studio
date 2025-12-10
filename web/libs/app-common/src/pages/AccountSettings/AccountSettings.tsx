@@ -9,6 +9,7 @@ import clsx from "clsx";
 import { useAtomValue } from "jotai";
 import { settingsAtom } from "./atoms";
 import { useAuth } from "@humansignal/core/providers/AuthProvider";
+import { useTranslation } from "react-i18next";
 
 /**
  * FIXME: This is legacy imports. We're not supposed to use such statements
@@ -23,10 +24,11 @@ const AccountSettingsSection = () => {
   const contentClassName = clsx(styles.accountSettings__content, {
     [styles.accountSettingsPadding]: window.APP_SETTINGS.billing !== undefined,
   });
+  const { t } = useTranslation();
 
   const resolvedSections = useMemo(() => {
-    return settings.data && !("error" in settings.data) ? accountSettingsSections(settings.data, permissions) : [];
-  }, [settings.data, user]);
+    return settings.data && !("error" in settings.data) ? accountSettingsSections(settings.data, permissions, t) : [];
+  }, [settings.data, user, t, permissions]);
 
   const currentSection = useMemo(
     () => resolvedSections.find((section) => section.id === sectionId),
@@ -35,11 +37,11 @@ const AccountSettingsSection = () => {
 
   // Update page title to reflect the current section
   const pageTitleText = useMemo(() => {
-    if (!currentSection) return "My Account";
+    if (!currentSection) return t("account.title");
 
     // If title is a string, use it directly
     if (typeof currentSection.title === "string") {
-      return createTitleFromSegments([currentSection.title, "My Account"]);
+      return createTitleFromSegments([currentSection.title, t("account.title")]);
     }
 
     // For non-string titles (like JSX elements), derive from the section ID
@@ -48,8 +50,8 @@ const AccountSettingsSection = () => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
 
-    return createTitleFromSegments([titleFromId, "My Account"]);
-  }, [currentSection]);
+    return createTitleFromSegments([titleFromId, t("account.title")]);
+  }, [currentSection, t]);
 
   useUpdatePageTitle(pageTitleText);
 
@@ -94,9 +96,10 @@ const AccountSettingsPage = () => {
   const match = useRouteMatch();
   const { sectionId } = useParams<{ sectionId: string }>();
   const { user, permissions } = useAuth();
+  const { t } = useTranslation();
   const resolvedSections = useMemo(() => {
-    return settings.data && !("error" in settings.data) ? accountSettingsSections(settings.data, permissions) : [];
-  }, [settings.data, user]);
+    return settings.data && !("error" in settings.data) ? accountSettingsSections(settings.data, permissions, t) : [];
+  }, [settings.data, user, t, permissions]);
 
   const menuItems = useMemo(
     () =>
