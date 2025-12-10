@@ -8,11 +8,7 @@ const resources = {
   en: { translation: enCommon },
 };
 
-const language =
-  window?.APP_SETTINGS?.language ||
-  window?.APP_SETTINGS?.locale ||
-  navigator?.language?.split?.("-")?.[0] ||
-  "fa";
+const language = "fa";
 
 i18n.use(initReactI18next).init({
   resources,
