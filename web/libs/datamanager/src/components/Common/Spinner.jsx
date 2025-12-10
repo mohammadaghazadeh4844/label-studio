@@ -1,6 +1,5 @@
 import { inject } from "mobx-react";
 import React from "react";
-import Running from "../../assets/running";
 
 const injector = inject(({ store }) => {
   return {
@@ -22,8 +21,6 @@ export const Spinner = injector(({ SDK, visible = true, ...props }) => {
     }
   }, [props.size]);
 
-  const source = Running.default;
-
   const videoStyles = {
     width: "100%",
     height: "100%",
@@ -41,12 +38,27 @@ export const Spinner = injector(({ SDK, visible = true, ...props }) => {
           {ExternalSpinner ? (
             <ExternalSpinner size={size} />
           ) : (
-            <img
-              src={source.x1}
-              srcSet={[`${source.x1} 1x`, `${source.x2} 2x`].join(",")}
-              style={videoStyles}
-              alt="opossum loader"
-            />
+            <svg viewBox="0 0 50 50" style={videoStyles} role="img" aria-label="loading" focusable="false">
+              <circle
+                cx="25"
+                cy="25"
+                r="20"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeDasharray="31.4 188.4"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 25 25"
+                  to="360 25 25"
+                  dur="0.9s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </svg>
           )}
         </div>
       }
