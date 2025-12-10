@@ -13,7 +13,6 @@ import {
   useState,
 } from "react";
 import { generatePath, useHistory } from "react-router";
-import { Link, NavLink } from "react-router-dom";
 import { Spinner } from "../../components";
 import { modal } from "../../components/Modal/Modal";
 import { Space } from "../../components/Space/Space";
@@ -142,11 +141,6 @@ export const DataManagerPage = ({ ...props }) => {
       }
     });
 
-    dataManager.on("settingsClicked", () => {
-      history.push(
-        buildLink("/settings/labeling", { id: params?.id ?? project?.id })
-      );
-    });
 
     dataManager.on("importClicked", () => {
       history.push(
@@ -278,10 +272,6 @@ DataManagerPage.context = ({ dmRef }) => {
   const [mode, setMode] = useState(dmRef?.mode ?? "explorer");
   const { t } = useTranslation();
 
-  const links = {
-    "/settings": "Settings",
-  };
-
   const updateCrumbs = (currentMode) => {
     const isExplorer = currentMode === "explorer";
 
@@ -347,17 +337,7 @@ DataManagerPage.context = ({ dmRef }) => {
         </Button>
       )}
 
-      {Object.entries(links).map(([path, label]) => (
-        <Link
-          key={path}
-          tag={NavLink}
-          className={buttonVariant({ size: "small", look: "outlined" })}
-          to={`/projects/${project.id}${path}`}
-          data-external
-        >
-          {t("datamanager.settings")}
-        </Link>
-      ))}
+      {/* settings link hidden per request */}
     </Space>
   ) : null;
 };
