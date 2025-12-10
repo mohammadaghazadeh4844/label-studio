@@ -19,11 +19,7 @@ const actions = [
     icon: IconFolderAdd,
     type: "createProject",
   },
-  {
-    titleKey: "home.actions.inviteMembers",
-    icon: IconUserAdd,
-    type: "inviteMembers",
-  },
+ 
 ] as const;
 
 type Action = (typeof actions)[number]["type"];
