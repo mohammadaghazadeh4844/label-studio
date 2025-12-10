@@ -160,6 +160,14 @@
       "createAria": "Create new project"
     }
   },
+  "datamanager": {
+    "tabs": {
+      "rename": "Rename",
+      "duplicate": "Duplicate",
+      "save": "Save",
+      "close": "Close"
+    }
+  },
   "organization": {
     "title": "Organization",
     "apiToken": {

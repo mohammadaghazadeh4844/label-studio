@@ -160,6 +160,14 @@
       "createAria": "ایجاد پروژه جدید"
     }
   },
+  "datamanager": {
+    "tabs": {
+      "rename": "تغییر نام",
+      "duplicate": "تکرار",
+      "save": "ذخیره",
+      "close": "بستن"
+    }
+  },
   "organization": {
     "title": "سازمان",
     "apiToken": {
