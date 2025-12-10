@@ -171,6 +171,11 @@
       "occurred": "Errors occurred"
     }
   },
+  "hotkeys": {
+    "title": "Keyboard Shortcuts",
+    "description": "View all available keyboard shortcuts.",
+    "customize": "Customize"
+  },
   "organization": {
     "title": "Organization",
     "apiToken": {

@@ -171,6 +171,11 @@
       "occurred": "خطا رخ داد"
     }
   },
+  "hotkeys": {
+    "title": "میانبرهای صفحه‌کلید",
+    "description": "همه میانبرهای صفحه‌کلید در دسترس را ببینید.",
+    "customize": "سفارشی‌سازی"
+  },
   "organization": {
     "title": "سازمان",
     "apiToken": {
