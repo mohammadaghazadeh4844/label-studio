@@ -506,13 +506,8 @@ const Configurator = ({
     <p className={configClass.elem("tags-link")}>
       <Trans
         i18nKey="createProject.config.tagsLink"
-        // components={{
-        //   link: (
-        //     <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
-        //       {t("createProject.config.tagsLinkText")}
-        //     </a>
-        //   ),
-        // }}
+
+        
       >
         Configure the labeling interface with tags. <a>See all available tags</a>.
       </Trans>
