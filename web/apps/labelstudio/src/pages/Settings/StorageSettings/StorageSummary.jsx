@@ -56,7 +56,7 @@ export const StorageSummary = ({ target, storage, className, storageTypes = [] }
       body: <CodeBlock code={msg} variant="negative" className="max-h-[50vh] overflow-y-auto" />,
       footer: (
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          {!window.APP_SETTINGS?.whitelabel_is_active && (
+          {/* {!window.APP_SETTINGS?.whitelabel_is_active && (
             <div>
               <>
                 <a
@@ -70,7 +70,7 @@ export const StorageSummary = ({ target, storage, className, storageTypes = [] }
                 {t("settings.storage.summary.troubleshootText")}
               </>
             </div>
-          )}
+          )} */}
           <Space>
             <CopyButton msg={msg} />
             <Button variant="primary" className="w-[7rem]" onClick={() => currentModal.close()}>

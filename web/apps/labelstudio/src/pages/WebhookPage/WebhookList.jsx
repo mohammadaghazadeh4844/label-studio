@@ -118,22 +118,22 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
                   </Typography>
                 )
               }
-              footer={
-                !window.APP_SETTINGS.whitelabel_is_active && (
-                  <Typography variant="label" size="small" className="text-primary-link">
-                    <a
-                      href="https://docs.humansignal.com/guide/webhooks.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 hover:underline"
-                      aria-label="Learn more about webhooks (opens in new window)"
-                    >
-                      Learn more
-                      <IconExternal width={16} height={16} />
-                    </a>
-                  </Typography>
-                )
-              }
+              // footer={
+              //   !window.APP_SETTINGS.whitelabel_is_active && (
+              //     <Typography variant="label" size="small" className="text-primary-link">
+              //       <a
+              //         href="https://docs.humansignal.com/guide/webhooks.html"
+              //         target="_blank"
+              //         rel="noopener noreferrer"
+              //         className="inline-flex items-center gap-1 hover:underline"
+              //         aria-label="Learn more about webhooks (opens in new window)"
+              //       >
+              //         Learn more
+              //         <IconExternal width={16} height={16} />
+              //       </a>
+              //     </Typography>
+              //   )
+              // }
             />
           </SimpleCard>
         ) : (

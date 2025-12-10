@@ -31,13 +31,13 @@ const EmptyConfigPlaceholder = () => {
       <p>
         <Trans
           i18nKey="createProject.config.empty.body"
-          components={{
-            link: (
-              <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
-                {t("createProject.config.empty.linkText")}
-              </a>
-            ),
-          }}
+          // components={{
+          //   link: (
+          //     <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
+          //       {t("createProject.config.empty.linkText")}
+          //     </a>
+          //   ),
+          // }}
         >
           Start from one of our predefined templates or create your own config on the Code panel. The labeling config is
           XML-based and you can <a>read about the available tags in our documentation</a>.
@@ -506,13 +506,13 @@ const Configurator = ({
     <p className={configClass.elem("tags-link")}>
       <Trans
         i18nKey="createProject.config.tagsLink"
-        components={{
-          link: (
-            <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
-              {t("createProject.config.tagsLinkText")}
-            </a>
-          ),
-        }}
+        // components={{
+        //   link: (
+        //     <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
+        //       {t("createProject.config.tagsLinkText")}
+        //     </a>
+        //   ),
+        // }}
       >
         Configure the labeling interface with tags. <a>See all available tags</a>.
       </Trans>

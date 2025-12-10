@@ -59,7 +59,7 @@ const InvitationModal = () => {
   return (
     <div className={cn("invite").toClassName()}>
       <Input value={link} style={{ width: "100%" }} readOnly />
-      <Typography size="small" className="text-neutral-content-subtler mt-base mb-wider">
+      {/* <Typography size="small" className="text-neutral-content-subtler mt-base mb-wider">
         {t("organization.invite.description", { productName: t("common.productName") })}{" "}
         <a
           href="https://labelstud.io/guide/signup.html"
@@ -75,7 +75,7 @@ const InvitationModal = () => {
           {t("common.learnMore")}
         </a>
         .
-      </Typography>
+      </Typography> */}
     </div>
   );
 };

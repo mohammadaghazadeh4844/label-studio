@@ -185,25 +185,25 @@ const FormatInfo = ({ availableFormats, selected, onClick }) => {
       <div className={cn("formats").elem("feedback").toClassName()}>
         <Trans
           i18nKey="export.feedback"
-          components={{
-            slack: (
-              <a
-                className="no-go"
-                href="https://slack.labelstud.io/?source=product-export"
-                target="_blank"
-                rel="noreferrer"
-              />
-            ),
-            repo: (
-              <a
-                className="no-go"
-                href="https://github.com/HumanSignal/label-studio-converter/issues"
-                target="_blank"
-                rel="noreferrer"
-              />
-            ),
-            br: <br />,
-          }}
+          // components={{
+          //   slack: (
+          //     <a
+          //       className="no-go"
+          //       href="https://slack.labelstud.io/?source=product-export"
+          //       target="_blank"
+          //       rel="noreferrer"
+          //     />
+          //   ),
+          //   repo: (
+          //     <a
+          //       className="no-go"
+          //       href="https://github.com/HumanSignal/label-studio-converter/issues"
+          //       target="_blank"
+          //       rel="noreferrer"
+          //     />
+          //   ),
+          //   br: <br />,
+          // }}
         >
           Can't find an export format?
           <br />

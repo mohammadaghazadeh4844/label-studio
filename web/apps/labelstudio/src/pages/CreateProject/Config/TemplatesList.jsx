@@ -118,13 +118,13 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
         <span>
           <Trans
             i18nKey="templates.footerText"
-            components={{
-              link: (
-                <a href="https://labelstud.io/guide" target="_blank" rel="noreferrer">
-                  {t("templates.footerLink")}
-                </a>
-              ),
-            }}
+            // components={{
+            //   link: (
+            //     <a href="https://labelstud.io/guide" target="_blank" rel="noreferrer">
+            //       {t("templates.footerLink")}
+            //     </a>
+            //   ),
+            // }}
           >
             See the documentation to <link>contribute a template</link>.
           </Trans>

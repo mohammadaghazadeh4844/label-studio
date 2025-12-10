@@ -444,7 +444,7 @@ export const ImportPage = ({
                       <dd>{supportedExtensions.image.join(", ")}</dd>
                       <dt>{t("createProject.import.fileTypes.audio")}</dt>
                       <dd>{supportedExtensions.audio.join(", ")}</dd>
-                      <dt>
+                      {/* <dt>
                         <div className="flex items-center gap-1">
                           {t("createProject.import.fileTypes.video")}
                           <Tooltip title={t("createProject.import.videoSupport.tooltip")}>
@@ -459,7 +459,7 @@ export const ImportPage = ({
                             </a>
                           </Tooltip>
                         </div>
-                      </dt>
+                      </dt> */}
                       <dd>{supportedExtensions.video.join(", ")}</dd>
                       <dt>{t("createProject.import.fileTypes.html")}</dt>
                       <dd>{supportedExtensions.html.join(", ")}</dd>
