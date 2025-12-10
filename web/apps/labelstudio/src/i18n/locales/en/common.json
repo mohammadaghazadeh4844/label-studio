@@ -498,7 +498,9 @@
         "caption": "Build a high quality model to auto-label your data using LLMs",
         "create": "Create a Model",
         "createAria": "Create new model"
-      }
+      },
+      "title": "Models",
+      "create": "Create Model"
     }
   },
   "webhooks": {
