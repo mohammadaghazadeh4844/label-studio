@@ -5,7 +5,8 @@
     "learnMore": "Learn more",
     "productName": "Smart Labeling System",
     "close": "Close",
-    "delete": "Delete"
+    "delete": "Delete",
+    "unknownError": "Unknown error"
   },
   "createProject": {
     "title": "Create Project",
@@ -447,6 +448,38 @@
     "title": "Keyboard Shortcuts",
     "description": "View all available keyboard shortcuts.",
     "customize": "Customize",
+    "actions": {
+      "import": "Import",
+      "export": "Export",
+      "reset": "Reset to Defaults"
+    },
+    "save": {
+      "success": "{{section}} hotkeys saved successfully",
+      "error": "Failed to save: {{error}}"
+    },
+    "import": {
+      "success": "Hotkeys imported successfully",
+      "error": "Error importing hotkeys: {{error}}",
+      "description": "Paste your exported hotkeys JSON below. This will replace your current hotkeys. Make sure the JSON contains an array of hotkey objects with the required fields.",
+      "label": "Hotkeys JSON",
+      "errorTitle": "Import Error",
+      "submit": "Import Hotkeys",
+      "invalidObject": "Invalid hotkey object",
+      "missingFields": "Missing required fields: {{fields}}",
+      "emptyInput": "Please enter JSON data to import",
+      "invalidFormatHotkeys": "Invalid format: hotkeys property must be an array",
+      "invalidFormat": "Invalid format: expected an array of hotkeys or an object with a hotkeys property",
+      "noHotkeys": "No hotkeys found in the imported data",
+      "validationUnknown": "Unknown validation error",
+      "indexError": "Hotkey at index {{index}}: {{error}}",
+      "unknown": "Unknown error occurred"
+    },
+    "duplicate": {
+      "title": "Warning: Duplicate Hotkey Detected",
+      "description": "The hotkey combination \"<strong>{{key}}</strong>\" is already being used by:",
+      "warning": "Having duplicate hotkeys may cause conflicts and unexpected behavior. Are you sure you want to proceed?",
+      "allow": "Allow Duplicate"
+    },
     "import": {
       "description": "Paste your exported hotkeys JSON below. This will replace your current hotkeys. Make sure the JSON contains an array of hotkey objects with the required fields.",
       "label": "Hotkeys JSON",
