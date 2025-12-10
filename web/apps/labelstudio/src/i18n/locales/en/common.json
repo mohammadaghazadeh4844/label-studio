@@ -62,6 +62,14 @@
         "sampleLoad": "Something went wrong, the sample data could not be loaded."
       }
     },
+    "importModal": {
+      "title": "Import data",
+      "header": "Import Data",
+      "cancel": "Cancel",
+      "cancelAria": "Cancel import",
+      "import": "Import",
+      "importAria": "Finish import"
+    },
     "config": {
       "title": "Labeling Interface",
       "browse": "Browse Templates",
