@@ -3,7 +3,9 @@
     "cancel": "Cancel",
     "save": "Save",
     "learnMore": "Learn more",
-    "productName": "Smart Labeling System"
+    "productName": "Smart Labeling System",
+    "close": "Close",
+    "delete": "Delete"
   },
   "createProject": {
     "title": "Create Project",
@@ -165,6 +167,204 @@
     }
   },
   "settings": {
+    "storage": {
+      "title": "Cloud Storage Settings",
+      "heading": "Cloud Storage",
+      "subtitle": "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.",
+      "untitled": "Untitled {{type}}",
+      "edit": "Edit",
+      "optionsAria": "Storage options",
+      "sync": "Sync Storage",
+      "syncAria": "Sync Storage",
+      "syncingNote": "Syncing may take some time, please refresh the page to see the current status.",
+      "source": {
+        "title": "Source Cloud Storage",
+        "add": "Add Source Storage",
+        "addAria": "Add Source Storage"
+      },
+      "target": {
+        "title": "Target Cloud Storage",
+        "add": "Add Target Storage",
+        "addAria": "Add Target Storage"
+      },
+      "empty": {
+        "title": "Add your first cloud storage",
+        "description": "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations."
+      },
+      "providers": {
+        "s3": "Amazon S3",
+        "gcs": "Google Cloud Storage",
+        "azure": "Azure Blob Storage",
+        "redis": "Redis Storage"
+      },
+      "learnMoreAria": "Learn more about cloud storage (opens in new window)",
+      "form": {
+        "storageType": "Storage Type",
+        "connected": "Successfully connected!",
+        "connectionFailed": "Connection failed",
+        "test": "Check Connection",
+        "testAria": "Test storage connection",
+        "add": "Add Storage",
+        "addAria": "Add storage",
+        "saveAria": "Save storage settings"
+      },
+      "modal": {
+        "edit": "Edit",
+        "connect": "Connect"
+      },
+      "delete": {
+        "title": "Deleting storage",
+        "body": "This action cannot be undone. Are you sure?"
+      },
+      "summary": {
+        "type": "Type",
+        "status": "Status",
+        "statusHelp": [
+          "Initialized: storage was added, but never synced; sufficient for starting URI link resolving",
+          "Queued: sync job is in the queue, but not yet started",
+          "In progress: sync job is running",
+          "Failed: sync job stopped, some errors occurred",
+          "Completed with errors: sync job completed but some tasks had validation errors",
+          "Completed: sync job completed successfully"
+        ],
+        "viewLogs": "View Logs",
+        "annotations": "Annotations",
+        "tasks": "Tasks",
+        "lastSync": "Last Sync",
+        "notSynced": "Not synced yet",
+        "bucket": "Bucket",
+        "container": "Container",
+        "path": "Path",
+        "host": "Host",
+        "annotationsAdded": "{{count}} annotations successfully saved during the last sync.",
+        "annotationsTotal": "{{count}} total annotations seen in the project at the sync moment.",
+        "tasksAdded": "{{count}} new tasks added during the last sync.",
+        "tasksExisting": "{{count}} tasks that have been found and already synced will not be added to the project again.",
+        "tasksTotal": "{{count}} tasks have been added in total for this storage.",
+        "totalCount": "{{count}} total",
+        "newCount": "{{count}} new",
+        "errorLogTitle": "Storage Sync Error Log",
+        "troubleshootLink": "See docs",
+        "troubleshootText": "for troubleshooting tips on cloud storage connections.",
+        "troubleshootAria": "Learn more about cloud storage troubleshooting"
+      }
+    },
+    "general": {
+      "title": "General Settings",
+      "projectName": "Project Name",
+      "description": "Description",
+      "workspace": {
+        "title": "Workspace",
+        "placeholder": "Select an option",
+        "tip": "Simplify project management by organizing projects into workspaces."
+      },
+      "color": "Color",
+      "taskSampling": "Task Sampling",
+      "sampling": {
+        "suffix": "sampling",
+        "sequential": {
+          "label": "Sequential",
+          "description": "Tasks are ordered by Task ID"
+        },
+        "uniform": {
+          "label": "Random",
+          "description": "Tasks are chosen with uniform random"
+        },
+        "uncertainty": "Uncertainty sampling",
+        "uncertaintyDescription": "Tasks are chosen according to model uncertainty score (active learning mode)."
+      },
+      "saved": "Saved!",
+      "saveAria": "Save general settings"
+    },
+    "annotation": {
+      "title": "Annotation Settings",
+      "instructions": {
+        "title": "Labeling Instructions",
+        "body1": "Write instructions to help users complete labeling tasks.",
+        "body2": "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
+        "toggle": "Show before labeling"
+      },
+      "prelabeling": {
+        "title": "Prelabeling",
+        "toggle": "Use predictions to prelabel tasks",
+        "description": "Enable and select which set of predictions to use for prelabeling."
+      },
+      "saved": "Saved!",
+      "saveAria": "Save annotation settings"
+    }
+  },
+  "settings": {
+    "storage": {
+      "title": "Cloud Storage Settings",
+      "heading": "Cloud Storage",
+      "subtitle": "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.",
+      "source": {
+        "title": "Source Cloud Storage",
+        "add": "Add Source Storage",
+        "addAria": "Add Source Storage"
+      },
+      "target": {
+        "title": "Target Cloud Storage",
+        "add": "Add Target Storage",
+        "addAria": "Add Target Storage"
+      },
+      "empty": {
+        "title": "Add your first cloud storage",
+        "description": "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations."
+      },
+      "providers": {
+        "s3": "Amazon S3",
+        "gcs": "Google Cloud Storage",
+        "azure": "Azure Blob Storage",
+        "redis": "Redis Storage"
+      },
+      "learnMoreAria": "Learn more about cloud storage (opens in new window)"
+    },
+    "general": {
+      "title": "General Settings",
+      "projectName": "Project Name",
+      "description": "Description",
+      "workspace": {
+        "title": "Workspace",
+        "placeholder": "Select an option",
+        "tip": "Simplify project management by organizing projects into workspaces."
+      },
+      "color": "Color",
+      "taskSampling": "Task Sampling",
+      "sampling": {
+        "suffix": "sampling",
+        "sequential": {
+          "label": "Sequential",
+          "description": "Tasks are ordered by Task ID"
+        },
+        "uniform": {
+          "label": "Random",
+          "description": "Tasks are chosen with uniform random"
+        },
+        "uncertainty": "Uncertainty sampling",
+        "uncertaintyDescription": "Tasks are chosen according to model uncertainty score (active learning mode)."
+      },
+      "saved": "Saved!",
+      "saveAria": "Save general settings"
+    },
+    "annotation": {
+      "title": "Annotation Settings",
+      "instructions": {
+        "title": "Labeling Instructions",
+        "body1": "Write instructions to help users complete labeling tasks.",
+        "body2": "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
+        "toggle": "Show before labeling"
+      },
+      "prelabeling": {
+        "title": "Prelabeling",
+        "toggle": "Use predictions to prelabel tasks",
+        "description": "Enable and select which set of predictions to use for prelabeling."
+      },
+      "saved": "Saved!",
+      "saveAria": "Save annotation settings"
+    }
+  },
+  "settings": {
     "general": {
       "title": "General Settings",
       "projectName": "Project Name",
@@ -311,5 +511,47 @@
   },
   "webhooks": {
     "tooltip": "Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, {{productName}} sends an HTTP POST request to the configured webhook URL."
+  },
+  "account": {
+    "personalInfo": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "E-mail",
+      "phone": "Phone",
+      "deleteAvatar": "Delete",
+      "avatarError": "Error updating avatar",
+      "updateError": "Error updating user"
+    },
+    "hotkeys": {
+      "title": "Hotkeys",
+      "description": "Customize your keyboard shortcuts to speed up your workflow. Click on any hotkey below to assign a new key combination that works best for you.",
+      "recordAria": "Click to record keyboard shortcut",
+      "pressNow": "Press keys now...",
+      "setShortcut": "Click to set shortcut",
+      "apply": "Apply",
+      "disable": "Disable",
+      "enable": "Enable",
+      "edit": "Click to edit hotkey"
+    },
+    "membership": {
+      "userId": "User ID",
+      "registrationDate": "Registration date",
+      "annotations": "Annotations Submitted",
+      "projects": "Projects contributed to",
+      "organization": "Organization",
+      "myRole": "My role",
+      "organizationId": "Organization ID",
+      "owner": "Owner",
+      "created": "Created",
+      "roles": {
+        "owner": "Owner",
+        "deactivated": "Deactivated",
+        "administrator": "Administrator",
+        "manager": "Manager",
+        "annotator": "Annotator",
+        "reviewer": "Reviewer",
+        "pending": "Pending"
+      }
+    }
   }
 }

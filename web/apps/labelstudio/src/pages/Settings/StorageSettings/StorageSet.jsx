@@ -11,6 +11,7 @@ import { projectAtom } from "../../../providers/ProjectProvider";
 import { providers } from "./providers";
 import { StorageCard } from "./StorageCard";
 import { StorageForm } from "./StorageForm";
+import { useTranslation } from "react-i18next";
 
 export const StorageSet = forwardRef(
   (
@@ -29,6 +30,7 @@ export const StorageSet = forwardRef(
     },
     ref,
   ) => {
+    const { t } = useTranslation();
     const api = useContext(ApiContext);
     const project = useAtomValue(projectAtom);
 
@@ -36,9 +38,9 @@ export const StorageSet = forwardRef(
 
     const showStorageFormModal = useCallback(
       (storage) => {
-        const action = storage ? "Edit" : "Connect";
-        const actionTarget = target === "export" ? "Target" : "Source";
-        const title = `${action} ${actionTarget} Storage`;
+        const action = storage ? t("settings.storage.modal.edit") : t("settings.storage.modal.connect");
+        const actionTarget = target === "export" ? t("settings.storage.target.title") : t("settings.storage.source.title");
+        const title = `${action} ${actionTarget}`;
 
         const modalRef = modal({
           title,
@@ -104,8 +106,8 @@ export const StorageSet = forwardRef(
     const onDeleteStorage = useCallback(
       async (storage) => {
         confirm({
-          title: "Deleting storage",
-          body: "This action cannot be undone. Are you sure?",
+          title: t("settings.storage.delete.title"),
+          body: t("settings.storage.delete.body"),
           buttonLook: "negative",
           onOk: async () => {
             const response = await api.callApi("deleteStorage", {
@@ -131,7 +133,9 @@ export const StorageSet = forwardRef(
             disabled={loading}
             look="outlined"
             data-testid={`add-${target === "export" ? "target" : "source"}-storage-button`}
-            aria-label={`Add ${target === "export" ? "Target" : "Source"} Storage`}
+            aria-label={
+              target === "export" ? t("settings.storage.target.addAria") : t("settings.storage.source.addAria")
+            }
           >
             {buttonLabel}
           </Button>

@@ -17,26 +17,28 @@ export type SectionType = {
   description?: React.FC;
 };
 
-export const accountSettingsSections = (settings: AuthTokenSettings, permissions: AuthPermissions): SectionType[] => {
+export const accountSettingsSections = (settings: AuthTokenSettings, permissions: AuthPermissions, t?: (key: string, opts?: any) => string): SectionType[] => {
   const canCreateTokens = permissions.can(ABILITY.can_create_tokens);
 
   return [
     {
-      title: "Personal Info",
+      title: t ? t("account.personalInfo") : "Personal Info",
       id: "personal-info",
       component: PersonalInfo,
     },
     {
       title: (
         <div className="flex items-center gap-tight">
-          <span>Hotkeys</span>
+          <span>{t ? t("account.hotkeys.title") : "Hotkeys"}</span>
           {/* <Badge variant="beta">Beta</Badge> */}
         </div>
       ),
       id: "hotkeys",
       component: HotkeysManager,
       description: () =>
-        "Customize your keyboard shortcuts to speed up your workflow. Click on any hotkey below to assign a new key combination that works best for you.",
+        t
+          ? t("account.hotkeys.description")
+          : "Customize your keyboard shortcuts to speed up your workflow. Click on any hotkey below to assign a new key combination that works best for you.",
     },
     // {
     //   title: "Email Preferences",
