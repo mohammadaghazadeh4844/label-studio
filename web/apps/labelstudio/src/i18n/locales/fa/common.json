@@ -526,8 +526,8 @@
   },
   "account": {
     "title": "حساب کاربری من",
-    "personalInfo": "اطلاعات شخصی",
     "personalInfo": {
+      "title":"اطلاعات شخصی",
       "firstName": "نام",
       "lastName": "نام خانوادگی",
       "email": "ایمیل",
