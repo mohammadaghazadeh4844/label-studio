@@ -114,9 +114,9 @@ export const WithMultipleActions: Story = {
     description: "Connect your cloud storage or upload files from your computer",
     actions: (
       <>
-        <Button variant="primary" look="filled" className="flex-1">
+        {/* <Button variant="primary" look="filled" className="flex-1">
           Connect Cloud Storage
-        </Button>
+        </Button> */}
         <Button variant="primary" look="outlined" className="flex-1">
           Upload Files
         </Button>
@@ -140,9 +140,9 @@ export const SizeComparison: Story = {
             description="Connect your cloud storage or upload files from your computer"
             actions={
               <>
-                <Button variant="primary" look="filled" className="flex-1">
+                {/* <Button variant="primary" look="filled" className="flex-1">
                   Connect Cloud Storage
-                </Button>
+                </Button> */}
                 <Button variant="primary" look="outlined" className="flex-1">
                   Import
                 </Button>
@@ -295,22 +295,22 @@ export const DataManagerImport: Story = {
     // ),
     actions: (
       <>
-        <Button variant="primary" look="filled" className="flex-1">
+        {/* <Button variant="primary" look="filled" className="flex-1">
           Connect Cloud Storage
-        </Button>
+        </Button> */}
         <Button variant="primary" look="outlined" className="flex-1">
           Import
         </Button>
       </>
     ),
-    footer: (
-      <Typography variant="label" size="small" className="text-primary-link hover:underline">
-        <a href="/docs/import-data" className="inline-flex items-center gap-1">
-          See docs on importing data
-          <IconExternal width={20} height={20} />
-        </a>
-      </Typography>
-    ),
+    // footer: (
+    //   <Typography variant="label" size="small" className="text-primary-link hover:underline">
+    //     <a href="/docs/import-data" className="inline-flex items-center gap-1">
+    //       See docs on importing data
+    //       <IconExternal width={20} height={20} />
+    //     </a>
+    //   </Typography>
+    // ),
   },
 };
 
