@@ -8,40 +8,44 @@ import { cn } from "../../utils/bem";
 import { HeidiTips } from "../../components/HeidiTips/HeidiTips";
 import { FF_LSDV_E_297, isFF } from "../../utils/feature-flags";
 import { createURL } from "../../components/HeidiTips/utils";
+import { useTranslation } from "react-i18next";
 
 export const GeneralSettings = () => {
   const { project, fetchProject } = useContext(ProjectContext);
+  const { t } = useTranslation();
 
   const updateProject = useCallback(() => {
     if (project.id) fetchProject(project.id, true);
-  }, [project]);
+  }, [project, fetchProject]);
 
   const colors = ["#FDFDFC", "#FF4C25", "#FF750F", "#ECB800", "#9AC422", "#34988D", "#617ADA", "#CC6FBE"];
 
   const samplings = [
-    { value: "Sequential", label: "Sequential", description: "Tasks are ordered by Task ID" },
-    { value: "Uniform", label: "Random", description: "Tasks are chosen with uniform random" },
+    { value: "Sequential", label: t("settings.general.sampling.sequential.label"), description: t("settings.general.sampling.sequential.description") },
+    { value: "Uniform", label: t("settings.general.sampling.uniform.label"), description: t("settings.general.sampling.uniform.description") },
   ];
 
   return (
     <div className={cn("general-settings").toClassName()}>
       <div className={cn("general-settings").elem("wrapper").toClassName()}>
-        <h1>General Settings</h1>
+        <h1>{t("settings.general.title")}</h1>
         <div className={cn("settings-wrapper").toClassName()}>
           <Form action="updateProject" formData={{ ...project }} params={{ pk: project.id }} onSubmit={updateProject}>
             <Form.Row columnCount={1} rowGap="16px">
-              <Input name="title" label="Project Name" />
+              <Input name="title" label={t("settings.general.projectName")} />
 
-              <TextArea name="description" label="Description" style={{ minHeight: 128 }} />
+              <TextArea name="description" label={t("settings.general.description")} style={{ minHeight: 128 }} />
               {isFF(FF_LSDV_E_297) && (
                 <div className={cn("workspace-placeholder").toClassName()}>
                   <div className={cn("workspace-placeholder").elem("badge-wrapper").toClassName()}>
-                    <div className={cn("workspace-placeholder").elem("title").toClassName()}>Workspace</div>
+                    <div className={cn("workspace-placeholder").elem("title").toClassName()}>
+                      {t("settings.general.workspace.title")}
+                    </div>
                     <EnterpriseBadge className="ml-2" />
                   </div>
-                  <Select placeholder="Select an option" disabled options={[]} />
+                  <Select placeholder={t("settings.general.workspace.placeholder")} disabled options={[]} />
                   <Typography size="small" className="my-tight">
-                    Simplify project management by organizing projects into workspaces.{" "}
+                    {t("settings.general.workspace.tip")}{" "}
                     <a
                       target="_blank"
                       href={createURL(
@@ -54,12 +58,12 @@ export const GeneralSettings = () => {
                       rel="noreferrer"
                       className="underline hover:no-underline"
                     >
-                      Learn more
+                      {t("common.learnMore")}
                     </a>
                   </Typography>
                 </div>
               )}
-              <RadioGroup name="color" label="Color" size="large" labelProps={{ size: "large" }}>
+              <RadioGroup name="color" label={t("settings.general.color")} size="large" labelProps={{ size: "large" }}>
                 {colors.map((color) => (
                   <RadioGroup.Button key={color} value={color}>
                     <div className={cn("color").toClassName()} style={{ "--background": color }} />
@@ -67,12 +71,12 @@ export const GeneralSettings = () => {
                 ))}
               </RadioGroup>
 
-              <RadioGroup label="Task Sampling" labelProps={{ size: "large" }} name="sampling" simple>
+              <RadioGroup label={t("settings.general.taskSampling")} labelProps={{ size: "large" }} name="sampling" simple>
                 {samplings.map(({ value, label, description }) => (
                   <RadioGroup.Button
                     key={value}
                     value={`${value} sampling`}
-                    label={`${label} sampling`}
+                    label={`${label} ${t("settings.general.sampling.suffix")}`}
                     description={description}
                   />
                 ))}
@@ -82,13 +86,13 @@ export const GeneralSettings = () => {
                     value=""
                     label={
                       <>
-                        Uncertainty sampling <EnterpriseBadge className="ml-2" />
+                        {t("settings.general.sampling.uncertainty")} <EnterpriseBadge className="ml-2" />
                       </>
                     }
                     disabled
                     description={
                       <>
-                        Tasks are chosen according to model uncertainty score (active learning mode).{" "}
+                        {t("settings.general.sampling.uncertaintyDescription")}{" "}
                         <a
                           target="_blank"
                           href={createURL("https://docs.humansignal.com/guide/active_learning", {
@@ -97,7 +101,7 @@ export const GeneralSettings = () => {
                           })}
                           rel="noreferrer"
                         >
-                          Learn more
+                          {t("common.learnMore")}
                         </a>
                       </>
                     }
@@ -108,10 +112,10 @@ export const GeneralSettings = () => {
 
             <Form.Actions>
               <Form.Indicator>
-                <span case="success">Saved!</span>
+                <span case="success">{t("settings.general.saved")}</span>
               </Form.Indicator>
-              <Button type="submit" className="w-[150px]" aria-label="Save general settings">
-                Save
+              <Button type="submit" className="w-[150px]" aria-label={t("settings.general.saveAria")}>
+                {t("common.save")}
               </Button>
             </Form.Actions>
           </Form>
