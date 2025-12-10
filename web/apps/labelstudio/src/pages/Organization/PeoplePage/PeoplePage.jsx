@@ -95,13 +95,13 @@ export const PeoplePage = () => {
           null
         )}
       </div>
-      <InviteLink
+      {/* <InviteLink
         opened={invitationOpen}
         onClosed={() => {
           console.log("hidden");
           setInvitationOpen(false);
         }}
-      />
+      /> */}
     </div>
   );
 };
