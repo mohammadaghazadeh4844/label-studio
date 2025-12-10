@@ -7,6 +7,7 @@ import { Toggle } from "../../components/Form";
 import { useAPI } from "../../providers/ApiProvider";
 import { WebhookDeleteModal } from "./WebhookDeleteModal";
 import { ABILITY, useAuth } from "@humansignal/core/providers/AuthProvider";
+import { useTranslation } from "react-i18next";
 
 const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, canChangeWebhooks }) => {
   return (
@@ -64,6 +65,7 @@ const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, ca
 };
 
 const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) => {
+  const { t } = useTranslation();
   const api = useAPI();
   const { permissions } = useAuth();
   const canChangeWebhooks = permissions.can(ABILITY.can_change_webhooks);
@@ -92,8 +94,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
         </Typography>
         {webhooks.length > 0 && (
           <Typography size="small" className="text-neutral-content-subtler">
-            Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, {"app name"}{" "}
-            sends an HTTP POST request to the configured webhook URL.
+            {t("webhooks.tooltip", { productName: t("common.productName") })}
           </Typography>
         )}
       </header>
@@ -105,7 +106,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
               variant="primary"
               icon={<IconWebhook />}
               title="Add your first webhook"
-              description="Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, Label Studio sends an HTTP POST request to the configured webhook URL."
+              description={t("webhooks.tooltip", { productName: t("common.productName") })}
               actions={
                 canChangeWebhooks ? (
                   <Button variant="primary" look="filled" onClick={onAddWebhook}>

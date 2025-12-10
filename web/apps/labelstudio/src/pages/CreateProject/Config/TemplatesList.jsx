@@ -36,7 +36,7 @@ const TemplatesInGroup = ({ templates, group, onSelectRecipe, isEdition }) => {
             key={recipe.title}
             onClick={() => !isDisabled && onSelectRecipe(recipe)}
             className={listClass.elem("template").mod({ disabled: isDisabled })}
-            title={isDisabled ? t("templates.enterpriseTooltip") : ""}
+            title={isDisabled ? t("templates.enterpriseTooltipProduct", { productName: t("common.productName") }) : ""}
           >
             <img src={recipe.image} alt={""} />
             <div className="flex w-full relative">

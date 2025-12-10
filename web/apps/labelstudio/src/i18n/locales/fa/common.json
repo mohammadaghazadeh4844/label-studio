@@ -2,7 +2,8 @@
   "common": {
     "cancel": "لغو",
     "save": "ذخیره",
-    "learnMore": "بیشتر بدانید"
+    "learnMore": "بیشتر بدانید",
+    "productName": "سیستم برچسب‌زنی هوشمند"
   },
   "createProject": {
     "title": "ایجاد پروژه",
@@ -107,6 +108,7 @@
   },
   "templates": {
     "enterpriseTooltip": "ویژگی نسخه سازمانی - در لیبل استودیو سازمانی در دسترس است",
+    "enterpriseTooltipProduct": "ویژگی نسخه سازمانی - در {{productName}} سازمانی در دسترس است",
     "footerText": "برای مشاهده راهنما و <link>مشارکت در قالب</link> کلیک کنید.",
     "footerLink": "مشارکت در قالب"
   },
@@ -127,7 +129,8 @@
       "create": "ایجاد پروژه",
       "createAria": "ایجاد پروژه جدید"
     },
-    "projectProgress": "{{finished}} از {{total}} کار ({{percent}}٪)"
+    "projectProgress": "{{finished}} از {{total}} کار ({{percent}}٪)",
+    "version": "{{product}} نسخه: {{edition}}"
   },
   "menubar": {
     "logoAlt": "لوگوی لیبل استودیو",
@@ -296,5 +299,8 @@
         "createAria": "ساخت مدل جدید"
       }
     }
+  },
+  "webhooks": {
+    "tooltip": "یکپارچه‌سازی‌ها را طوری تنظیم کنید که به رویدادها گوش دهند. هنگام وقوع رویداد، {{productName}} یک درخواست POST به آدرس وب‌هوک ارسال می‌کند."
   }
 }

@@ -2,7 +2,8 @@
   "common": {
     "cancel": "Cancel",
     "save": "Save",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "productName": "Smart Labeling System"
   },
   "createProject": {
     "title": "Create Project",
@@ -107,6 +108,7 @@
   },
   "templates": {
     "enterpriseTooltip": "Enterprise feature - Available in Label Studio Enterprise",
+    "enterpriseTooltipProduct": "Enterprise feature - Available in {{productName}} Enterprise",
     "footerText": "See the documentation to <link>contribute a template</link>.",
     "footerLink": "contribute a template"
   },
@@ -127,7 +129,8 @@
       "create": "Create Project",
       "createAria": "Create new project"
     },
-    "projectProgress": "{{finished}} of {{total}} Tasks ({{percent}}%)"
+    "projectProgress": "{{finished}} of {{total}} Tasks ({{percent}}%)",
+    "version": "{{product}} Version: {{edition}}"
   },
   "menubar": {
     "logoAlt": "Label Studio Logo",
@@ -296,5 +299,8 @@
         "createAria": "Create new model"
       }
     }
+  },
+  "webhooks": {
+    "tooltip": "Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, {{productName}} sends an HTTP POST request to the configured webhook URL."
   }
 }
