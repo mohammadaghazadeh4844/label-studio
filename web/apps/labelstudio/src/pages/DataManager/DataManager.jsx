@@ -14,6 +14,7 @@ import { isDefined } from "../../utils/helpers";
 import { ImportModal } from "../CreateProject/Import/ImportModal";
 import { ExportPage } from "../ExportPage/ExportPage";
 import { APIConfig } from "./api-config";
+import { useTranslation } from "react-i18next";
 
 import "./DataManager.scss";
 
@@ -66,6 +67,7 @@ export const DataManagerPage = ({ ...props }) => {
   const api = useAPI();
   const { project } = useProject();
   const setContextProps = useContextProps();
+  const { t } = useTranslation();
   const [crashed, setCrashed] = useState(false);
   const [loading, setLoading] = useState(!window.DataManager || !window.LabelStudio);
   const dataManagerRef = useRef();
@@ -100,9 +102,9 @@ export const DataManagerPage = ({ ...props }) => {
       const isMissingProjectError = error?.startsWith("Project ID:");
 
       if (isMissingTaskError || isMissingProjectError) {
-        const message = `The ${
-          isMissingTaskError ? "task" : "project"
-        } you are trying to access does not exist or is no longer available.`;
+        const message = isMissingTaskError
+          ? t("datamanager.missingTask")
+          : t("datamanager.missingProject");
 
         toast.show({
           message,
@@ -210,10 +212,10 @@ export const DataManagerPage = ({ ...props }) => {
 
   return crashed ? (
     <div className={cn("crash").toClassName()}>
-      <div className={cn("crash").elem("info").toClassName()}>Project was deleted or not yet created</div>
+      <div className={cn("crash").elem("info").toClassName()}>{t("datamanager.crash")}</div>
 
-      <Button to="/projects" aria-label="Back to projects">
-        Back to projects
+      <Button to="/projects" aria-label={t("datamanager.backAria")}>
+        {t("datamanager.back")}
       </Button>
     </div>
   ) : (
@@ -250,7 +252,7 @@ DataManagerPage.context = ({ dmRef }) => {
     } else {
       addCrumb({
         key: "dm-crumb",
-        title: "Labeling",
+        title: t("datamanager.labeling"),
       });
     }
   };
@@ -292,7 +294,7 @@ DataManagerPage.context = ({ dmRef }) => {
           look="outlined"
           onClick={() => {
             modal({
-              title: "Instructions",
+              title: t("datamanager.instructions"),
               body: () => (
                 <div
                   dangerouslySetInnerHTML={{
@@ -303,7 +305,7 @@ DataManagerPage.context = ({ dmRef }) => {
             });
           }}
         >
-          Instructions
+          {t("datamanager.instructions")}
         </Button>
       )}
 
@@ -315,7 +317,7 @@ DataManagerPage.context = ({ dmRef }) => {
           to={`/projects/${project.id}${path}`}
           data-external
         >
-          {label}
+          {t("datamanager.settings")}
         </Link>
       ))}
     </Space>

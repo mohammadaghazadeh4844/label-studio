@@ -9,6 +9,7 @@ import { useFixedLocation, useParams } from "../../providers/RoutesProvider";
 import { cn } from "../../utils/bem";
 import { isDefined } from "../../utils/helpers";
 import "./ExportPage.scss";
+import { useTranslation, Trans } from "react-i18next";
 
 // const formats = {
 //   json: 'JSON',
@@ -30,6 +31,7 @@ export const ExportPage = () => {
   const location = useFixedLocation();
   const pageParams = useParams();
   const api = useAPI();
+  const { t } = useTranslation();
 
   const [previousExports, setPreviousExports] = useState([]);
   const [downloading, setDownloading] = useState(false);
@@ -106,7 +108,7 @@ export const ExportPage = () => {
 
         history.replace(`${path}${search !== "?" ? search : ""}`);
       }}
-      title="Export data"
+      title={t("export.title")}
       style={{ width: 720 }}
       closeOnClickOutside={false}
       allowClose={!downloading}
@@ -129,9 +131,9 @@ export const ExportPage = () => {
             <div className={cn("export-page").elem("recent").toClassName()}>{/* {exportHistory} */}</div>
             <div className={cn("export-page").elem("actions").toClassName()}>
               <Space>
-                {downloadingMessage && "Files are being prepared. It might take some time."}
-                <Button className="w-[135px]" onClick={proceedExport} waiting={downloading} aria-label="Export data">
-                  Export
+                {downloadingMessage && t("export.preparing")}
+                <Button className="w-[135px]" onClick={proceedExport} waiting={downloading} aria-label={t("export.aria")}>
+                  {t("export.action")}
                 </Button>
               </Space>
             </div>
@@ -143,10 +145,11 @@ export const ExportPage = () => {
 };
 
 const FormatInfo = ({ availableFormats, selected, onClick }) => {
+  const { t } = useTranslation();
   return (
     <div className={cn("formats").toClassName()}>
       <div className={cn("formats").elem("info").toClassName()}>
-        You can export dataset in one of the following formats:
+        {t("export.info")}
       </div>
       <div className={cn("formats").elem("list").toClassName()}>
         {availableFormats.map((format) => (
@@ -180,21 +183,32 @@ const FormatInfo = ({ availableFormats, selected, onClick }) => {
         ))}
       </div>
       <div className={cn("formats").elem("feedback").toClassName()}>
-        Can't find an export format?
-        <br />
-        Please let us know in{" "}
-        <a className="no-go" href="https://slack.labelstud.io/?source=product-export" target="_blank" rel="noreferrer">
-          Slack
-        </a>{" "}
-        or submit an issue to the{" "}
-        <a
-          className="no-go"
-          href="https://github.com/HumanSignal/label-studio-converter/issues"
-          target="_blank"
-          rel="noreferrer"
+        <Trans
+          i18nKey="export.feedback"
+          components={{
+            slack: (
+              <a
+                className="no-go"
+                href="https://slack.labelstud.io/?source=product-export"
+                target="_blank"
+                rel="noreferrer"
+              />
+            ),
+            repo: (
+              <a
+                className="no-go"
+                href="https://github.com/HumanSignal/label-studio-converter/issues"
+                target="_blank"
+                rel="noreferrer"
+              />
+            ),
+            br: <br />,
+          }}
         >
-          Repository
-        </a>
+          Can't find an export format?
+          <br />
+          Please let us know in <slack>Slack</slack> or submit an issue to the <repo>Repository</repo>
+        </Trans>
       </div>
     </div>
   );

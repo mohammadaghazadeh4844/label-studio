@@ -1,7 +1,8 @@
 {
   "common": {
     "cancel": "Cancel",
-    "save": "Save"
+    "save": "Save",
+    "learnMore": "Learn more"
   },
   "createProject": {
     "title": "Create Project",
@@ -160,6 +161,51 @@
       "createAria": "Create new project"
     }
   },
+  "settings": {
+    "general": {
+      "title": "General Settings",
+      "projectName": "Project Name",
+      "description": "Description",
+      "workspace": {
+        "title": "Workspace",
+        "placeholder": "Select an option",
+        "tip": "Simplify project management by organizing projects into workspaces."
+      },
+      "color": "Color",
+      "taskSampling": "Task Sampling",
+      "sampling": {
+        "suffix": "sampling",
+        "sequential": {
+          "label": "Sequential",
+          "description": "Tasks are ordered by Task ID"
+        },
+        "uniform": {
+          "label": "Random",
+          "description": "Tasks are chosen with uniform random"
+        },
+        "uncertainty": "Uncertainty sampling",
+        "uncertaintyDescription": "Tasks are chosen according to model uncertainty score (active learning mode)."
+      },
+      "saved": "Saved!",
+      "saveAria": "Save general settings"
+    },
+    "annotation": {
+      "title": "Annotation Settings",
+      "instructions": {
+        "title": "Labeling Instructions",
+        "body1": "Write instructions to help users complete labeling tasks.",
+        "body2": "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
+        "toggle": "Show before labeling"
+      },
+      "prelabeling": {
+        "title": "Prelabeling",
+        "toggle": "Use predictions to prelabel tasks",
+        "description": "Enable and select which set of predictions to use for prelabeling."
+      },
+      "saved": "Saved!",
+      "saveAria": "Save annotation settings"
+    }
+  },
   "datamanager": {
     "tabs": {
       "rename": "Rename",
@@ -169,7 +215,15 @@
     },
     "errors": {
       "occurred": "Errors occurred"
-    }
+    },
+    "missingTask": "The task you are trying to access does not exist or is no longer available.",
+    "missingProject": "The project you are trying to access does not exist or is no longer available.",
+    "crash": "Project was deleted or not yet created",
+    "back": "Back to projects",
+    "backAria": "Back to projects",
+    "labeling": "Labeling",
+    "instructions": "Instructions",
+    "settings": "Settings"
   },
   "errors": {
     "runtime": "Runtime error",
@@ -185,6 +239,14 @@
     "goBackAria": "Go back",
     "reload": "Reload",
     "reloadAria": "Reload page"
+  },
+  "export": {
+    "title": "Export data",
+    "preparing": "Files are being prepared. It might take some time.",
+    "aria": "Export data",
+    "action": "Export",
+    "info": "You can export dataset in one of the following formats:",
+    "feedback": "Can't find an export format?<br />Please let us know in <slack>Slack</slack> or submit an issue to the <repo>Repository</repo>"
   },
   "hotkeys": {
     "title": "Keyboard Shortcuts",
@@ -225,6 +287,14 @@
       "createdProjects": "Created Projects",
       "contributedTo": "Contributed to",
       "lastActivityOn": "Last activity on:"
+    },
+    "models": {
+      "empty": {
+        "title": "Create a Model",
+        "caption": "Build a high quality model to auto-label your data using LLMs",
+        "create": "Create a Model",
+        "createAria": "Create new model"
+      }
     }
   }
 }
