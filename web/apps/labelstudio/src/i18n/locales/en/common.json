@@ -291,6 +291,39 @@
       },
       "saved": "Saved!",
       "saveAria": "Save annotation settings"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "subtitle": "Perform these actions at your own risk. Actions you take on this page can't be reverted. Make sure your data is backed up.",
+      "confirmPrompt": "To proceed, type \"{{word}}\" in the field below:",
+      "resetCache": {
+        "title": "Reset Cache",
+        "message": "You are about to reset the cache for {{title}}. This action cannot be undone.",
+        "word": "cache",
+        "button": "Reset Cache",
+        "help": "Reset Cache may help if you can't modify the labeling configuration due to validation errors, but you are sure the labels don't exist. Use this to reset and try again.",
+        "success": "Cache reset successfully"
+      },
+      "dropTabs": {
+        "title": "Drop All Tabs",
+        "message": "You are about to drop all tabs for {{title}}. This action cannot be undone.",
+        "word": "tabs",
+        "button": "Drop All Tabs",
+        "help": "If the Data Manager is not loading, dropping all Data Manager tabs can help.",
+        "success": "All tabs dropped successfully"
+      },
+      "deleteProject": {
+        "title": "Delete Project",
+        "message": "You are about to delete the project {{title}}. This action cannot be undone.",
+        "word": "delete",
+        "button": "Delete Project",
+        "help": "Deleting a project removes all tasks, annotations, and project data from the database.",
+        "success": "Project deleted successfully"
+      },
+      "deleteAnnotations": "Delete {{count}} Annotations",
+      "deleteTasks": "Delete {{count}} Tasks",
+      "deletePredictions": "Delete {{count}} Predictions",
+      "error": "Error: {{error}}"
     }
   },
   "settings": {
