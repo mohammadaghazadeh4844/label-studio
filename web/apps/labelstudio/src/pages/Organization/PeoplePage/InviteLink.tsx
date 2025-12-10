@@ -28,6 +28,7 @@ export function InviteLink({
   onOpened?: () => void;
   onClosed?: () => void;
 }) {
+  const { t } = useTranslation();
   const modalRef = useRef<Modal>();
   useEffect(() => {
     if (modalRef.current && opened) {
