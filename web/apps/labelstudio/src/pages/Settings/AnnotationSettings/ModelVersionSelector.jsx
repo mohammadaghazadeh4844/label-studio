@@ -2,6 +2,7 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { useAPI } from "../../../providers/ApiProvider";
 import { Select } from "../../../components/Form";
 import { ProjectContext } from "../../../providers/ProjectProvider";
+import { useTranslation } from "react-i18next";
 
 export const ModelVersionSelector = ({
   name = "model_version",
@@ -16,6 +17,7 @@ export const ModelVersionSelector = ({
   const [models, setModels] = useState([]);
   const [version, setVersion] = useState(null);
   const [placeholder, setPlaceholder] = useState("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     setVersion(project?.[valueName] || null);
@@ -63,11 +65,11 @@ export const ModelVersionSelector = ({
     }
 
     if (!modelVersions?.static?.length && !modelVersions?.live?.length) {
-      setPlaceholder("No model or predictions available");
+      setPlaceholder(t("settings.predictions.selector.emptyPlaceholder"));
     }
 
     setLoading(false);
-  }, [project?.id, apiName]);
+  }, [project?.id, apiName, t]);
 
   useEffect(() => {
     fetchMLVersions();
@@ -75,7 +77,7 @@ export const ModelVersionSelector = ({
 
   return (
     <div>
-      <label>Select which predictions or which model you want to use:</label>
+      <label>{t("settings.predictions.selector.label")}</label>
       <div style={{ display: "flex", alignItems: "center", width: 400 }}>
         <div style={{ flex: 1, paddingRight: 16 }}>
           <Select
@@ -83,8 +85,11 @@ export const ModelVersionSelector = ({
             disabled={!versions.length && !models.length}
             value={version}
             onChange={setVersion}
-            options={[...models, ...versions]}
-            placeholder={placeholder || "Please select model or predictions"}
+            options={[
+              ...models.map((item) => ({ ...item, group: t("settings.predictions.selector.modelsGroup") })),
+              ...versions.map((item) => ({ ...item, group: t("settings.predictions.selector.predictionsGroup") })),
+            ]}
+            placeholder={placeholder || t("settings.predictions.selector.placeholder")}
             isInProgress={loading}
             {...props}
           />

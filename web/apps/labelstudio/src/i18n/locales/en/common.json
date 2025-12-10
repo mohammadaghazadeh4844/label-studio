@@ -292,6 +292,73 @@
       "saved": "Saved!",
       "saveAria": "Save annotation settings"
     },
+    "labeling": {
+      "title": "Labeling Settings"
+    },
+    "predictions": {
+      "title": "Predictions",
+      "listTitle": "Predictions List",
+      "listDescription": "List of predictions available in the project. Each card is associated with a separate model version. To learn about how to import predictions, see the documentation.",
+      "emptyTitle": "No predictions uploaded yet",
+      "emptyDescription": "Upload predictions to automatically prelabel your data and speed up annotation. Import predictions from multiple model versions to compare their performance, or connect live models from the Model page to generate predictions on demand.",
+      "emptyLearnMore": "Learn more",
+      "emptyLearnMoreAria": "Learn more about predictions (opens in new window)",
+      "undefinedTooltip": "Predictions generated before model versioning (legacy)",
+      "lastCreated": "Last created",
+      "deleteTitle": "Delete Predictions",
+      "deleteBody": "This action cannot be undone. Are you sure?",
+      "selector": {
+        "label": "Select which predictions or which model you want to use:",
+        "placeholder": "Please select model or predictions",
+        "emptyPlaceholder": "No model or predictions available",
+        "modelsGroup": "Models",
+        "predictionsGroup": "Predictions"
+      }
+    },
+    "ml": {
+      "title": "Model Settings",
+      "pageHeading": "Model",
+      "emptyTitle": "Let's connect your first model",
+      "emptyDescription": "Connect a machine learning model to generate live predictions for your project. Compare predictions, accelerate labeling with automatic prelabeling, and direct your team to the most impactful tasks through active learning.",
+      "emptyAction": "Connect Model",
+      "emptyAria": "Add machine learning model",
+      "learnMore": "Learn more",
+      "learnMoreAria": "Learn more about machine learning models (opens in new window)",
+      "connectedNotice": "A connected model has been detected! If you wish to fetch predictions from this model, please follow these steps:",
+      "step1": "1. Navigate to the Data Manager.",
+      "step2": "2. Select the desired tasks.",
+      "step3": "3. Click on Batch predictions from the Actions menu.",
+      "prelabelingHint": "If you want to use the model predictions for prelabeling, please configure this in",
+      "configTitle": "Configuration",
+      "startTrainingLabel": "Start model training on annotation submission",
+      "startTrainingDescription": "This option will send a request to /train with information about annotations. You can use this to enable an Active Learning loop. You can also manually start training through model menu in its card.",
+      "saved": "Saved!",
+      "save": "Save",
+      "saveAria": "Save machine learning settings",
+      "deleteTitle": "Delete ML Backend",
+      "deleteBody": "This action cannot be undone. Are you sure?",
+      "menu": {
+        "edit": "Edit",
+        "test": "Send Test Request",
+        "train": "Start Training",
+        "delete": "Delete",
+        "optionsAria": "Machine learning model options"
+      },
+      "status": {
+        "DI": "Disconnected",
+        "CO": "Connected",
+        "ER": "Error",
+        "TR": "Training",
+        "PR": "Predicting"
+      },
+      "createdPrefix": "Created ",
+      "modal": {
+        "startTraining": "Start Model Training",
+        "testRequest": "Test Request",
+        "connect": "Connect Model",
+        "edit": "Edit Model"
+      }
+    },
     "danger": {
       "title": "Danger Zone",
       "subtitle": "Perform these actions at your own risk. Actions you take on this page can't be reverted. Make sure your data is backed up.",
@@ -324,122 +391,6 @@
       "deleteTasks": "Delete {{count}} Tasks",
       "deletePredictions": "Delete {{count}} Predictions",
       "error": "Error: {{error}}"
-    }
-  },
-  "settings": {
-    "storage": {
-      "title": "Cloud Storage Settings",
-      "heading": "Cloud Storage",
-      "subtitle": "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.",
-      "source": {
-        "title": "Source Cloud Storage",
-        "add": "Add Source Storage",
-        "addAria": "Add Source Storage"
-      },
-      "target": {
-        "title": "Target Cloud Storage",
-        "add": "Add Target Storage",
-        "addAria": "Add Target Storage"
-      },
-      "empty": {
-        "title": "Add your first cloud storage",
-        "description": "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations."
-      },
-      "providers": {
-        "s3": "Amazon S3",
-        "gcs": "Google Cloud Storage",
-        "azure": "Azure Blob Storage",
-        "redis": "Redis Storage"
-      },
-      "learnMoreAria": "Learn more about cloud storage (opens in new window)"
-    },
-    "general": {
-      "title": "General Settings",
-      "projectName": "Project Name",
-      "description": "Description",
-      "workspace": {
-        "title": "Workspace",
-        "placeholder": "Select an option",
-        "tip": "Simplify project management by organizing projects into workspaces."
-      },
-      "color": "Color",
-      "taskSampling": "Task Sampling",
-      "sampling": {
-        "suffix": "sampling",
-        "sequential": {
-          "label": "Sequential",
-          "description": "Tasks are ordered by Task ID"
-        },
-        "uniform": {
-          "label": "Random",
-          "description": "Tasks are chosen with uniform random"
-        },
-        "uncertainty": "Uncertainty sampling",
-        "uncertaintyDescription": "Tasks are chosen according to model uncertainty score (active learning mode)."
-      },
-      "saved": "Saved!",
-      "saveAria": "Save general settings"
-    },
-    "annotation": {
-      "title": "Annotation Settings",
-      "instructions": {
-        "title": "Labeling Instructions",
-        "body1": "Write instructions to help users complete labeling tasks.",
-        "body2": "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
-        "toggle": "Show before labeling"
-      },
-      "prelabeling": {
-        "title": "Prelabeling",
-        "toggle": "Use predictions to prelabel tasks",
-        "description": "Enable and select which set of predictions to use for prelabeling."
-      },
-      "saved": "Saved!",
-      "saveAria": "Save annotation settings"
-    }
-  },
-  "settings": {
-    "general": {
-      "title": "General Settings",
-      "projectName": "Project Name",
-      "description": "Description",
-      "workspace": {
-        "title": "Workspace",
-        "placeholder": "Select an option",
-        "tip": "Simplify project management by organizing projects into workspaces."
-      },
-      "color": "Color",
-      "taskSampling": "Task Sampling",
-      "sampling": {
-        "suffix": "sampling",
-        "sequential": {
-          "label": "Sequential",
-          "description": "Tasks are ordered by Task ID"
-        },
-        "uniform": {
-          "label": "Random",
-          "description": "Tasks are chosen with uniform random"
-        },
-        "uncertainty": "Uncertainty sampling",
-        "uncertaintyDescription": "Tasks are chosen according to model uncertainty score (active learning mode)."
-      },
-      "saved": "Saved!",
-      "saveAria": "Save general settings"
-    },
-    "annotation": {
-      "title": "Annotation Settings",
-      "instructions": {
-        "title": "Labeling Instructions",
-        "body1": "Write instructions to help users complete labeling tasks.",
-        "body2": "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
-        "toggle": "Show before labeling"
-      },
-      "prelabeling": {
-        "title": "Prelabeling",
-        "toggle": "Use predictions to prelabel tasks",
-        "description": "Enable and select which set of predictions to use for prelabeling."
-      },
-      "saved": "Saved!",
-      "saveAria": "Save annotation settings"
     }
   },
   "datamanager": {

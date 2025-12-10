@@ -1,5 +1,17 @@
-import { Button, buttonVariant, ToastContext, ToastType } from "@humansignal/ui";
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import {
+  Button,
+  buttonVariant,
+  ToastContext,
+  ToastType,
+} from "@humansignal/ui";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { generatePath, useHistory } from "react-router";
 import { Link, NavLink } from "react-router-dom";
 import { Spinner } from "../../components";
@@ -18,11 +30,16 @@ import { useTranslation } from "react-i18next";
 
 import "./DataManager.scss";
 
-const loadDependencies = () => [import("@humansignal/datamanager"), import("@humansignal/editor")];
+const loadDependencies = () => [
+  import("@humansignal/datamanager"),
+  import("@humansignal/editor"),
+];
 
 const initializeDataManager = async (root, props, params) => {
-  const productName = window.APP_SETTINGS?.product_name || "Smart Labeling System";
-  if (!window.LabelStudio) throw Error(`${productName} frontend doesn't exist on the page`);
+  const productName =
+    window.APP_SETTINGS?.product_name || "Smart Labeling System";
+  if (!window.LabelStudio)
+    throw Error(`${productName} frontend doesn't exist on the page`);
   if (!root && root.dataset.dmInitialized) return;
 
   root.dataset.dmInitialized = true;
@@ -70,7 +87,10 @@ export const DataManagerPage = ({ ...props }) => {
   const setContextProps = useContextProps();
   const { t } = useTranslation();
   const [crashed, setCrashed] = useState(false);
-  const [loading, setLoading] = useState(!window.DataManager || !window.LabelStudio);
+   const { t } = useTranslation();
+  const [loading, setLoading] = useState(
+    !window.DataManager || !window.LabelStudio
+  );
   const dataManagerRef = useRef();
   const projectId = project?.id;
 
@@ -85,7 +105,9 @@ export const DataManagerPage = ({ ...props }) => {
       params: { project: project.id },
     });
 
-    const interactiveBacked = (mlBackends ?? []).find(({ is_interactive }) => is_interactive);
+    const interactiveBacked = (mlBackends ?? []).find(
+      ({ is_interactive }) => is_interactive
+    );
 
     const dataManager = (dataManagerRef.current =
       dataManagerRef.current ??
@@ -122,20 +144,30 @@ export const DataManagerPage = ({ ...props }) => {
     });
 
     dataManager.on("settingsClicked", () => {
-      history.push(buildLink("/settings/labeling", { id: params?.id ?? project?.id }));
+      history.push(
+        buildLink("/settings/labeling", { id: params?.id ?? project?.id })
+      );
     });
 
     dataManager.on("importClicked", () => {
-      history.push(buildLink("/data/import", { id: params?.id ?? project?.id }));
+      history.push(
+        buildLink("/data/import", { id: params?.id ?? project?.id })
+      );
     });
 
     // Navigate to Storage Settings and auto-open Add Source Storage modal
     dataManager.on("openSourceStorageModal", () => {
-      history.push(buildLink("/settings/storage?open=source", { id: params?.id ?? project?.id }));
+      history.push(
+        buildLink("/settings/storage?open=source", {
+          id: params?.id ?? project?.id,
+        })
+      );
     });
 
     dataManager.on("exportClicked", () => {
-      history.push(buildLink("/data/export", { id: params?.id ?? project?.id }));
+      history.push(
+        buildLink("/data/export", { id: params?.id ?? project?.id })
+      );
     });
 
     dataManager.on("error", (response) => {
@@ -149,7 +181,8 @@ export const DataManagerPage = ({ ...props }) => {
     dataManager.on("navigate", (route) => {
       const target = route.replace(/^projects/, "");
 
-      if (target) history.push(buildLink(target, { id: params?.id ?? project?.id }));
+      if (target)
+        history.push(buildLink(target, { id: params?.id ?? project?.id }));
       else history.push("/projects");
     });
 
@@ -157,7 +190,9 @@ export const DataManagerPage = ({ ...props }) => {
       dataManager.on("lsf:regionFinishedDrawing", (reg, group) => {
         const { lsf, task, currentAnnotation: annotation } = dataManager.lsf;
         const ids = group.map((r) => r.cleanId);
-        const result = annotation.serializeAnnotation().filter((res) => ids.includes(res.id));
+        const result = annotation
+          .serializeAnnotation()
+          .filter((res) => ids.includes(res.id));
 
         const suggestionsRequest = api.callApi("mlInteractive", {
           params: { pk: interactiveBacked.id },
@@ -213,7 +248,9 @@ export const DataManagerPage = ({ ...props }) => {
 
   return crashed ? (
     <div className={cn("crash").toClassName()}>
-      <div className={cn("crash").elem("info").toClassName()}>{t("datamanager.crash")}</div>
+      <div className={cn("crash").elem("info").toClassName()}>
+        {t("datamanager.crash")}
+      </div>
 
       <Button to="/projects" aria-label={t("datamanager.backAria")}>
         {t("datamanager.back")}
@@ -240,6 +277,7 @@ DataManagerPage.pages = {
 DataManagerPage.context = ({ dmRef }) => {
   const { project } = useProject();
   const [mode, setMode] = useState(dmRef?.mode ?? "explorer");
+  const { t } = useTranslation();
 
   const links = {
     "/settings": "Settings",
