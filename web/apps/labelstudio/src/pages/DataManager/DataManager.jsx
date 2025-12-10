@@ -87,7 +87,6 @@ export const DataManagerPage = ({ ...props }) => {
   const setContextProps = useContextProps();
   const { t } = useTranslation();
   const [crashed, setCrashed] = useState(false);
-   const { t } = useTranslation();
   const [loading, setLoading] = useState(
     !window.DataManager || !window.LabelStudio
   );
