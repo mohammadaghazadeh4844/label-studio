@@ -297,17 +297,6 @@ export const EmptyState: FC<EmptyStateProps> = ({
     // additionalContent: <StorageProviderIcons />,
     actions: (
       <>
-        {permissions.can(ABILITY.can_manage_storage) && (
-          <Button
-            variant="primary"
-            look="filled"
-            className="flex-1"
-            onClick={onOpenSourceStorageModal}
-            data-testid="dm-connect-source-storage-button"
-          >
-            Connect Cloud Storage
-          </Button>
-        )}
 
         {isImportEnabled && (
           <Button
@@ -322,6 +311,6 @@ export const EmptyState: FC<EmptyStateProps> = ({
         )}
       </>
     ),
-    footer: <DocumentationLink />,
+    // footer: <DocumentationLink />,
   });
 };
