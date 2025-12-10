@@ -152,7 +152,7 @@ const FormatInfo = ({ availableFormats, selected, onClick }) => {
         {t("export.info")}
       </div>
       <div className={cn("formats").elem("list").toClassName()}>
-        {availableFormats.map((format) => (
+        {availableFormats.filter((format) => !format.disabled).map((format) => (
           <div
             key={format.name}
             className={cn("formats")
@@ -162,7 +162,7 @@ const FormatInfo = ({ availableFormats, selected, onClick }) => {
                 selected: format.name === selected,
               })
               .toClassName()}
-            onClick={!format.disabled ? () => onClick(format) : null}
+            onClick={() => onClick(format)}
           >
             <div className={cn("formats").elem("name").toClassName()}>
               {format.title}
