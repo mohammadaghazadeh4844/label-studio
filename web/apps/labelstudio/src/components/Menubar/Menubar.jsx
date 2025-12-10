@@ -189,7 +189,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
           </div>
 
           {/* {ff.isActive(ff.FF_THEME_TOGGLE) && ( */}
-            <div className={menubarClass.elem("toggles")}>
+            {/* <div className={menubarClass.elem("toggles")}>
               <Button
                 variant="neutral"
                 look="outlined"
@@ -200,7 +200,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                 {displayLanguage}
               </Button>
               <ThemeToggle />
-            </div>
+            </div> */}
           {/* )} */}
 
           <Dropdown.Trigger
