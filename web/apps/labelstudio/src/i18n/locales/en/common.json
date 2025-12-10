@@ -6,7 +6,8 @@
     "productName": "Smart Labeling System",
     "close": "Close",
     "delete": "Delete",
-    "unknownError": "Unknown error"
+    "unknownError": "Unknown error",
+    "opensInNewTab": "opens in a new tab"
   },
   "createProject": {
     "title": "Create Project",
@@ -419,7 +420,57 @@
     "backAria": "Back to projects",
     "labeling": "Labeling",
     "instructions": "Instructions",
-    "settings": "Settings"
+    "settings": "Settings",
+    "empty": {
+      "importDocs": "See docs on importing data",
+      "filtered": {
+        "title": "No tasks found",
+        "description": "Try adjusting or clearing the filters to see more results",
+        "cta": "Clear Filters"
+      },
+      "reviewer": {
+        "title": "No tasks available for review or labeling",
+        "description": "Tasks imported to this project will appear here"
+      },
+      "annotator": {
+        "auto": {
+          "title": "Start labeling tasks",
+          "description": "Tasks you've labeled will appear here",
+          "cta": "Label All Tasks"
+        },
+        "manual": {
+          "title": "No tasks available",
+          "description": "Tasks assigned to you will appear here"
+        }
+      },
+      "import": {
+        "title": "Import tasks or connect storage",
+        "description": "Import tasks manually or connect cloud storage to automatically sync tasks and annotations",
+        "cta": "Import Tasks",
+        "aria": "Import tasks"
+      },
+      "addSourceStorage": {
+        "title": "Add Source Storage",
+        "description": "Use cloud storage as a source for tasks and annotations",
+        "cta": "Connect Storage",
+        "aria": "Connect source storage"
+      },
+      "noImportPermission": {
+        "title": "Nothing here yet",
+        "description": "Your role doesn't allow importing. Ask an admin to add tasks or assign them to you."
+      },
+      "ready": {
+        "title": "Ready to label",
+        "description": "Click below to start labeling tasks that need annotations",
+        "cta": "Label All Tasks"
+      },
+      "default": {
+        "title": "Tasks have been fully imported and reviewed",
+        "description": "Connect storage or import more tasks to continue labeling and reviewing",
+        "cta": "Label All Tasks",
+        "aria": "Open first task for labeling"
+      }
+    }
   },
   "errors": {
     "runtime": "Runtime error",
