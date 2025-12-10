@@ -277,6 +277,15 @@
       "title": "API Token Settings",
       "saved": "API Token settings saved"
     },
+    "invite": {
+      "title": "Invite members",
+      "description": "Invite members to join your {{productName}} instance. People that you invite have full access to all projects.",
+      "reset": "Reset Link",
+      "resetAria": "Refresh invite link",
+      "copy": "Copy link",
+      "copied": "Copied!",
+      "copyAria": "Copy invite link"
+    },
     "people": {
       "addMembers": "Add Members",
       "inviteAria": "Invite new member",
