@@ -166,6 +166,9 @@
       "duplicate": "تکرار",
       "save": "ذخیره",
       "close": "بستن"
+    },
+    "errors": {
+      "occurred": "خطا رخ داد"
     }
   },
   "organization": {

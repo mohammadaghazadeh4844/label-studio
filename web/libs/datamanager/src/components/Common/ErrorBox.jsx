@@ -3,6 +3,7 @@ import { Button } from "@humansignal/ui";
 import { Dropdown } from "@humansignal/ui";
 import { Menu } from "./Menu/Menu";
 import { IconInfo } from "@humansignal/icons";
+import { useTranslation } from "react-i18next";
 
 const ErrorRenderer = (error, i) => {
   return (
@@ -19,10 +20,11 @@ const injector = inject(({ store }) => {
 });
 
 export const ErrorBox = injector(({ errors }) => {
+  const { t } = useTranslation();
   return errors?.size > 0 ? (
     <Dropdown.Trigger content={<Menu>{Array.from(errors.values()).map(ErrorRenderer)}</Menu>}>
       <Button type="text" leading={<IconInfo />}>
-        Errors occurred
+        {t("datamanager.errors.occurred")}
       </Button>
     </Dropdown.Trigger>
   ) : null;

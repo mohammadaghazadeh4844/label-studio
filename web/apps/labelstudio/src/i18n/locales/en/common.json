@@ -166,6 +166,9 @@
       "duplicate": "Duplicate",
       "save": "Save",
       "close": "Close"
+    },
+    "errors": {
+      "occurred": "Errors occurred"
     }
   },
   "organization": {
