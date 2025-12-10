@@ -479,8 +479,46 @@
       "description": "The hotkey combination \"<strong>{{key}}</strong>\" is already being used by:",
       "warning": "Having duplicate hotkeys may cause conflicts and unexpected behavior. Are you sure you want to proceed?",
       "allow": "Allow Duplicate"
+    },
+    "emptySection": "No hotkeys in this section",
+    "sections": {
+      "annotation": {
+        "title": "Annotation Actions",
+        "description": "Shortcuts for common annotation tasks like submit, skip, undo and redo"
+      },
+      "data_manager": {
+        "title": "Data Manager",
+        "description": "Shortcuts for navigating and managing tasks in Project's Data Manager"
+      },
+      "regions": {
+        "title": "Region Management",
+        "description": "Shortcuts for creating, selecting and manipulating annotation regions"
+      },
+      "tools": {
+        "title": "Tools",
+        "description": "Shortcuts for controlling tools panel when labeling images"
+      },
+      "audio": {
+        "title": "Audio Controls",
+        "description": "Shortcuts for controlling audio playback and navigation"
+      },
+      "video": {
+        "title": "Video Controls",
+        "description": "Shortcuts for controlling video playback and navigation"
+      },
+      "timeseries": {
+        "title": "Time Series Controls",
+        "description": "Shortcuts for manipulating time series data regions"
+      },
+      "image_gallery": {
+        "title": "Image Gallery Navigation",
+        "description": "Shortcuts for navigating between images in multi-image tasks"
+      },
+      "paragraphs": {
+        "title": "Paragraph Navigation",
+        "description": "Shortcuts for navigating phrases and regions in paragraph/dialogue view"
+      }
     }
-
   },
   "organization": {
     "title": "Organization",

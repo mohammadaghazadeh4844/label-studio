@@ -11,6 +11,8 @@ export interface Hotkey {
   active: boolean;
   description?: string;
   subgroup?: string;
+  labelKey?: string;
+  descriptionKey?: string;
 }
 
 export interface Section {
@@ -67,6 +69,7 @@ interface RawHotkey {
   mac?: string;
   active: boolean;
   description?: string;
+  subgroup?: string;
 }
 
 // Convert DEFAULT_HOTKEYS with numeric IDs to typed hotkeys with string IDs
@@ -74,6 +77,8 @@ export const getTypedDefaultHotkeys = (): Hotkey[] => {
   return (DEFAULT_HOTKEYS as RawHotkey[]).map((hotkey) => ({
     ...hotkey,
     id: String(hotkey.id), // Convert numeric id to string
+    labelKey: `hotkeys.defaults.${hotkey.element}.label`,
+    descriptionKey: hotkey.description ? `hotkeys.defaults.${hotkey.element}.description` : undefined,
   }));
 };
 

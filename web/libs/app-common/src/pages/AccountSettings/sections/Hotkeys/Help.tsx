@@ -105,8 +105,14 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
         <div key={sectionId} className="border border-neutral-border rounded-lg">
           {/* Section Header */}
           <div className="px-4 py-3 border-b border-neutral-border">
-            <h3 className="font-medium">{section.title}</h3>
-            <p className="text-sm text-neutral-content-subtler">{section.description}</p>
+            <h3 className="font-medium">
+              {t(`hotkeys.sections.${section.id}.title`, { defaultValue: section.title })}
+            </h3>
+            {section.description && (
+              <p className="text-sm text-neutral-content-subtler">
+                {t(`hotkeys.sections.${section.id}.description`, { defaultValue: section.description })}
+              </p>
+            )}
           </div>
 
           {/* Section Content */}
@@ -121,11 +127,15 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
                   {subgroup !== "default" && (
                     <div className="mb-3">
                       <div className="text-sm font-medium mb-1 capitalize">
-                        {sections.find((s: Section) => s.id === subgroup)?.title || subgroup}
+                        {t(`hotkeys.sections.${subgroup}.title`, {
+                          defaultValue: sections.find((s: Section) => s.id === subgroup)?.title || subgroup,
+                        })}
                       </div>
                       {sections.find((s: Section) => s.id === subgroup)?.description && (
                         <div className="text-xs text-neutral-content-subtler">
-                          {sections.find((s: Section) => s.id === subgroup)?.description}
+                          {t(`hotkeys.sections.${subgroup}.description`, {
+                            defaultValue: sections.find((s: Section) => s.id === subgroup)?.description,
+                          })}
                         </div>
                       )}
                     </div>
@@ -135,9 +145,15 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
                   {groupedHotkeys[subgroup].map((hotkey: Hotkey) => (
                     <div key={`${section.id}-${hotkey.element}`} className="flex items-center justify-between py-2">
                       <div>
-                        <div className="font-medium text-neutral-content">{hotkey.label}</div>
+                        <div className="font-medium text-neutral-content">
+                          {t(hotkey.labelKey ?? `hotkeys.defaults.${hotkey.element}.label`, { defaultValue: hotkey.label })}
+                        </div>
                         {hotkey.description && (
-                          <div className="text-sm text-neutral-content-subtler">{hotkey.description}</div>
+                          <div className="text-sm text-neutral-content-subtler">
+                            {t(hotkey.descriptionKey ?? `hotkeys.defaults.${hotkey.element}.description`, {
+                              defaultValue: hotkey.description,
+                            })}
+                          </div>
                         )}
                       </div>
                       <KeyboardKey>{hotkey.key}</KeyboardKey>

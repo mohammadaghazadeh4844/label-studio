@@ -14,11 +14,13 @@ interface Hotkey {
   section: string;
   element: string;
   label: string;
+  labelKey?: string;
   key: string;
   mac?: string;
   active: boolean;
   subgroup?: string;
   description?: string;
+  descriptionKey?: string;
 }
 
 interface HotkeyItemProps {
@@ -133,7 +135,9 @@ export const HotkeyItem = ({ hotkey, onEdit, isEditing, onSave, onCancel, onTogg
   if (isEditing) {
     return (
       <div className="py-3 space-y-3 border-b border-border last:border-0">
-        <div className="font-medium">{hotkey.label}</div>
+        <div className="font-medium">
+          {t(hotkey.labelKey ?? `hotkeys.defaults.${hotkey.element}.label`, { defaultValue: hotkey.label })}
+        </div>
         <div className="flex gap-3">
           {/* Key recording input area */}
           <Button
@@ -180,14 +184,24 @@ export const HotkeyItem = ({ hotkey, onEdit, isEditing, onSave, onCancel, onTogg
         <UiToggle
           checked={hotkey.active}
           onChange={handleToggle}
-          aria-label={`${hotkey.active ? t("account.hotkeys.disable") : t("account.hotkeys.enable")} ${hotkey.label}`}
+          aria-label={`${hotkey.active ? t("account.hotkeys.disable") : t("account.hotkeys.enable")} ${
+            t(hotkey.labelKey ?? `hotkeys.defaults.${hotkey.element}.label`, { defaultValue: hotkey.label }) || ""
+          }`}
         />
       </div>
 
       {/* Label and description */}
       <div className="flex-1 mr-4">
-        <div className="font-medium">{hotkey.label}</div>
-        <div className="text-sm text-neutral-content-subtler">{hotkey.description}</div>
+        <div className="font-medium">
+          {t(hotkey.labelKey ?? `hotkeys.defaults.${hotkey.element}.label`, { defaultValue: hotkey.label })}
+        </div>
+        {hotkey.description && (
+          <div className="text-sm text-neutral-content-subtler">
+            {t(hotkey.descriptionKey ?? `hotkeys.defaults.${hotkey.element}.description`, {
+              defaultValue: hotkey.description,
+            })}
+          </div>
+        )}
       </div>
 
       {/* Current hotkey display (clickable to edit) */}
