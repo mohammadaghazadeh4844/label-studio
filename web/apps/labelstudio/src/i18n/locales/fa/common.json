@@ -171,6 +171,21 @@
       "occurred": "خطا رخ داد"
     }
   },
+  "errors": {
+    "runtime": "خطای زمان اجرا",
+    "occurred": "خطا رخ داد",
+    "heidiDown": "هایدی از دسترس خارج است",
+    "version": "نسخه: {{version}}",
+    "id": "شناسه خطا: {{id}}",
+    "askSlack": "سؤال در اسلک",
+    "copyStacktrace": "کپی پشته خطا",
+    "copyStacktraceAria": "کپی پشته خطا",
+    "copied": "کپی شد",
+    "goBack": "بازگشت",
+    "goBackAria": "بازگشت",
+    "reload": "بارگذاری مجدد",
+    "reloadAria": "بارگذاری مجدد صفحه"
+  },
   "hotkeys": {
     "title": "میانبرهای صفحه‌کلید",
     "description": "همه میانبرهای صفحه‌کلید در دسترس را ببینید.",

@@ -171,6 +171,21 @@
       "occurred": "Errors occurred"
     }
   },
+  "errors": {
+    "runtime": "Runtime error",
+    "occurred": "Error occurred",
+    "heidiDown": "Heidi's down",
+    "version": "Version: {{version}}",
+    "id": "Error ID: {{id}}",
+    "askSlack": "Ask on Slack",
+    "copyStacktrace": "Copy Stacktrace",
+    "copyStacktraceAria": "Copy error stacktrace",
+    "copied": "Copied",
+    "goBack": "Go Back",
+    "goBackAria": "Go back",
+    "reload": "Reload",
+    "reloadAria": "Reload page"
+  },
   "hotkeys": {
     "title": "Keyboard Shortcuts",
     "description": "View all available keyboard shortcuts.",
