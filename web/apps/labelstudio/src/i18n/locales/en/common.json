@@ -479,22 +479,8 @@
       "description": "The hotkey combination \"<strong>{{key}}</strong>\" is already being used by:",
       "warning": "Having duplicate hotkeys may cause conflicts and unexpected behavior. Are you sure you want to proceed?",
       "allow": "Allow Duplicate"
-    },
-    "import": {
-      "description": "Paste your exported hotkeys JSON below. This will replace your current hotkeys. Make sure the JSON contains an array of hotkey objects with the required fields.",
-      "label": "Hotkeys JSON",
-      "errorTitle": "Import Error",
-      "submit": "Import Hotkeys",
-      "invalidObject": "Invalid hotkey object",
-      "missingFields": "Missing required fields: {{fields}}",
-      "emptyInput": "Please enter JSON data to import",
-      "invalidFormatHotkeys": "Invalid format: hotkeys property must be an array",
-      "invalidFormat": "Invalid format: expected an array of hotkeys or an object with a hotkeys property",
-      "noHotkeys": "No hotkeys found in the imported data",
-      "validationUnknown": "Unknown validation error",
-      "indexError": "Hotkey at index {{index}}: {{error}}",
-      "unknown": "Unknown error occurred"
     }
+
   },
   "organization": {
     "title": "Organization",
