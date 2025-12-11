@@ -110,3 +110,23 @@
     opacity: 0.23;
   }
 }
+
+/* RTL adjustments */
+:root[dir="rtl"] .breadcrumbs {
+  margin-right: 0;
+  margin-left: 20px;
+
+  &__list {
+    flex-direction: row-reverse;
+  }
+
+  &__item + &__item {
+    margin-left: 0;
+    margin-right: 30px;
+  }
+
+  &__item + &__item::before {
+    right: auto;
+    left: 100%;
+  }
+}

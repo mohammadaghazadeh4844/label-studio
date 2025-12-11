@@ -148,3 +148,28 @@
     padding: .625rem 1rem;
   }
 }
+
+/* RTL adjustments: flip layout and action alignment when dir=rtl */
+:root[dir="rtl"] .tabs-dm {
+  direction: rtl;
+
+  &__droppable,
+  &__list {
+    flex-direction: row-reverse;
+  }
+
+  &__item-right {
+    left: 0;
+    right: auto;
+    justify-content: flex-start;
+  }
+
+  &__item-left {
+    padding-left: 4px;
+    padding-right: 16px;
+    &_edit {
+      padding-right: 6px;
+      padding-left: 6px;
+    }
+  }
+}
