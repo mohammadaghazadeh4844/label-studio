@@ -65,12 +65,12 @@ export const PeoplePage = () => {
         <Space spread>
           <Space />
 
-          <Space>
-            {/* {isFF(FF_AUTH_TOKENS) && (
+          {/* <Space>
+            {isFF(FF_AUTH_TOKENS) && (
               <Button look="outlined" onClick={showApiTokenSettingsModal} aria-label="Show API token settings">
                 API Tokens Settings
               </Button>
-            )} */}
+            )}
             <Button
               leading={<IconPlus className="!h-4" />}
               onClick={() => setInvitationOpen(true)}
@@ -78,7 +78,7 @@ export const PeoplePage = () => {
             >
               {t("organization.people.addMembers")}
             </Button>
-          </Space>
+          </Space> */}
         </Space>
       </div>
       <div className={cn("people").elem("content").toClassName()}>
