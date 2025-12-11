@@ -23,6 +23,18 @@ import { useTranslation, Trans } from "react-i18next";
 const wizardClass = cn("wizard");
 const configClass = cn("configure");
 
+const DEFAULT_RECIPE = {
+  title: "Semantic Segmentation with Polygons",
+  type: "community",
+  group: "Computer Vision",
+  order: 1,
+  image: "/static/templates/semantic-segmentation-with-polygons.png",
+  details:
+    "<h1>Draw a polygon around object</h1>\n<dl>\n  <dt>Industry Applications</dt>\n  <dd>autonomous driving, medical image analysis, satellite imagery analysis, geospatial mapping, urban planning, precision agriculture, environmental monitoring, industrial inspection, pathology, radiology, aerial surveying, land cover classification</dd>\n  <dt>Associated Models</dt>\n  <dd>DeepLab, PSPNet, U-Net, SegNet, Mask R-CNN, FCN</dd>\n  <dt>Domain Terminology</dt>\n  <dd>polygon annotation, boundary detection, precise segmentation, vector annotation, contour detection</dd>\n</dl>\n",
+  config:
+    '<View>\n\n  <Header value="Select label and click the image to start"/>\n  <Image name="image" value="$image" zoom="true"/>\n\n  <PolygonLabels name="label" toName="image"\n                 strokeWidth="3" pointSize="small"\n                 opacity="0.9">\n    <Label value="Airplane" background="red"/>\n    <Label value="Car" background="blue"/>\n  </PolygonLabels>\n\n</View>\n',
+};
+
 const EmptyConfigPlaceholder = () => {
   const { t } = useTranslation();
   return (
@@ -713,8 +725,13 @@ export const ConfigPage = ({
   }, []);
 
   React.useEffect(() => {
+    // If we already have a config (e.g., draft), load it; otherwise default to the predefined recipe
     if (initialConfig) {
       setTemplate(initialConfig);
+      setMode("view");
+    } else if (!config && !selectedRecipe) {
+      setSelectedRecipe(DEFAULT_RECIPE);
+      setTemplate(DEFAULT_RECIPE.config);
       setMode("view");
     }
   }, []);
