@@ -27,3 +27,14 @@
     }
   }
 }
+
+/* RTL: move content offset to the right side when sidebar is pinned */
+:root[dir="rtl"] .content-wrapper__content {
+  margin-left: 0;
+  margin-right: 0;
+
+  &.content-wrapper__content_withSidebar {
+    margin-left: 0;
+    margin-right: var(--menu-sidebar-width);
+  }
+}
