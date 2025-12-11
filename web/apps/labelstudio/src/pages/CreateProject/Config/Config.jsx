@@ -382,7 +382,6 @@ const Configurator = ({
   project,
   template,
   setTemplate,
-  onBrowse,
   onSaveClick,
   onValidate,
   disableSaveButton,
@@ -534,16 +533,6 @@ const Configurator = ({
           {hasChanges ? " *" : ""}
         </h1>
         <header>
-          <Button
-            type="button"
-            data-leave={true}
-            onClick={onBrowse}
-            size="small"
-            look="outlined"
-            aria-label={t("createProject.config.browseAria")}
-          >
-            {t("createProject.config.browse")}
-          </Button>
           <ToggleItems
             items={{ code: t("createProject.config.tabs.code"), visual: t("createProject.config.tabs.visual") }}
             active={configure}
@@ -719,11 +708,6 @@ export const ConfigPage = ({
     __lsa("labeling_setup.view.custom");
   });
 
-  const onBrowse = React.useCallback(() => {
-    setMode("list");
-    __lsa("labeling_setup.list.browse");
-  }, []);
-
   React.useEffect(() => {
     // If we already have a config (e.g., draft), load it; otherwise default to the predefined recipe
     if (initialConfig) {
@@ -759,7 +743,6 @@ export const ConfigPage = ({
           selectedRecipe={selectedRecipe}
           template={template}
           setTemplate={setTemplate}
-          onBrowse={onBrowse}
           onValidate={onValidate}
           disableSaveButton={disableSaveButton}
           onSaveClick={onSaveClick}
