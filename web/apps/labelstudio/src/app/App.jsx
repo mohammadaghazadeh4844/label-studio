@@ -1,5 +1,6 @@
 /* global Sentry */
 
+import React, { useEffect } from "react";
 import { createBrowserHistory } from "history";
 import { render } from "react-dom";
 import { Router } from "react-router-dom";
@@ -60,6 +61,20 @@ window.LSH = browserHistory;
 initSentry(browserHistory);
 
 const App = ({ content }) => {
+  // Switch document direction based on current language (RTL for fa)
+  useEffect(() => {
+    const updateDir = (lng) => {
+      const dir = lng === "fa" ? "rtl" : "ltr";
+      document.documentElement.setAttribute("dir", dir);
+      document.body?.setAttribute("dir", dir);
+    };
+
+    updateDir(i18n.language);
+    i18n.on("languageChanged", updateDir);
+
+    return () => i18n.off("languageChanged", updateDir);
+  }, []);
+
   return (
     <ErrorBoundary>
       <Router history={browserHistory}>
