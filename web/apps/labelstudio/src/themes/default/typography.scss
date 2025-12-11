@@ -1,4 +1,13 @@
 @font-face {
+  font-family: Vazir;
+  src: url("/static/fonts/Vazir.woff2") format("woff2"),
+       url("/static/fonts/Vazir.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: Figtree;
   src: url("/static/fonts/Figtree-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -16,7 +25,7 @@
 }
 
 body {
-  --font-sans: 'Figtree', sans-serif !important;
+  --font-sans: 'Vazir', 'Figtree', sans-serif !important;
   --font-mono: monaco, monospace !important;
   --font-weight-400: 400;
   --font-weight-500: 500;
