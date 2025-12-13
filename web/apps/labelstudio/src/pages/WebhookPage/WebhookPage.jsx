@@ -7,6 +7,7 @@ import { useProject } from "../../providers/ProjectProvider";
 import WebhookDetail from "./WebhookDetail";
 import WebhookList from "./WebhookList";
 import { createTitleFromSegments, useUpdatePageTitle } from "@humansignal/core";
+import { useTranslation } from "react-i18next";
 
 const Webhook = () => {
   const [activeWebhook, setActiveWebhook] = useState(null);
@@ -14,11 +15,12 @@ const Webhook = () => {
   const [webhooksInfo, setWebhooksInfo] = useState(null);
 
   const history = useHistory();
+  const { t } = useTranslation();
 
   const api = useAPI();
   const { project } = useProject();
 
-  useUpdatePageTitle(createTitleFromSegments([project?.title, "Webhooks Settings"]));
+  useUpdatePageTitle(createTitleFromSegments([project?.title, t("webhooks.settingsTitle")]));
 
   const projectId = useMemo(() => {
     if (history.location.pathname.startsWith("/projects")) {

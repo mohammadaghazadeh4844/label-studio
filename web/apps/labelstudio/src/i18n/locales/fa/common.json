@@ -6,6 +6,7 @@
     "productName": "سیستم برچسب‌ زنی هوشمند",
     "close": "بستن",
     "delete": "حذف",
+    "copied": "کپی شد!",
     "unknownError": "خطای ناشناخته",
     "opensInNewTab": "باز شدن در تب جدید"
   },
@@ -571,6 +572,10 @@
       }
     }
   },
+  "draftGuard": {
+    "saved": "پیش‌نویس با موفقیت ذخیره شد",
+    "error": "خطا در ذخیرهٔ پیش‌نویس"
+  },
   "organization": {
     "title": "سازمان",
     "apiToken": {
@@ -612,7 +617,44 @@
     }
   },
   "webhooks": {
-    "tooltip": "یکپارچه‌سازی‌ها را طوری تنظیم کنید که به رویدادها گوش دهند. هنگام وقوع رویداد، {{productName}} یک درخواست POST به آدرس وب‌هوک ارسال می‌کند."
+    "title": "وبهوک‌ها",
+    "settingsTitle": "تنظیمات وبهوک‌ها",
+    "tooltip": "ادغام‌های مبتنی بر رویداد را با وبهوک تنظیم کنید. وقتی رویداد فعال شود، {{productName}} یک درخواست HTTP POST به آدرس وبهوک ارسال می‌کند.",
+    "createdAt": "ایجاد شده در {{date}}",
+    "emptyTitle": "اولین وبهوک خود را اضافه کنید",
+    "contactAdmin": "برای ساخت وبهوک با مدیر سیستم تماس بگیرید",
+    "actions": {
+      "edit": "ویرایش",
+      "delete": "حذف",
+      "add": "افزودن وبهوک"
+    },
+    "form": {
+      "payloadUrl": "نشانی Payload",
+      "isActive": "فعال است",
+      "headers": "هدرها",
+      "addHeader": "افزودن هدر",
+      "removeHeader": "حذف هدر",
+      "headerPlaceholder": "کلید هدر",
+      "valuePlaceholder": "مقدار",
+      "payload": "Payload",
+      "sendPayload": "ارسال payload",
+      "sendForAll": "ارسال برای همهٔ رویدادها",
+      "sendPayloadFor": "ارسال payload برای",
+      "delete": "حذف وبهوک",
+      "deleteAria": "حذف وبهوک",
+      "cancelAria": "انصراف از ویرایش وبهوک",
+      "add": "افزودن وبهوک",
+      "save": "ذخیره تغییرات",
+      "new": "وبهوک جدید",
+      "edit": "ویرایش وبهوک",
+      "urlPlaceholder": "URL"
+    },
+    "deleteModal": {
+      "title": "حذف",
+      "body": "آیا از حذف وبهوک مطمئن هستید؟ این اقدام قابل بازگشت نیست.",
+      "cancelAria": "لغو حذف وبهوک",
+      "confirmAria": "تایید حذف وبهوک"
+    }
   },
   "account": {
     "title": "حساب کاربری من",

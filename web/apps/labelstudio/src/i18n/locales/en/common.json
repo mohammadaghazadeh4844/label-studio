@@ -6,6 +6,7 @@
     "productName": "Smart Labeling System",
     "close": "Close",
     "delete": "Delete",
+    "copied": "Copied!",
     "unknownError": "Unknown error",
     "opensInNewTab": "opens in a new tab"
   },
@@ -571,6 +572,10 @@
       }
     }
   },
+  "draftGuard": {
+    "saved": "Draft saved successfully",
+    "error": "There was an error saving your draft"
+  },
   "organization": {
     "title": "Organization",
     "apiToken": {
@@ -612,7 +617,44 @@
     }
   },
   "webhooks": {
-    "tooltip": "Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, {{productName}} sends an HTTP POST request to the configured webhook URL."
+    "title": "Webhooks",
+    "settingsTitle": "Webhooks Settings",
+    "tooltip": "Setup integrations that subscribe to certain events using Webhooks. When an event is triggered, {{productName}} sends an HTTP POST request to the configured webhook URL.",
+    "createdAt": "Created {{date}}",
+    "emptyTitle": "Add your first webhook",
+    "contactAdmin": "Contact your administrator to create webhooks",
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "add": "Add Webhook"
+    },
+    "form": {
+      "payloadUrl": "Payload URL",
+      "isActive": "Is Active",
+      "headers": "Headers",
+      "addHeader": "Add Header",
+      "removeHeader": "Remove Header",
+      "headerPlaceholder": "header",
+      "valuePlaceholder": "value",
+      "payload": "Payload",
+      "sendPayload": "Send payload",
+      "sendForAll": "Send for all actions",
+      "sendPayloadFor": "Send Payload for",
+      "delete": "Delete Webhook",
+      "deleteAria": "Delete webhook",
+      "cancelAria": "Cancel webhook edit",
+      "add": "Add Webhook",
+      "save": "Save Changes",
+      "new": "New Webhook",
+      "edit": "Edit Webhook",
+      "urlPlaceholder": "URL"
+    },
+    "deleteModal": {
+      "title": "Delete",
+      "body": "Are you sure you want to delete the webhook? This action cannot be undone.",
+      "cancelAria": "Cancel webhook deletion",
+      "confirmAria": "Confirm webhook deletion"
+    }
   },
   "account": {
     "title": "My Account",

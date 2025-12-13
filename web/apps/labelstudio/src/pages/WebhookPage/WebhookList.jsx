@@ -10,6 +10,7 @@ import { ABILITY, useAuth } from "@humansignal/core/providers/AuthProvider";
 import { useTranslation } from "react-i18next";
 
 const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, canChangeWebhooks }) => {
+  const { t } = useTranslation();
   return (
     <li
       className={clsx(
@@ -38,13 +39,13 @@ const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, ca
           </div>
         </div>
         <div className="text-neutral-content-subtler text-sm mt-1">
-          Created {format(new Date(webhook.created_at), "dd MMM yyyy, HH:mm")}
+          {t("webhooks.createdAt", { date: format(new Date(webhook.created_at), "dd MMM yyyy, HH:mm") })}
         </div>
       </div>
       {canChangeWebhooks && (
         <div className="hidden group-hover:flex gap-2">
           <Button variant="primary" look="outlined" onClick={() => onSelectActive(webhook.id)} icon={<IconPencil />}>
-            Edit
+            {t("webhooks.actions.edit")}
           </Button>
           <Button
             variant="negative"
@@ -56,7 +57,7 @@ const WebhookListItem = ({ webhook, onSelectActive, onActiveChange, onDelete, ca
             }
             icon={<IconCross />}
           >
-            Delete
+            {t("webhooks.actions.delete")}
           </Button>
         </div>
       )}
@@ -90,7 +91,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
     <>
       <header className="mb-base">
         <Typography variant="headline" size="medium" className="mb-tight">
-          Webhooks
+          {t("webhooks.title")}
         </Typography>
         {webhooks.length > 0 && (
           <Typography size="small" className="text-neutral-content-subtler">
@@ -105,16 +106,16 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
               size="medium"
               variant="primary"
               icon={<IconWebhook />}
-              title="Add your first webhook"
+              title={t("webhooks.emptyTitle")}
               description={t("webhooks.tooltip", { productName: t("common.productName") })}
               actions={
                 canChangeWebhooks ? (
                   <Button variant="primary" look="filled" onClick={onAddWebhook}>
-                    Add Webhook
+                    {t("webhooks.actions.add")}
                   </Button>
                 ) : (
                   <Typography variant="body" size="small">
-                    Contact your administrator to create Webhooks
+                    {t("webhooks.contactAdmin")}
                   </Typography>
                 )
               }
@@ -159,7 +160,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
       {webhooks.length > 0 && canChangeWebhooks && (
         <div className="flex justify-end w-full mt-base">
           <Button variant="primary" look="filled" onClick={onAddWebhook}>
-            Add Webhook
+            {t("webhooks.actions.add")}
           </Button>
         </div>
       )}
