@@ -4,6 +4,11 @@
 {% load filters %}
 
 
+{% block page_labeling %}
+  <title>سیستم برچسب زنی هوشمند</title>
+  <link href="{{settings.HOSTNAME}}{% static 'images/favicon.ico' %}" rel="shortcut icon"/>
+{% endblock %}
+
 {% block head %}
 <link rel="stylesheet" href="{{ settings.HOSTNAME }}{% static 'css/fonts.hellix.css' %}"/>
 <link rel="stylesheet" href="{{ settings.HOSTNAME }}{% static 'css/login.css' %}"/>
