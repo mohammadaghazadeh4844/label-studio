@@ -1,49 +1,52 @@
 import { htmlEscape } from "./html";
+import i18n from "i18next";
 
 const URL_CORS_DOCS = "https://labelstud.io/guide/storage.html#Troubleshoot-CORS-and-access-problems";
 const URL_TAGS_DOCS = "https://labelstud.io/tags";
 
-export default {
-  DONE: "Done!",
-  NO_COMP_LEFT: "No more annotations",
-  NO_NEXT_TASK: "No More Tasks Left in Queue",
-  NO_ACCESS: "You don't have access to this task",
+const t = (key, params = {}) => i18n.t(key, { ...params, interpolation: { escapeValue: false } });
 
-  CONFIRM_TO_DELETE_ALL_REGIONS: "Please confirm you want to delete all labeled regions",
+export default {
+  DONE: t("editorMessages.done"),
+  NO_COMP_LEFT: t("editorMessages.noCompLeft"),
+  NO_NEXT_TASK: t("editorMessages.noNextTask"),
+  NO_ACCESS: t("editorMessages.noAccess"),
+
+  CONFIRM_TO_DELETE_ALL_REGIONS: t("editorMessages.confirmDeleteAllRegions"),
 
   // Tree validation messages
   ERR_REQUIRED: ({ modelName, field }) => {
-    return `Attribute <b>${field}</b> is required for <b>${modelName}</b>`;
+    return t("editorMessages.errRequired", { modelName, field });
   },
 
   ERR_UNKNOWN_TAG: ({ modelName, field, value }) => {
-    return `Tag with name <b>${value}</b> is not registered. Referenced by <b>${modelName}#${field}</b>.`;
+    return t("editorMessages.errUnknownTag", { modelName, field, value });
   },
 
   ERR_TAG_NOT_FOUND: ({ modelName, field, value }) => {
-    return `Tag with name <b>${value}</b> does not exist in the config. Referenced by <b>${modelName}#${field}</b>.`;
+    return t("editorMessages.errTagNotFound", { modelName, field, value });
   },
 
   ERR_TAG_UNSUPPORTED: ({ modelName, field, value, validType }) => {
-    return `Invalid attribute <b>${field}</b> for <b>${modelName}</b>: referenced tag is <b>${value}</b>, but <b>${modelName}</b> can only control <b>${[]
-      .concat(validType)
-      .join(", ")}</b>`;
+    const valid = [].concat(validType).join(", ");
+    return t("editorMessages.errTagUnsupported", { modelName, field, value, validType: valid });
   },
 
   ERR_PARENT_TAG_UNEXPECTED: ({ validType, value }) => {
-    return `Tag <b>${value}</b> must be a child of one of the tags <b>${[].concat(validType).join(", ")}</b>.`;
+    const valid = [].concat(validType).join(", ");
+    return t("editorMessages.errParentTagUnexpected", { validType: valid, value });
   },
 
   ERR_BAD_TYPE: ({ modelName, field, validType }) => {
-    return `Attribute <b>${field}</b> of tag <b>${modelName}</b> has invalid type. Valid types are: <b>${validType}</b>.`;
+    return t("editorMessages.errBadType", { modelName, field, validType });
   },
 
   ERR_INTERNAL: ({ value }) => {
-    return `Internal error. See browser console for more info. Try again or contact developers.<br/>${value}`;
+    return t("editorMessages.errInternal", { value });
   },
 
   ERR_GENERAL: ({ value }) => {
-    return value;
+    return t("editorMessages.errGeneral", { value });
   },
 
   // Object loading errors
@@ -53,68 +56,37 @@ export default {
   ERR_LOADING_AUDIO({ attr, url, error }) {
     return (
       <div data-testid="error:audio">
-        <p>
-          Error while loading audio. Check <code>{attr}</code> field in task.
-        </p>
-        <p>Technical description: {error}</p>
-        <p>URL: {htmlEscape(url)}</p>
+        <p>{t("editorMessages.errLoadingAudio.message", { attr })}</p>
+        <p>{t("editorMessages.errLoadingAudio.description", { error })}</p>
+        <p>{t("editorMessages.errLoadingAudio.url", { url: htmlEscape(url) })}</p>
       </div>
     );
   },
 
   ERR_LOADING_S3({ attr, url }) {
-    return `
-    <div>
-      <p>
-        There was an issue loading URL from <code>${attr}</code> value.
-        The request parameters are invalid.
-        If you are using S3, make sure you’ve specified the right bucket region name.
-      </p>
-      <p>URL: <code><a href="${encodeURI(url)}" target="_blank" rel="noreferrer">${htmlEscape(url)}</a></code></p>
-    </div>`;
+    return t("editorMessages.errLoadingS3", {
+      attr,
+      url: htmlEscape(url),
+      urlEscaped: encodeURI(url),
+    });
   },
 
   ERR_LOADING_CORS({ attr, url }) {
-    return `
-    <div>
-      <p>
-        There was an issue loading URL from <code>${attr}</code> value.
-        Most likely that's because static server has wide-open CORS.
-        <a href="${URL_CORS_DOCS}" target="_blank">Read more on that here.</a>
-      </p>
-      <p>
-        Also check that:
-        <ul>
-          <li>URL is valid</li>
-          <li>Network is reachable</li>
-        </ul>
-      </p>
-      <p>URL: <code><a href="${encodeURI(url)}" target="_blank" rel="noreferrer">${htmlEscape(url)}</a></code></p>
-    </div>`;
+    return t("editorMessages.errLoadingCORS", {
+      attr,
+      corsDocs: URL_CORS_DOCS,
+      url: htmlEscape(url),
+      urlEscaped: encodeURI(url),
+    });
   },
 
   ERR_LOADING_HTTP({ attr, url, error }) {
-    return `
-    <div data-testid="error:http">
-      <p>
-        There was an issue loading URL from <code>${attr}</code> value
-      </p>
-      <p>
-        Things to look out for:
-        <ul>
-          <li>URL is valid</li>
-          <li>URL scheme matches the service scheme, i.e. https and https</li>
-          <li>
-            The static server has wide-open CORS,
-            <a href=${URL_CORS_DOCS} target="_blank">more on that here</a>
-          </li>
-        </ul>
-      </p>
-      <p>
-        Technical description: <code>${error}</code>
-        <br />
-        URL: <code><a href="${encodeURI(url)}" target="_blank" rel="noreferrer">${htmlEscape(url)}</a></code>
-      </p>
-    </div>`;
+    return t("editorMessages.errLoadingHTTP", {
+      attr,
+      url: htmlEscape(url),
+      urlEscaped: encodeURI(url),
+      error,
+      corsDocs: URL_CORS_DOCS,
+    });
   },
 };

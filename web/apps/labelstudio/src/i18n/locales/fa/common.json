@@ -656,6 +656,115 @@
       "confirmAria": "تایید حذف وبهوک"
     }
   },
+  "heidiTips": {
+    "links": {
+      "learnMore": "بیشتر بدانید",
+      "exploreTemplates": "کاوش قالب‌ها",
+      "joinCommunity": "به انجمن بپیوندید",
+      "integrationsDirectory": "فهرست یکپارچه‌سازی‌ها را ببینید"
+    },
+    "projectCreation": {
+      "workspaceIntro": {
+        "title": "می‌دانستید؟",
+        "content": "مرتب کردن پروژه‌ها در فضای کاری (workspace) پیدا کردنشان را در Label Studio Enterprise ساده‌تر می‌کند."
+      },
+      "fasterProvisioning": {
+        "title": "ارائه دسترسی سریع‌تر",
+        "content": "با انتساب افراد به فضای کاری، تخصیصشان به چند پروژه را در Label Studio Enterprise ساده کنید."
+      },
+      "annotatorDashboard": {
+        "title": "می‌دانستید؟",
+        "content": "در نسخه سازمانی، مدیران می‌توانند داشبورد عملکرد برچسب‌زن‌ها را ببینند تا تخصیص منابع و مدیریت تیم را بهینه کنند."
+      },
+      "accessControl": {
+        "title": "می‌دانستید؟",
+        "content": "در Label Studio Enterprise می‌توانید دسترسی اعضای داخلی و برچسب‌زن‌های بیرونی را تا سطح پروژه و فضای کاری کنترل کنید."
+      },
+      "templates": {
+        "title": "می‌دانستید؟",
+        "content": "می‌توانید ده‌ها قالب را برای رابط برچسب‌زنی استفاده یا ویرایش کنید، یا با تگ‌های ساده شبیه XML یک پیکربندی سفارشی بسازید."
+      },
+      "genai": {
+        "title": "برچسب‌زنی برای GenAI",
+        "content": "Label Studio قالب‌هایی برای آموزش نظارت‌شده LLM، رتبه‌بندی RAG، RLHF، ارزیابی چت‌بات و موارد دیگر دارد."
+      }
+    },
+    "organizationPage": {
+      "teamGrowing": {
+        "title": "به نظر می‌رسد تیم شما در حال رشد است!",
+        "content": "با Label Studio Enterprise نقش‌ها را تعیین کنید و دسترسی به داده حساس را در سطح پروژه و فضای کاری کنترل کنید."
+      },
+      "sso": {
+        "title": "می‌خواهید ورود را ساده و امن کنید؟",
+        "content": "ورود تک‌مرحله‌ای (SSO) را با SAML، SCIM2 یا LDAP برای تیم فعال کنید."
+      },
+      "starterCloud": {
+        "title": "می‌دانستید؟",
+        "content": "Label Studio Starter Cloud برای تیم‌ها و پروژه‌های کوچک بهینه شده است."
+      },
+      "automateDistribution": {
+        "title": "توزیع وظایف را خودکار کنید",
+        "content": "قوانینی بسازید تا وظایف خودکار بین برچسب‌زن‌ها توزیع شوند و هر برچسب‌زن فقط کارهای خودش را ببیند."
+      },
+      "shareKnowledge": {
+        "title": "دانش را با جامعه به اشتراک بگذارید",
+        "content": "سوالی یا نکته‌ای برای کاربران دیگر دارید؟ به کانال اسلک انجمن بپیوندید و به‌روز بمانید."
+      },
+      "integrations": {
+        "title": "می‌دانستید؟",
+        "content": "Label Studio نقاط یکپارچه‌سازی متعددی با ذخیره‌سازی ابری، مدل‌های یادگیری ماشین و ابزارهای محبوب برای خودکارسازی پایپ‌لاین ML دارد."
+      }
+    },
+    "projectSettings": {
+      "autoLabeling": {
+        "title": "زمان را با برچسب‌زنی خودکار ذخیره کنید",
+        "content": "با خودکارسازی، مجموعه‌داده‌های بزرگ را سریع و بدون افت کیفیت در نسخه سازمانی برچسب بزنید."
+      },
+      "quality": {
+        "title": "می‌دانستید؟",
+        "content": "با جریان‌های کاری بازبینی و امتیاز توافق وظایف می‌توانید کیفیت داده برچسب‌خورده را افزایش دهید."
+      },
+      "evals": {
+        "title": "ارزیابی مدل‌های GenAI",
+        "content": "ترکیب خودکارسازی و نظارت انسانی برای ارزیابی و تضمین کیفیت LLM در پلتفرم سازمانی."
+      },
+      "cloudService": {
+        "title": "می‌دانستید؟",
+        "content": "با سرویس ابری سازمانی در زمان مدیریت زیرساخت و به‌روزرسانی صرفه‌جویی کنید و امکانات بیشتری برای خودکارسازی، کیفیت و مدیریت تیم داشته باشید."
+      },
+      "starterCloud": {
+        "title": "می‌دانستید؟",
+        "content": "Label Studio Starter Cloud برای تیم‌ها و پروژه‌های کوچک بهینه شده است."
+      },
+      "connectModels": {
+        "title": "می‌دانستید؟",
+        "content": "با اتصال مدل‌های ML از طریق SDK بک‌اند می‌توانید برای برچسب‌زنی اولیه یا یادگیری فعال در زمان صرفه‌جویی کنید."
+      }
+    }
+  },
+  "editorMessages": {
+    "done": "انجام شد!",
+    "noCompLeft": "برچسب‌گذاری دیگری باقی نمانده است",
+    "noNextTask": "کار دیگری در صف نیست",
+    "noAccess": "به این کار دسترسی ندارید",
+    "confirmDeleteAllRegions": "لطفاً تأیید کنید می‌خواهید همه نواحی برچسب‌خورده حذف شوند",
+    "errRequired": "ویژگی <b>{{field}}</b> برای <b>{{modelName}}</b> الزامی است",
+    "errUnknownTag": "تگی با نام <b>{{value}}</b> ثبت نشده است. ارجاع شده توسط <b>{{modelName}}#{{field}}</b>.",
+    "errTagNotFound": "تگی با نام <b>{{value}}</b> در پیکربندی وجود ندارد. ارجاع شده توسط <b>{{modelName}}#{{field}}</b>.",
+    "errTagUnsupported": "ویژگی <b>{{field}}</b> برای <b>{{modelName}}</b> معتبر نیست: تگ اشاره‌شده <b>{{value}}</b> است، اما <b>{{modelName}}</b> فقط می‌تواند <b>{{validType}}</b> را کنترل کند",
+    "errParentTagUnexpected": "تگ <b>{{value}}</b> باید فرزند یکی از تگ‌های <b>{{validType}}</b> باشد.",
+    "errBadType": "ویژگی <b>{{field}}</b> در تگ <b>{{modelName}}</b> نوع نامعتبر دارد. انواع معتبر: <b>{{validType}}</b>.",
+    "errInternal": "خطای داخلی. برای اطلاعات بیشتر کنسول مرورگر را ببینید. دوباره تلاش کنید یا با توسعه‌دهندگان تماس بگیرید.<br/>{{value}}",
+    "errGeneral": "{{value}}",
+    "errLoadingAudio": {
+      "message": "خطا در بارگذاری صوت. فیلد <code>{{attr}}</code> را در تسک بررسی کنید.",
+      "description": "توضیح فنی: {{error}}",
+      "url": "آدرس: {{url}}"
+    },
+    "errLoadingS3": "<div><p>در بارگذاری آدرس از مقدار <code>{{attr}}</code> مشکلی رخ داد. پارامترهای درخواست نامعتبرند. اگر از S3 استفاده می‌کنید، مطمئن شوید نام ناحیه باکت را درست وارد کرده‌اید.</p><p>آدرس: <code><a href=\"{{urlEscaped}}\" target=\"_blank\" rel=\"noreferrer\">{{url}}</a></code></p></div>",
+    "errLoadingCORS": "<div><p>در بارگذاری آدرس از مقدار <code>{{attr}}</code> مشکلی رخ داد. احتمالاً به‌دلیل پیکربندی باز CORS در سرور است. <a href=\"{{corsDocs}}\" target=\"_blank\">اینجا بیشتر بخوانید.</a></p><p>همچنین بررسی کنید:<ul><li>آدرس معتبر باشد</li><li>شبکه در دسترس باشد</li></ul></p><p>آدرس: <code><a href=\"{{urlEscaped}}\" target=\"_blank\" rel=\"noreferrer\">{{url}}</a></code></p></div>",
+    "errLoadingHTTP": "<div data-testid=\"error:http\"><p>در بارگذاری آدرس از مقدار <code>{{attr}}</code> مشکلی رخ داد</p><p>موارد بررسی:<ul><li>آدرس معتبر باشد</li><li>طرح آدرس با سرویس یکسان باشد (https و https)</li><li>سرور استاتیک CORS باز نداشته باشد، <a href=\"{{corsDocs}}\" target=\"_blank\">اطلاعات بیشتر</a></li></ul></p><p>توضیح فنی: <code>{{error}}</code><br />آدرس: <code><a href=\"{{urlEscaped}}\" target=\"_blank\" rel=\"noreferrer\">{{url}}</a></code></p></div>"
+  },
   "account": {
     "title": "حساب کاربری من",
     "personalInfo": {

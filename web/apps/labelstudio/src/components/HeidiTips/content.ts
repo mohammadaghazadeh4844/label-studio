@@ -1,13 +1,16 @@
+import i18n from "i18next";
 import type { TipsCollection } from "./types";
+
+const t = (key: string) => i18n.t(key);
 
 export const defaultTipsCollection: TipsCollection = {
   projectCreation: [
     {
-      title: "Did you know?",
-      content: "It’s easier to find the projects when you organize them into workspaces using Label Studio Enterprise.",
+      title: t("heidiTips.projectCreation.workspaceIntro.title"),
+      content: t("heidiTips.projectCreation.workspaceIntro.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/manage_projects#Create-workspaces-to-organize-projects",
         params: {
           experiment: "project_creation_tip",
@@ -16,12 +19,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Unlock faster access provisioning",
-      content:
-        "Streamline assigning staff to multiple projects by assigning them to workspaces in Label Studio Enterprise.",
+      title: t("heidiTips.projectCreation.fasterProvisioning.title"),
+      content: t("heidiTips.projectCreation.fasterProvisioning.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/manage_projects#Add-or-remove-members-to-a-workspace",
         params: {
           experiment: "project_creation_tip",
@@ -30,12 +32,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content:
-        "In the Enterprise platform, admins can view annotator performance dashboards to optimize resource allocation, improve team management, and inform compensation.",
+      title: t("heidiTips.projectCreation.annotatorDashboard.title"),
+      content: t("heidiTips.projectCreation.annotatorDashboard.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/dashboard_annotator",
         params: {
           experiment: "project_creation_tip",
@@ -44,12 +45,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content:
-        "You can control access to specific projects and workspaces for internal team members and external annotators using Label Studio Enterprise.",
+      title: t("heidiTips.projectCreation.accessControl.title"),
+      content: t("heidiTips.projectCreation.accessControl.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/manage_users#Roles-in-Label-Studio-Enterprise",
         params: {
           experiment: "project_creation_tip",
@@ -58,12 +58,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content:
-        "You can use or modify dozens or templates to configure your labeling UI, or create a custom configuration from scratch using simple XML-like tag.",
+      title: t("heidiTips.projectCreation.templates.title"),
+      content: t("heidiTips.projectCreation.templates.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://labelstud.io/guide/setup",
         params: {
           experiment: "project_creation_tip",
@@ -72,12 +71,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Labeling for GenAI",
-      content:
-        "Label Studio has templates available for supervised LLM fine-tuning, RAG retrieval ranking, RLHF, chatbot evaluation, and more.",
+      title: t("heidiTips.projectCreation.genai.title"),
+      content: t("heidiTips.projectCreation.genai.content"),
       closable: true,
       link: {
-        label: "Explore templates",
+        label: t("heidiTips.links.exploreTemplates"),
         url: "https://labelstud.io/templates/gallery_generative_ai",
         params: {
           experiment: "project_creation_tip",
@@ -88,12 +86,11 @@ export const defaultTipsCollection: TipsCollection = {
   ],
   organizationPage: [
     {
-      title: "It looks like your team is growing!",
-      content:
-        "Assign roles to your team using Label Studio Enterprise and control access to sensitive data at the project and workspace levels.",
+      title: t("heidiTips.organizationPage.teamGrowing.title"),
+      content: t("heidiTips.organizationPage.teamGrowing.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/manage_users#Roles-in-Label-Studio-Enterprise",
         params: {
           experiment: "organization_page_tip",
@@ -102,11 +99,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Want to simplify and secure logging in?",
-      content: "Enable Single Sign-On for your team using SAML, SCIM2 or LDAP with Label Studio Enterprise.",
+      title: t("heidiTips.organizationPage.sso.title"),
+      content: t("heidiTips.organizationPage.sso.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/auth_setup",
         params: {
           experiment: "organization_page_tip",
@@ -115,11 +112,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content: "Try Label Studio Starter Cloud, optimized for small teams and projects.",
+      title: t("heidiTips.organizationPage.starterCloud.title"),
+      content: t("heidiTips.organizationPage.starterCloud.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://humansignal.com/pricing/",
         params: {
           experiment: "organization_page_tip",
@@ -128,12 +125,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Want to automate task distribution?",
-      content:
-        "Create rules, automate how tasks are distributed to annotators, and only show tasks assigned to each annotator in their view.and control task visibility for each annotator.",
+      title: t("heidiTips.organizationPage.automateDistribution.title"),
+      content: t("heidiTips.organizationPage.automateDistribution.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/setup_project#Set-up-annotation-settings-for-your-project",
         params: {
           experiment: "organization_page_tip",
@@ -142,12 +138,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Share knowledge with the community",
-      content:
-        "Have questions or a tip to share with other Label Studio users? Join the community slack channel for the latest updates. ",
+      title: t("heidiTips.organizationPage.shareKnowledge.title"),
+      content: t("heidiTips.organizationPage.shareKnowledge.content"),
       closable: true,
       link: {
-        label: "Join the community",
+        label: t("heidiTips.links.joinCommunity"),
         url: "https://label-studio.slack.com",
         params: {
           experiment: "organization_page_tip",
@@ -156,12 +151,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content:
-        "Label Studio supports multiple points of integration with cloud storage, machine learning models, and popular tools to automate your machine learning pipeline.",
+      title: t("heidiTips.organizationPage.integrations.title"),
+      content: t("heidiTips.organizationPage.integrations.content"),
       closable: true,
       link: {
-        label: "Check out the integrations directory",
+        label: t("heidiTips.links.integrationsDirectory"),
         url: "https://labelstud.io/integrations/",
         params: {
           experiment: "organization_page_tip",
@@ -172,12 +166,11 @@ export const defaultTipsCollection: TipsCollection = {
   ],
   projectSettings: [
     {
-      title: "Save time with Auto-Labeling",
-      content:
-        "Use automation to instantly label large-scale datasets without sacrificing quality in the Enterprise platform.",
+      title: t("heidiTips.projectSettings.autoLabeling.title"),
+      content: t("heidiTips.projectSettings.autoLabeling.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/prompts_overview#Auto-labeling-with-Prompts",
         params: {
           experiment: "project_settings_tip",
@@ -186,12 +179,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content:
-        "You can increase the quality of your labeled data with reviewer workflows and task agreement scores using Label Studio Enterprise.",
+      title: t("heidiTips.projectSettings.quality.title"),
+      content: t("heidiTips.projectSettings.quality.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://docs.humansignal.com/guide/quality",
         params: {
           experiment: "project_settings_tip",
@@ -200,12 +192,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Evaluate GenAI models",
-      content:
-        "Combine automation plus human supervision to evaluate and ensure LLM quality in the Enterprise platform.",
+      title: t("heidiTips.projectSettings.evals.title"),
+      content: t("heidiTips.projectSettings.evals.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://humansignal.com/evals/",
         params: {
           experiment: "project_settings_tip",
@@ -214,12 +205,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content:
-        "You can save time managing infrastructure and upgrades, plus access more features for automation, quality, and team management, by using the Enterprise cloud service.",
+      title: t("heidiTips.projectSettings.cloudService.title"),
+      content: t("heidiTips.projectSettings.cloudService.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://humansignal.com/platform/",
         params: {
           experiment: "project_settings_tip",
@@ -228,10 +218,10 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content: "Try Label Studio Starter Cloud, optimized for small teams and projects.",
+      title: t("heidiTips.projectSettings.starterCloud.title"),
+      content: t("heidiTips.projectSettings.starterCloud.content"),
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://humansignal.com/pricing/",
         params: {
           experiment: "project_settings_tip",
@@ -240,11 +230,11 @@ export const defaultTipsCollection: TipsCollection = {
       },
     },
     {
-      title: "Did you know?",
-      content: "You can connect ML models using the backend SDK to save time with pre-labeling or active learning.",
+      title: t("heidiTips.projectSettings.connectModels.title"),
+      content: t("heidiTips.projectSettings.connectModels.content"),
       closable: true,
       link: {
-        label: "Learn more",
+        label: t("heidiTips.links.learnMore"),
         url: "https://labelstud.io/guide/ml",
         params: {
           experiment: "project_settings_tip",

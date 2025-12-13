@@ -656,6 +656,115 @@
       "confirmAria": "Confirm webhook deletion"
     }
   },
+  "heidiTips": {
+    "links": {
+      "learnMore": "Learn more",
+      "exploreTemplates": "Explore templates",
+      "joinCommunity": "Join the community",
+      "integrationsDirectory": "Check out the integrations directory"
+    },
+    "projectCreation": {
+      "workspaceIntro": {
+        "title": "Did you know?",
+        "content": "It's easier to find the projects when you organize them into workspaces using Label Studio Enterprise."
+      },
+      "fasterProvisioning": {
+        "title": "Unlock faster access provisioning",
+        "content": "Streamline assigning staff to multiple projects by assigning them to workspaces in Label Studio Enterprise."
+      },
+      "annotatorDashboard": {
+        "title": "Did you know?",
+        "content": "In the Enterprise platform, admins can view annotator performance dashboards to optimize resource allocation, improve team management, and inform compensation."
+      },
+      "accessControl": {
+        "title": "Did you know?",
+        "content": "You can control access to specific projects and workspaces for internal team members and external annotators using Label Studio Enterprise."
+      },
+      "templates": {
+        "title": "Did you know?",
+        "content": "You can use or modify dozens of templates to configure your labeling UI, or create a custom configuration from scratch using simple XML-like tags."
+      },
+      "genai": {
+        "title": "Labeling for GenAI",
+        "content": "Label Studio has templates available for supervised LLM fine-tuning, RAG retrieval ranking, RLHF, chatbot evaluation, and more."
+      }
+    },
+    "organizationPage": {
+      "teamGrowing": {
+        "title": "It looks like your team is growing!",
+        "content": "Assign roles to your team using Label Studio Enterprise and control access to sensitive data at the project and workspace levels."
+      },
+      "sso": {
+        "title": "Want to simplify and secure logging in?",
+        "content": "Enable Single Sign-On for your team using SAML, SCIM2 or LDAP with Label Studio Enterprise."
+      },
+      "starterCloud": {
+        "title": "Did you know?",
+        "content": "Try Label Studio Starter Cloud, optimized for small teams and projects."
+      },
+      "automateDistribution": {
+        "title": "Want to automate task distribution?",
+        "content": "Create rules, automate how tasks are distributed to annotators, and only show tasks assigned to each annotator in their view, controlling task visibility for each annotator."
+      },
+      "shareKnowledge": {
+        "title": "Share knowledge with the community",
+        "content": "Have questions or a tip to share with other Label Studio users? Join the community slack channel for the latest updates."
+      },
+      "integrations": {
+        "title": "Did you know?",
+        "content": "Label Studio supports multiple points of integration with cloud storage, machine learning models, and popular tools to automate your machine learning pipeline."
+      }
+    },
+    "projectSettings": {
+      "autoLabeling": {
+        "title": "Save time with Auto-Labeling",
+        "content": "Use automation to instantly label large-scale datasets without sacrificing quality in the Enterprise platform."
+      },
+      "quality": {
+        "title": "Did you know?",
+        "content": "You can increase the quality of your labeled data with reviewer workflows and task agreement scores using Label Studio Enterprise."
+      },
+      "evals": {
+        "title": "Evaluate GenAI models",
+        "content": "Combine automation plus human supervision to evaluate and ensure LLM quality in the Enterprise platform."
+      },
+      "cloudService": {
+        "title": "Did you know?",
+        "content": "You can save time managing infrastructure and upgrades, plus access more features for automation, quality, and team management, by using the Enterprise cloud service."
+      },
+      "starterCloud": {
+        "title": "Did you know?",
+        "content": "Try Label Studio Starter Cloud, optimized for small teams and projects."
+      },
+      "connectModels": {
+        "title": "Did you know?",
+        "content": "You can connect ML models using the backend SDK to save time with pre-labeling or active learning."
+      }
+    }
+  },
+  "editorMessages": {
+    "done": "Done!",
+    "noCompLeft": "No more annotations",
+    "noNextTask": "No More Tasks Left in Queue",
+    "noAccess": "You don't have access to this task",
+    "confirmDeleteAllRegions": "Please confirm you want to delete all labeled regions",
+    "errRequired": "Attribute <b>{{field}}</b> is required for <b>{{modelName}}</b>",
+    "errUnknownTag": "Tag with name <b>{{value}}</b> is not registered. Referenced by <b>{{modelName}}#{{field}}</b>.",
+    "errTagNotFound": "Tag with name <b>{{value}}</b> does not exist in the config. Referenced by <b>{{modelName}}#{{field}}</b>.",
+    "errTagUnsupported": "Invalid attribute <b>{{field}}</b> for <b>{{modelName}}</b>: referenced tag is <b>{{value}}</b>, but <b>{{modelName}}</b> can only control <b>{{validType}}</b>",
+    "errParentTagUnexpected": "Tag <b>{{value}}</b> must be a child of one of the tags <b>{{validType}}</b>.",
+    "errBadType": "Attribute <b>{{field}}</b> of tag <b>{{modelName}}</b> has invalid type. Valid types are: <b>{{validType}}</b>.",
+    "errInternal": "Internal error. See browser console for more info. Try again or contact developers.<br/>{{value}}",
+    "errGeneral": "{{value}}",
+    "errLoadingAudio": {
+      "message": "Error while loading audio. Check <code>{{attr}}</code> field in task.",
+      "description": "Technical description: {{error}}",
+      "url": "URL: {{url}}"
+    },
+    "errLoadingS3": "<div><p>There was an issue loading URL from <code>{{attr}}</code> value. The request parameters are invalid. If you are using S3, make sure you've specified the right bucket region name.</p><p>URL: <code><a href=\"{{urlEscaped}}\" target=\"_blank\" rel=\"noreferrer\">{{url}}</a></code></p></div>",
+    "errLoadingCORS": "<div><p>There was an issue loading URL from <code>{{attr}}</code> value. Most likely that's because static server has wide-open CORS. <a href=\"{{corsDocs}}\" target=\"_blank\">Read more on that here.</a></p><p>Also check that:<ul><li>URL is valid</li><li>Network is reachable</li></ul></p><p>URL: <code><a href=\"{{urlEscaped}}\" target=\"_blank\" rel=\"noreferrer\">{{url}}</a></code></p></div>",
+    "errLoadingHTTP": "<div data-testid=\"error:http\"><p>There was an issue loading URL from <code>{{attr}}</code> value</p><p>Things to look out for:<ul><li>URL is valid</li><li>URL scheme matches the service scheme, i.e. https and https</li><li>The static server has wide-open CORS, <a href=\"{{corsDocs}}\" target=\"_blank\">more on that here</a></li></ul></p><p>Technical description: <code>{{error}}</code><br />URL: <code><a href=\"{{urlEscaped}}\" target=\"_blank\" rel=\"noreferrer\">{{url}}</a></code></p></div>"
+  },
   "account": {
     "title": "My Account",
     "personalInfo": "Personal Info",
