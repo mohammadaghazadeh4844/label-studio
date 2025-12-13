@@ -17,6 +17,9 @@ import {
 } from "@humansignal/icons";
 import { Typography } from "../typography/typography";
 import { Tooltip } from "../Tooltip/Tooltip";
+import i18n from "i18next";
+
+const t = (key: string) => i18n.t(`stories.emptyState.${key}`);
 
 const meta: Meta<typeof EmptyState> = {
   component: EmptyState,
@@ -24,8 +27,7 @@ const meta: Meta<typeof EmptyState> = {
   parameters: {
     docs: {
       description: {
-        component:
-          "A reusable empty state component for displaying various empty states throughout the application with support for different sizes and customizable content.",
+        component: t("componentDescription"),
       },
     },
   },
@@ -33,37 +35,37 @@ const meta: Meta<typeof EmptyState> = {
     size: {
       control: "select",
       options: ["large", "medium", "small"],
-      description: "Size of the empty state",
+      description: t("sizeDescription"),
     },
     variant: {
       control: "select",
       options: ["primary", "neutral", "negative", "positive", "warning", "gradient"],
-      description: "Color variant of the empty state",
+      description: t("variantDescription"),
     },
     icon: {
       control: false,
-      description: "Icon element to display",
+      description: t("iconDescription"),
     },
 
     title: {
       control: "text",
-      description: "Main title text",
+      description: t("titleDescription"),
     },
     description: {
       control: "text",
-      description: "Description text below the title",
+      description: t("descriptionDescription"),
     },
     actions: {
       control: false,
-      description: "Action buttons or other interactive elements",
+      description: t("actionsDescription"),
     },
     additionalContent: {
       control: false,
-      description: "Additional content to display between description and actions",
+      description: t("additionalContentDescription"),
     },
     footer: {
       control: false,
-      description: "Footer content displayed at the bottom",
+      description: t("footerDescription"),
     },
   },
 };
@@ -77,12 +79,12 @@ export const Default: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconInbox />,
-    title: "Add your first items",
-    description: "Start building your collection by adding new items",
+    title: t("defaultTitle"),
+    description: t("defaultDescription"),
     footer: (
       <Typography variant="label" size="small" className="text-primary-link">
         <a href="/docs/labeling-interface" className="inline-flex items-center gap-1 hover:underline">
-          Learn more
+          {t("learnMore")}
           <IconExternal width={16} height={16} />
         </a>
       </Typography>
@@ -95,11 +97,11 @@ export const WithSingleAction: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconUpload />,
-    title: "Upload your data",
-    description: "Choose a file from your computer to get started",
+    title: t("uploadDataTitle"),
+    description: t("uploadDataDescription"),
     actions: (
       <Button variant="primary" look="filled">
-        Upload File
+        {t("uploadFile")}
       </Button>
     ),
   },
@@ -110,15 +112,15 @@ export const WithMultipleActions: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconUpload />,
-    title: "Import data to get started",
-    description: "Connect your cloud storage or upload files from your computer",
+    title: t("importDataTitle"),
+    description: t("importDataDescription"),
     actions: (
       <>
         {/* <Button variant="primary" look="filled" className="flex-1">
           Connect Cloud Storage
         </Button> */}
         <Button variant="primary" look="outlined" className="flex-1">
-          Upload Files
+          {t("uploadFiles")}
         </Button>
       </>
     ),
@@ -130,21 +132,21 @@ export const SizeComparison: Story = {
   render: () => (
     <div className="space-y-12">
       <div>
-        <h3 className="text-lg font-semibold mb-4">Large Size (Data Manager Style)</h3>
+        <h3 className="text-lg font-semibold mb-4">{t("headingLarge")}</h3>
         <div className="border border-neutral-border rounded-lg p-4 h-96">
           <EmptyState
             size="large"
             variant="primary"
             icon={<IconUpload />}
-            title="Import data to get your project started"
-            description="Connect your cloud storage or upload files from your computer"
+            title={t("importProjectTitle")}
+            description={t("importDataDescription")}
             actions={
               <>
                 {/* <Button variant="primary" look="filled" className="flex-1">
                   Connect Cloud Storage
                 </Button> */}
                 <Button variant="primary" look="outlined" className="flex-1">
-                  Import
+                  {t("importAction")}
                 </Button>
               </>
             }
@@ -153,17 +155,17 @@ export const SizeComparison: Story = {
       </div>
 
       <div>
-        <h3 className="text-lg font-semibold mb-4">Medium Size (Home Page Style)</h3>
+        <h3 className="text-lg font-semibold mb-4">{t("headingMedium")}</h3>
         <div className="border border-neutral-border rounded-lg p-4 h-64">
           <EmptyState
             size="medium"
             variant="primary"
             icon={<IconUpload />}
-            title="Create your first project"
-            description="Import your data and set up the labeling interface to start annotating"
+            title={t("createProjectTitle")}
+            description={t("createProjectDescription")}
             actions={
               <Button variant="primary" look="filled">
-                Create Project
+                {t("createProject")}
               </Button>
             }
           />
@@ -171,18 +173,18 @@ export const SizeComparison: Story = {
       </div>
 
       <div>
-        <h3 className="text-lg font-semibold mb-4">Small Size (Sidepanel Style)</h3>
+        <h3 className="text-lg font-semibold mb-4">{t("headingSmall")}</h3>
         <div className="border border-neutral-border rounded-lg p-4 h-48">
           <EmptyState
             size="small"
             variant="primary"
             icon={<IconLsLabeling />}
-            title="Labeled regions will appear here"
-            description="Start labeling and track your results using this panel"
+            title={t("labeledRegionsTitle")}
+            description={t("labeledRegionsDescription")}
             footer={
               <Typography variant="label" size="small" className="text-primary-link">
                 <a href="/docs/labeling-interface" className="inline-flex items-center gap-1 hover:underline">
-                  Learn more
+                  {t("learnMore")}
                   <IconExternal width={16} height={16} />
                 </a>
               </Typography>
@@ -203,8 +205,8 @@ export const ColorVariants: Story = {
           size="medium"
           variant="primary"
           icon={<IconUpload />}
-          title="Primary Variant"
-          description="Default blue theme for standard empty states"
+          title={t("primaryVariant")}
+          description={t("primaryDescription")}
         />
       </div>
 
@@ -213,8 +215,8 @@ export const ColorVariants: Story = {
           size="medium"
           variant="neutral"
           icon={<IconInbox />}
-          title="Neutral Variant"
-          description="Gray theme for neutral states"
+          title={t("neutralVariant")}
+          description={t("neutralDescription")}
         />
       </div>
 
@@ -223,8 +225,8 @@ export const ColorVariants: Story = {
           size="medium"
           variant="negative"
           icon={<IconSearch />}
-          title="Negative Variant"
-          description="Red theme for error states and failures"
+          title={t("negativeVariant")}
+          description={t("negativeDescription")}
         />
       </div>
 
@@ -233,8 +235,8 @@ export const ColorVariants: Story = {
           size="medium"
           variant="positive"
           icon={<IconCheck />}
-          title="Positive Variant"
-          description="Green theme for success states"
+          title={t("positiveVariant")}
+          description={t("positiveDescription")}
         />
       </div>
 
@@ -243,8 +245,8 @@ export const ColorVariants: Story = {
           size="medium"
           variant="warning"
           icon={<IconSearch />}
-          title="Warning Variant"
-          description="Orange/Yellow theme for warning states"
+          title={t("warningVariant")}
+          description={t("warningDescription")}
         />
       </div>
 
@@ -253,8 +255,8 @@ export const ColorVariants: Story = {
           size="medium"
           variant="gradient"
           icon={<IconLsLabeling />}
-          title="Gradient Variant"
-          description="AI gradient theme with special effects and pulsating animation"
+          title={t("gradientVariant")}
+          description={t("gradientDescription")}
         />
       </div>
     </div>
@@ -267,8 +269,8 @@ export const DataManagerImport: Story = {
     size: "large",
     variant: "primary",
     icon: <IconUpload />,
-    title: "Import data to get your project started",
-    description: "Connect your cloud storage or upload files from your computer",
+    title: t("importProjectTitle"),
+    description: t("importDataDescription"),
     // additionalContent: (
     //   <div className="flex items-center justify-center gap-base">
     //     <Tooltip title="Amazon S3">
@@ -299,7 +301,7 @@ export const DataManagerImport: Story = {
           Connect Cloud Storage
         </Button> */}
         <Button variant="primary" look="outlined" className="flex-1">
-          Import
+          {t("importAction")}
         </Button>
       </>
     ),
@@ -319,11 +321,11 @@ export const AnnotatorLabelingState: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconLsLabeling />,
-    title: "Start labeling tasks",
-    description: "Begin labeling to track your progress here",
+    title: t("startLabelingTitle"),
+    description: t("startLabelingDescription"),
     actions: (
       <Button variant="primary" look="filled">
-        Label All Tasks
+        {t("labelAllTasks")}
       </Button>
     ),
   },
@@ -334,8 +336,8 @@ export const ReviewerEmptyState: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconLsReview />,
-    title: "Begin reviewing tasks",
-    description: "Import tasks to this project to start reviewing",
+    title: t("startReviewingTitle"),
+    description: t("startReviewingDescription"),
   },
 };
 
@@ -344,11 +346,11 @@ export const NoResultsFound: Story = {
     size: "medium",
     variant: "warning",
     icon: <IconSearch />,
-    title: "Refine your search",
-    description: "Adjust or clear your filters to see more results",
+    title: t("refineSearchTitle"),
+    description: t("refineSearchDescription"),
     actions: (
       <Button variant="primary" look="outlined">
-        Clear Filters
+        {t("clearFilters")}
       </Button>
     ),
   },
@@ -359,8 +361,8 @@ export const AssignedTasksEmpty: Story = {
     size: "medium",
     variant: "neutral",
     icon: <IconInbox />,
-    title: "Wait for task assignment",
-    description: "Check back here when tasks get assigned to you",
+    title: t("waitAssignmentTitle"),
+    description: t("waitAssignmentDescription"),
   },
 };
 
@@ -369,11 +371,11 @@ export const LabelingQueueComplete: Story = {
     size: "medium",
     variant: "positive",
     icon: <IconCheck />,
-    title: "You're all caught up!",
-    description: "All tasks in the queue have been completed",
+    title: t("caughtUpTitle"),
+    description: t("caughtUpDescription"),
     actions: (
       <Button variant="primary" look="outlined">
-        Go to Previous Task
+        {t("goPreviousTask")}
       </Button>
     ),
   },
@@ -385,17 +387,17 @@ export const ComplexContent: Story = {
     size: "large",
     variant: "primary",
     icon: <IconUpload />,
-    title: "Upload your files",
-    description: "Choose from multiple upload options and formats to get started",
+    title: t("uploadFilesTitle"),
+    description: t("uploadFilesDescription"),
     additionalContent: (
       <div className="text-center">
         <Typography variant="label" size="small" className="text-neutral-content-subtler mb-2">
-          Supported formats: CSV, JSON, TSV, TXT
+          {t("supportedFormats")}
         </Typography>
         <div className="flex justify-center items-center gap-2 text-neutral-content-subtler">
           <div className="w-2 h-2 bg-positive-icon rounded-full" />
           <Typography variant="label" size="smallest">
-            Drag and drop enabled
+            {t("dragDropEnabled")}
           </Typography>
         </div>
       </div>
@@ -403,13 +405,13 @@ export const ComplexContent: Story = {
     actions: (
       <>
         <Button variant="primary" look="filled" className="flex-1">
-          Browse Files
+          {t("browseFiles")}
         </Button>
         <Button variant="primary" look="outlined" className="flex-1">
-          Connect Storage
+          {t("connectStorage")}
         </Button>
         <Button variant="neutral" look="outlined">
-          Import From URL
+          {t("importFromUrl")}
         </Button>
       </>
     ),
@@ -417,11 +419,11 @@ export const ComplexContent: Story = {
       <div className="text-center space-y-1">
         <Typography variant="label" size="small" className="text-primary-link">
           <a href="/docs/import-guide" className="hover:underline">
-            Need help? View our import guide
+            {t("importGuide")}
           </a>
         </Typography>
         <Typography variant="label" size="smallest" className="text-neutral-content-subtler">
-          Maximum file size: 100MB per file
+          {t("maxFileSize")}
         </Typography>
       </div>
     ),
@@ -434,15 +436,15 @@ export const WithAccessibility: Story = {
     size: "medium",
     variant: "primary",
     icon: <IconInbox />,
-    title: "Build your collection",
-    description: "Start adding items to create your first collection",
+    title: t("buildCollectionTitle"),
+    description: t("buildCollectionDescription"),
     titleId: "accessible-empty-title",
     descriptionId: "accessible-empty-desc",
-    "aria-label": "Add items to build your collection",
+    "aria-label": t("buildCollectionAria"),
     "data-testid": "accessible-empty-state",
     actions: (
       <Button variant="primary" look="filled">
-        Add First Item
+        {t("addFirstItem")}
       </Button>
     ),
   },
@@ -454,11 +456,11 @@ export const RelationsPanel: Story = {
     size: "small",
     variant: "primary",
     icon: <IconRelationLink />,
-    title: "Create relations between labels",
-    description: "Add relations to establish connections between labeled regions",
+    title: t("relationsTitle"),
+    description: t("relationsDescription"),
     actions: (
       <Button variant="primary" look="outlined" size="small">
-        Add Relation
+        {t("addRelation")}
       </Button>
     ),
   },
