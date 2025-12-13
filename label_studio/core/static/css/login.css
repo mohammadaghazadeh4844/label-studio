@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'Vazir';
+  src: url('../fonts/Vazir.woff2') format('woff2'),
+       url('../fonts/Vazir.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazir';
+  src: url('../fonts/Vazir.woff2') format('woff2'),
+       url('../fonts/Vazir.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   height: 100%;
@@ -7,7 +25,7 @@ body {
   display: flex;
   font-weight: 400;
   height: 100%;
-  font-family: 'Hellix', sans-serif;
+  font-family: 'Vazir', sans-serif;
   background-color: var(--color-neutral-background-bold);
   color: var(--color-neutral-content);
 }
@@ -212,7 +230,7 @@ body {
 .login_page_new_ui form button,
 .login_page_new_ui form select {
   width: 100%;
-  font-family: 'Hellix', sans-serif;
+  font-family: 'Vazir', sans-serif;
 }
 
 .login_page_new_ui form input {
@@ -286,12 +304,12 @@ body {
 .input-wrapper label {
   font-size: .825rem !important;
   margin-bottom: .2rem;
-  font-family: 'Hellix', sans-serif !important;
+  font-family: 'Vazir', sans-serif !important;
   font-weight: 500;
 }
 
 label {
-  font-family: 'Hellix', sans-serif !important;
+  font-family: 'Vazir', sans-serif !important;
   font-weight: 500;
   font-size: .825rem !important;
   margin-bottom: .2rem;
@@ -323,7 +341,7 @@ label {
 }
 
 .form-group label a {
-  font-family: 'Hellix', sans-serif !important;
+  font-family: 'Vazir', sans-serif !important;
   font-weight: 500;
 }
 
