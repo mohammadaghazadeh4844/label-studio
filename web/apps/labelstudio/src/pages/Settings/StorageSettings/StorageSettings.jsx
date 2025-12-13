@@ -192,5 +192,5 @@ export const StorageSettings = () => {
   );
 };
 
-StorageSettings.title = i18n.t("settings.storage.heading");
+StorageSettings.title = () => i18n.t("settings.storage.heading");
 StorageSettings.path = "/storage";

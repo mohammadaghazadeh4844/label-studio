@@ -40,7 +40,7 @@ const pages = {
 };
 
 export const SettingsPage = {
-  title: i18n.t("projects.menu.settings"),
+  title: () => i18n.t("projects.menu.settings"),
   path: "/settings",
   exact: true,
   layout: MenuLayout,

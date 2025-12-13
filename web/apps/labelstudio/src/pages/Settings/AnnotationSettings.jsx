@@ -90,5 +90,5 @@ export const AnnotationSettings = () => {
   );
 };
 
-AnnotationSettings.title = i18n.t("settings.annotation.title");
+AnnotationSettings.title = () => i18n.t("settings.annotation.title");
 AnnotationSettings.path = "/annotation";

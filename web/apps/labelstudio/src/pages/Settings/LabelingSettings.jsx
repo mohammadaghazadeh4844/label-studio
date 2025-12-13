@@ -95,5 +95,5 @@ export const LabelingSettings = () => {
   );
 };
 
-LabelingSettings.title = i18n.t("settings.labeling.title");
+LabelingSettings.title = () => i18n.t("settings.labeling.title");
 LabelingSettings.path = "/labeling";

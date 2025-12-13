@@ -144,7 +144,7 @@ export const ProjectsPage = () => {
   );
 };
 
-ProjectsPage.title = i18n.t("projects.title");
+ProjectsPage.title = () => i18n.t("projects.title");
 ProjectsPage.path = "/projects";
 ProjectsPage.exact = true;
 ProjectsPage.routes = ({ store }) => [

@@ -218,5 +218,5 @@ export const MachineLearningSettings = () => {
   );
 };
 
-MachineLearningSettings.title = i18n.t("settings.ml.pageHeading");
+MachineLearningSettings.title = () => i18n.t("settings.ml.pageHeading");
 MachineLearningSettings.path = "/ml";

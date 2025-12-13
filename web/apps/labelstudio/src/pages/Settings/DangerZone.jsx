@@ -238,5 +238,5 @@ export const DangerZone = () => {
   );
 };
 
-DangerZone.title = i18n.t("settings.danger.title");
+DangerZone.title = () => i18n.t("settings.danger.title");
 DangerZone.path = "/danger-zone";

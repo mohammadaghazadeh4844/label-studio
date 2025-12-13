@@ -100,5 +100,5 @@ export const PredictionsSettings = () => {
   );
 };
 
-PredictionsSettings.title = i18n.t("settings.predictions.title");
+PredictionsSettings.title = () => i18n.t("settings.predictions.title");
 PredictionsSettings.path = "/predictions";
