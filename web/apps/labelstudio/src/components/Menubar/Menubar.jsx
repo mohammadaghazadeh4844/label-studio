@@ -141,7 +141,12 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
         <div className={menubarClass}>
           <Dropdown.Trigger dropdown={menuDropdownRef} closeOnClickOutside={!sidebarPinned}>
             <div className={`${menubarClass.elem("trigger")} main-menu-trigger`}>
-              <LSLogo className={`${menubarClass.elem("logo")}`} alt={t("menubar.logoAlt")} />
+              <div className={menubarClass.elem("brand")}>
+                <LSLogo className={`${menubarClass.elem("logo")}`} alt={t("menubar.logoAlt")} />
+                <span className={menubarClass.elem("site-name")}>
+                  {config?.branding?.name ?? config?.title ?? t("common.productName") ?? "Label Studio"}
+                </span>
+              </div>
               <Hamburger opened={sidebarOpened} />
             </div>
           </Dropdown.Trigger>

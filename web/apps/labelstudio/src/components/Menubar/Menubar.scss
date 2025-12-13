@@ -77,8 +77,9 @@
     cursor: pointer;
     align-items: center;
     justify-content: space-between;
-    min-width: 240px;
-    max-width: 240px;
+    gap: var(--spacing-base);
+    min-width: 260px;
+    max-width: 320px;
     box-sizing: border-box;
     border-right: 1px solid var(--color-neutral-border);
     transition: all 150ms ease-out;
@@ -90,8 +91,24 @@
 
   &__logo {
     color: var(--color-neutral-content);
-    height: 22px;
-    width: 142px;
+    height: 28px;
+    width: 180px;
+  }
+
+  &__brand {
+    display: flex;
+    gap: var(--spacing-tight);
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &__site-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-neutral-content-strong);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   &__user {
