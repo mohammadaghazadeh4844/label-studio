@@ -84,8 +84,16 @@ export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
                           <Userpic user={user} style={{ width: 28, height: 28 }} />
                         </CopyableTooltip>
                       </div>
-                      <div className={cn("people-list").elem("field").mix("email").toClassName()}>{user.email}</div>
-                      <div className={cn("people-list").elem("field").mix("name").toClassName()}>
+                      <div
+                        className={cn("people-list").elem("field").mix("email").toClassName()}
+                        title={user.email}
+                      >
+                        {user.email}
+                      </div>
+                      <div
+                        className={cn("people-list").elem("field").mix("name").toClassName()}
+                        title={`${user.first_name} ${user.last_name}`.trim()}
+                      >
                         {user.first_name} {user.last_name}
                       </div>
                       <div className={cn("people-list").elem("field").mix("last-activity").toClassName()}>
