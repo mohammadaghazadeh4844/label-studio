@@ -26,6 +26,7 @@
   &__header {
     font-weight: 500;
     display: flex;
+    column-gap: 8px;
   }
 
   &__column,
@@ -38,22 +39,29 @@
     display: flex;
     position: relative;
     align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     &.avatar {
       width: 28px;
       box-sizing: content-box;
+      flex-shrink: 0;
     }
 
     &.name {
       flex: 1;
+      min-width: 160px;
     }
 
     &.email {
       width: 200px;
+      flex-shrink: 0;
     }
 
     &.last-activity {
       width: 160px;
+      flex-shrink: 0;
     }
   }
 
@@ -71,6 +79,9 @@
   &__user {
     cursor: pointer;
     display: flex;
+    column-gap: 8px;
+    align-items: center;
+    min-height: 52px;
 
     &:nth-child(odd):not(&_active) {
       background-color: var(--color-neutral-emphasis-subtle);
