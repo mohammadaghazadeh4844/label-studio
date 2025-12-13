@@ -12,6 +12,7 @@ import { useAPI } from "../../providers/ApiProvider";
 import { useProject } from "../../providers/ProjectProvider";
 import { cn } from "../../utils/bem";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const DangerZone = () => {
   const { project } = useProject();
@@ -237,5 +238,5 @@ export const DangerZone = () => {
   );
 };
 
-DangerZone.title = "Danger Zone";
+DangerZone.title = i18n.t("settings.danger.title");
 DangerZone.path = "/danger-zone";

@@ -9,6 +9,7 @@ import { HeidiTips } from "../../components/HeidiTips/HeidiTips";
 import { FF_LSDV_E_297, isFF } from "../../utils/feature-flags";
 import { createURL } from "../../components/HeidiTips/utils";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const GeneralSettings = () => {
   const { project, fetchProject } = useContext(ProjectContext);
@@ -126,6 +127,6 @@ export const GeneralSettings = () => {
   );
 };
 
-GeneralSettings.menuItem = "General";
+GeneralSettings.menuItem = i18n.t("settings.general.title");
 GeneralSettings.path = "/";
 GeneralSettings.exact = true;

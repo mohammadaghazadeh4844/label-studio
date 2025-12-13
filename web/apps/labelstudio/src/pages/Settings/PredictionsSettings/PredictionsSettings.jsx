@@ -8,6 +8,7 @@ import { ProjectContext } from "../../../providers/ProjectProvider";
 import { Spinner } from "../../../components/Spinner/Spinner";
 import { PredictionsList } from "./PredictionsList";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const PredictionsSettings = () => {
   const api = useAPI();
@@ -99,5 +100,5 @@ export const PredictionsSettings = () => {
   );
 };
 
-PredictionsSettings.title = "Predictions";
+PredictionsSettings.title = i18n.t("settings.predictions.title");
 PredictionsSettings.path = "/predictions";

@@ -13,6 +13,7 @@ import { TestRequest } from "./TestRequest";
 import { StartModelTraining } from "./StartModelTraining";
 import "./MachineLearningSettings.scss";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const MachineLearningSettings = () => {
   const api = useAPI();
@@ -217,5 +218,5 @@ export const MachineLearningSettings = () => {
   );
 };
 
-MachineLearningSettings.title = "Model";
+MachineLearningSettings.title = i18n.t("settings.ml.pageHeading");
 MachineLearningSettings.path = "/ml";

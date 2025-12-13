@@ -9,6 +9,7 @@ import { ModelVersionSelector } from "./AnnotationSettings/ModelVersionSelector"
 import { ProjectContext } from "../../providers/ProjectProvider";
 import { Divider } from "../../components/Divider/Divider";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const AnnotationSettings = () => {
   const { project, fetchProject } = useContext(ProjectContext);
@@ -89,5 +90,5 @@ export const AnnotationSettings = () => {
   );
 };
 
-AnnotationSettings.title = "Annotation";
+AnnotationSettings.title = i18n.t("settings.annotation.title");
 AnnotationSettings.path = "/annotation";

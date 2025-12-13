@@ -6,6 +6,7 @@ import { FF_UNSAVED_CHANGES, isFF } from "../../utils/feature-flags";
 import { isEmptyString } from "../../utils/helpers";
 import { ConfigPage } from "../CreateProject/Config/Config";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const LabelingSettings = () => {
   const { project, fetchProject, updateProject } = useProject();
@@ -94,5 +95,5 @@ export const LabelingSettings = () => {
   );
 };
 
-LabelingSettings.title = "Labeling Interface";
+LabelingSettings.title = i18n.t("settings.labeling.title");
 LabelingSettings.path = "/labeling";

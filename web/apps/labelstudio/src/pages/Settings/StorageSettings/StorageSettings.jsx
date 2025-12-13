@@ -21,6 +21,7 @@ import { StorageSet } from "./StorageSet";
 import { useStorageCard } from "./hooks/useStorageCard";
 import "./StorageSettings.scss";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 export const StorageSettings = () => {
   const { t } = useTranslation();
@@ -191,5 +192,5 @@ export const StorageSettings = () => {
   );
 };
 
-StorageSettings.title = "Cloud Storage";
+StorageSettings.title = i18n.t("settings.storage.heading");
 StorageSettings.path = "/storage";

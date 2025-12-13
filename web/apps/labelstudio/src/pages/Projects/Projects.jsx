@@ -10,6 +10,7 @@ import { cn } from "../../utils/bem";
 import { CreateProject } from "../CreateProject/CreateProject";
 import { DataManagerPage } from "../DataManager/DataManager";
 import { SettingsPage } from "../Settings";
+import i18n from "i18next";
 import { EmptyProjectsList, ProjectsList } from "./ProjectsList";
 import { useAbortController, useUpdatePageTitle } from "@humansignal/core";
 import "./Projects.scss";
@@ -143,7 +144,7 @@ export const ProjectsPage = () => {
   );
 };
 
-ProjectsPage.title = "Projects";
+ProjectsPage.title = i18n.t("projects.title");
 ProjectsPage.path = "/projects";
 ProjectsPage.exact = true;
 ProjectsPage.routes = ({ store }) => [
