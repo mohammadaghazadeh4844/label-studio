@@ -69,14 +69,14 @@
     gap: var(--spacing-tight);
     margin-right: var(--spacing-base);
   }
- 
-  
+
+
   &__trigger {
     display: flex;
     padding: 0 20px;
     cursor: pointer;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: var(--spacing-base);
     min-width: 260px;
     max-width: 320px;
@@ -92,7 +92,7 @@
   &__logo {
     color: var(--color-neutral-content);
     height: 28px;
-    width: 180px;
+    width: 80px;
   }
 
   &__brand {
